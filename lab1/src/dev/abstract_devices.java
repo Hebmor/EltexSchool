@@ -171,6 +171,8 @@ public class abstract_devices implements prototype_devices,ICrubAction {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите название");
         this.setName(in.nextLine());
+        System.out.println("Введите модель");
+        this.setModel(in.nextLine());
         System.out.println("Введите фирму");
         this.setFirm(in.nextLine());
         System.out.println("Введите операционную систему");

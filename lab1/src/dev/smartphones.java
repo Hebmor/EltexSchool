@@ -35,6 +35,10 @@ public class smartphones extends abstract_devices {
         this.countSIMcard = countSIMcard;
     }
 
+    public smartphones() {
+
+    }
+
 
     public void setTypeSIMcard(String typeSIMcard) {
         this.typeSIMcard = typeSIMcard;

@@ -14,7 +14,7 @@ public class tablets extends  abstract_devices {
         super(_Price, _Firma, _Model, _OS, _Name);
         this.GPU = GPU;
     }
-    
+
     public tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String[] random_database_screen_resolution) {
         super(_Price, _Firma, _Model, _OS, _Name);
         this.random_database_screen_resolution = random_database_screen_resolution;
@@ -26,6 +26,10 @@ public class tablets extends  abstract_devices {
 
     public tablets(String[] random_database_GPU) {
         this.random_database_GPU = random_database_GPU;
+    }
+
+    public tablets() {
+
     }
 
     public void setScreen_resolution() {

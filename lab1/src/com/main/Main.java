@@ -1,17 +1,14 @@
 package com.main;
 
 
-import dev.phones;
-import dev.prototype_devices;
-import dev.smartphones;
-import dev.tablets;
+import dev.*;
 
 import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
 
-    private static prototype_devices[]DevicesArray = null;
+    private static abstract_devices[]DevicesArray = null;
     public static void main(String[] args) {
 
         RunningInput(args);
@@ -34,31 +31,33 @@ public class Main {
             case  "phones":
             {
                 DevicesArray = new phones[countObject];
-                for(var deviceObject : DevicesArray)
+                for(int i = 0;i < countObject; i++)
                 {
-                    deviceObject = new phones();
+                    DevicesArray[i] = new phones();
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.phones)deviceObject).update();
+                    ((dev.phones)DevicesArray[i]).update();
                 }
                 break;
             }
             case  "smartphones":
             {
                 DevicesArray = new smartphones[countObject];
-                for(var deviceObject : DevicesArray) {
-                    deviceObject = new smartphones();
+                for(int i = 0;i < countObject; i++)
+                {
+                    DevicesArray[i] = new smartphones();
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.smartphones) deviceObject).update();
+                    ((dev.phones)DevicesArray[i]).update();
                 }
                 break;
             }
             case  "tablets":
             {
                 DevicesArray = new tablets[countObject];
-                for(var deviceObject : DevicesArray) {
-                    deviceObject = new tablets();
+                for(int i = 0;i < countObject; i++)
+                {
+                    DevicesArray[i] = new tablets();
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.tablets)deviceObject).update();
+                    ((dev.phones)DevicesArray[i]).update();
                 }
                 break;
             }
@@ -69,7 +68,15 @@ public class Main {
             }
 
         }
-
+        printDevicesArray();
+    }
+    private static void printDevicesArray()
+    {
+        for(var deviceObject : DevicesArray) {
+            System.out.println("-------------------------------------------------------------------");
+            deviceObject.read();
+            System.out.println("-------------------------------------------------------------------");
+        }
     }
 
 }

@@ -13,6 +13,10 @@ public class phones extends  abstract_devices{
         this.typeBody = typeBody;
     }
 
+    public phones() {
+
+    }
+
     @Override
     public void update()
     {
