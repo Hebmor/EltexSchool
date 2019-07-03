@@ -7,6 +7,8 @@ public class tablets extends  abstract_devices {
     public String GPU;
     public String screen_resolution;
 
+    private String [] random_database_GPU = {"Apple A12X Bionic GPU","Qualcomm Adreno 640","ARM Mali-G76 MP10","PowerVR GXA6850","NVIDIA Tegra K1 Kepler GPU","ARM Mali-400 MP2","PowerVR SGX530"};
+    private String [] random_database_screen_resolution = {"640x480","800x600","1024x748","1360x768","1920x1080","2560x1440","3440x1440"};
     public void setScreen_resolution() {
 
         int width = 0;
@@ -30,5 +32,19 @@ public class tablets extends  abstract_devices {
     {
         this.screen_resolution = "";
         this.GPU = "";
+    }
+    @Override
+    public  void create()
+    {
+        super.create();
+        GPU = (String) getRandArrayElement(random_database_GPU);
+        screen_resolution = (String) getRandArrayElement(random_database_screen_resolution);
+    }
+    @Override
+    public  void read()
+    {
+        super.read();
+        System.out.println("GPU: " + this.GPU);
+        System.out.println("Разрешение экрана: " + this.screen_resolution);
     }
 }

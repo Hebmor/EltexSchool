@@ -1,5 +1,6 @@
 package dev;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class abstract_devices implements prototype_devices,ICrubAction {
@@ -14,7 +15,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     private String [] random_database_Firma = {"Samsung","Huawei","Lenovo","Xiaomi ","OnePlus ","LG ","SONY","Apple"};
     private String [] random_database_Model = {"K1","N4","Redmi Note 7","C2","A1","EE","RB"};
     private String [] random_database_OS = {"Android","IOS","Windows Phone"};
-    private String [] random_database_Name = {"","","","","","",""};
+    private String [] random_database_Name = {"Xiaomi Redmi 7 3/32GB","Xiaomi Redmi Note 6 Pro 4/64GB","HUAWEI P Smart (2019) 3/32GB","Samsung Galaxy A10","Apple iPhone 8 64GB","HUAWEI Y5 (2019) 32GB","Samsung Galaxy S10e 6/128GB"};
 
     protected Scanner in = new Scanner(System.in);
 
@@ -144,7 +145,13 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     @Override
     public void create() {
 
+        this.Firma = (String) getRandArrayElement(random_database_Firma);
+        this.Name = (String) getRandArrayElement(random_database_Name);
+        this.OS = (String) getRandArrayElement(random_database_OS);
+        this.Model = (String) getRandArrayElement(random_database_Model);
 
+        this.ID = CountProduct++;
+        this.Price = new Random().nextInt(999999);
     }
 
     @Override
@@ -182,6 +189,9 @@ public class abstract_devices implements prototype_devices,ICrubAction {
         this.Name  = "";
 
         CountProduct = 0;
+    }
+    protected Object getRandArrayElement(Object [] array){
+        return array[new Random().nextInt(array.length)];
     }
 
 }
