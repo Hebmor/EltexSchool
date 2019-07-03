@@ -1,19 +1,21 @@
 package dev;
 
+import java.util.UUID;
+
 public interface prototype_devices {
 
-    int getID();
+    UUID getID();
     int getPrice();
     int getCountProduct();
-    String getFirma();
+    String getFirm();
     String getModel();
     String getOS();
     String getName();
 
-    void setID(int _ID);
+    void setID(UUID _ID);
     void setPrice(int _Price);
     void setCountProduct(int _CountProduct);
-    void setFirma(String F_irma);
+    void setFirm(String F_irma);
     void setModel(String _Model);
     void setOS(String _OS);
     void setName(String _Name);

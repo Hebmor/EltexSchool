@@ -2,12 +2,13 @@ package dev;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class abstract_devices implements prototype_devices,ICrubAction {
-    private int ID = 1;
+    private UUID ID;
     private int Price;
     private static int CountProduct = 0;
-    private String Firma;
+    private String Firm;
     private String Model;
     private  String OS;
     private  String Name;
@@ -21,14 +22,14 @@ public class abstract_devices implements prototype_devices,ICrubAction {
 
     public abstract_devices ()
     {
-        ID = CountProduct;
+        ID = UUID.randomUUID();
         CountProduct++;
     }
-    public abstract_devices(int _ID,int _Price,String _Firma,String _Model,String _OS,String _Name)
+    public abstract_devices(int _Price,String _Firma,String _Model,String _OS,String _Name)
     {
-        this.ID = _ID;
+        this.ID = UUID.randomUUID();
         this.Price = _Price;
-        this.Firma = _Firma;
+        this.Firm = _Firma;
         this.Model = _Model;
         this.OS = _OS;
         this.Name = _Name;
@@ -38,7 +39,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
 
 
     @Override
-    public int getID() {
+    public UUID getID() {
         return ID;
     }
 
@@ -53,8 +54,8 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     }
 
     @Override
-    public String getFirma() {
-        return Firma;
+    public String getFirm() {
+        return Firm;
     }
 
     @Override
@@ -73,7 +74,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     }
 
     @Override
-    public void setID(int _ID) {
+    public void setID(UUID _ID) {
         this.ID = _ID;
     }
 
@@ -88,8 +89,8 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     }
 
     @Override
-    public void setFirma(String _Firma) {
-        this.Firma = _Firma;
+    public void setFirm(String _Firma) {
+        this.Firm = _Firma;
     }
 
     @Override
@@ -124,7 +125,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
 
     @Override
     public void printFirma() {
-        System.out.println("Фирма: "+this.Firma );
+        System.out.println("Фирма: "+this.Firm);
     }
 
     @Override
@@ -145,12 +146,12 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     @Override
     public void create() {
 
-        this.Firma = (String) getRandArrayElement(random_database_Firma);
+        this.Firm = (String) getRandArrayElement(random_database_Firma);
         this.Name = (String) getRandArrayElement(random_database_Name);
         this.OS = (String) getRandArrayElement(random_database_OS);
         this.Model = (String) getRandArrayElement(random_database_Model);
 
-        this.ID = CountProduct++;
+        this.ID = UUID.randomUUID();
         this.Price = new Random().nextInt(999999);
     }
 
@@ -161,7 +162,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
         System.out.println("Название:" + this.Name);
         System.out.println("Модель:" + this.Model);
         System.out.println("ОС:" + this.OS);
-        System.out.println("Фирма:" + this.Firma);
+        System.out.println("Фирма:" + this.Firm);
 
     }
 
@@ -171,7 +172,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
         System.out.println("Введите название");
         this.setName(in.nextLine());
         System.out.println("Введите фирму");
-        this.setFirma(in.nextLine());
+        this.setFirm(in.nextLine());
         System.out.println("Введите операционную систему");
         this.setOS(in.nextLine());
         System.out.println("Введите цену");
@@ -181,9 +182,9 @@ public class abstract_devices implements prototype_devices,ICrubAction {
 
     @Override
     public void delete() {
-        this.ID = 0;
+        this.ID = null;
         this.Price = 0;
-        this.Firma = "";
+        this.Firm = "";
         this.Model = "";
         this.OS = "";
         this.Name  = "";
