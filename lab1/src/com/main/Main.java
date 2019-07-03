@@ -46,7 +46,7 @@ public class Main {
                 {
                     DevicesArray[i] = new smartphones();
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.phones)DevicesArray[i]).update();
+                    ((dev.smartphones)DevicesArray[i]).update();
                 }
                 break;
             }
@@ -57,7 +57,7 @@ public class Main {
                 {
                     DevicesArray[i] = new tablets();
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.phones)DevicesArray[i]).update();
+                    ((dev.tablets)DevicesArray[i]).update();
                 }
                 break;
             }
