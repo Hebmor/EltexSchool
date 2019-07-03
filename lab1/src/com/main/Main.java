@@ -19,6 +19,7 @@ public class Main {
     public  static void RunningInput(String[] _args)
     {
         int countObject = 0;
+        int counter = 0;
         String typeObject;
         if(_args.length != 2) {
             System.out.println("-----------------------Ошибка требуется терминальный ввод вида!---------------------------");
@@ -27,21 +28,38 @@ public class Main {
         }
         countObject = Integer.parseInt(_args[0]);
         typeObject = _args[1];
+
         switch (typeObject)
         {
             case  "phones":
             {
                 DevicesArray = new phones[countObject];
+                for(var deviceObject : DevicesArray)
+                {
+                    deviceObject = new phones();
+                    System.out.println("Ввод объекта: " + ++counter);
+                    ((dev.phones)deviceObject).update();
+                }
                 break;
             }
             case  "smartphones":
             {
                 DevicesArray = new smartphones[countObject];
+                for(var deviceObject : DevicesArray) {
+                    deviceObject = new smartphones();
+                    System.out.println("Ввод объекта: " + ++counter);
+                    ((dev.smartphones) deviceObject).update();
+                }
                 break;
             }
             case  "tablets":
             {
                 DevicesArray = new tablets[countObject];
+                for(var deviceObject : DevicesArray) {
+                    deviceObject = new tablets();
+                    System.out.println("Ввод объекта: " + ++counter);
+                    ((dev.tablets)deviceObject).update();
+                }
                 break;
             }
             default:
@@ -53,29 +71,5 @@ public class Main {
         }
 
     }
-    public static  void ProcessInput()
-    {
-        Scanner in = new Scanner(System.in);
 
-        if(DevicesArray !=null)
-        {
-            int counter = 0;
-            for(var deviceObject : DevicesArray)
-            {
-                System.out.println("Ввод объекта" + ++counter);
-                if(deviceObject instanceof prototype_devices ) {
-
-                        if (deviceObject.getClass().getTypeName() == dev.phones.class.getTypeName())
-                            ((dev.phones)deviceObject).update();
-                        else  if (deviceObject.getClass().getTypeName() == dev.smartphones.class.getTypeName())
-                            ((dev.smartphones)deviceObject).update();
-                        else if (deviceObject.getClass().getTypeName() == dev.tablets.class.getTypeName())
-                            ((dev.tablets)deviceObject).update();
-                }
-                System.out.println("------------------------------------------------------------------");
-
-
-            }
-        }
-    }
 }
