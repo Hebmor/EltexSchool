@@ -1,11 +1,44 @@
 package dev;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class tablets extends  abstract_devices {
 
-    public String GPU;
-    public String screen_resolution;
+    private String GPU;
+    private  screen_resolution screen;
+    public class screen_resolution
+    {
+
+        int height = 0;
+        int width = 0;
+        public int getWidth() {
+            return width;
+        }
+
+        public void setWidth(int width) {
+            this.width = width;
+        }
+
+        public void setHeight(int height) {
+            this.height = height;
+        }
+
+        public screen_resolution(int height, int width) {
+            this.height = height;
+            this.width = width;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+        public void clear()
+        {
+            this.height = 0;
+            this.width = 0;
+        }
+
+    }
 
     private String [] random_database_GPU = {"Apple A12X Bionic GPU","Qualcomm Adreno 640","ARM Mali-G76 MP10","PowerVR GXA6850","NVIDIA Tegra K1 Kepler GPU","ARM Mali-400 MP2","PowerVR SGX530"};
     private String [] random_database_screen_resolution = {"640x480","800x600","1024x748","1360x768","1920x1080","2560x1440","3440x1440"};
@@ -40,7 +73,8 @@ public class tablets extends  abstract_devices {
         width = in.nextInt();
         System.out.println("Введите разрешение по вертикале");
         height = in.nextInt();
-        this.screen_resolution = String.valueOf(width) + "x" + String.valueOf(height);
+        screen.setHeight(height);
+        screen.setWidth(width);
     }
     @Override
     public  void update()
@@ -53,7 +87,7 @@ public class tablets extends  abstract_devices {
     @Override
     public void delete()
     {
-        this.screen_resolution = "";
+        this.screen.clear();
         this.GPU = "";
     }
     @Override
@@ -61,13 +95,14 @@ public class tablets extends  abstract_devices {
     {
         super.create();
         GPU = (String) getRandArrayElement(random_database_GPU);
-        screen_resolution = (String) getRandArrayElement(random_database_screen_resolution);
+        screen.setHeight(new Random().nextInt(4000));
+        screen.setWidth(new Random().nextInt(4000));
     }
     @Override
     public  void read()
     {
         super.read();
         System.out.println("GPU: " + this.GPU);
-        System.out.println("Разрешение экрана: " + this.screen_resolution);
+        System.out.println("Разрешение экрана: " + screen.getHeight() + "x" + screen.getWidth());
     }
 }
