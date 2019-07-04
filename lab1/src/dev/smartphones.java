@@ -51,9 +51,27 @@ public class smartphones extends abstract_devices {
     @Override
     public  void update()
     {
+        int variant = 0;
         super.update();
-        System.out.println("Введите тип SIM-карты (micro-SIM, обычная)");
-        this.typeSIMcard = in.nextLine();
+        while (true) {
+            System.out.println("Введите (цифра) тип корпуса (1.micro-SIM, 2.обычная) (цифра без точки!)");
+            variant = in.nextInt();
+            switch (variant) {
+                case 1: {
+                    this.typeSIMcard = "micro-SIM";
+                    return;
+                }
+                case 2: {
+                    this.typeSIMcard = "обычная";
+                    return;
+                }
+                default: {
+                    System.out.println("Ошибка не корректный вариант! Повторите ввод");
+
+                }
+            }
+        }
+
     }
     @Override
     public void delete()

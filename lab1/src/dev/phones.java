@@ -20,10 +20,29 @@ public class phones extends  abstract_devices{
     @Override
     public void update()
     {
+        int variant = 0;
         super.update();
 
-        System.out.println("Введите тип корпуса (классический, раскладушка)");
-        this.setTypeBody(in.nextLine());
+
+        while (true) {
+            System.out.println("Введите (цифра) тип корпуса (1.классический, 2.раскладушка) (цифра без точки!)");
+            variant = in.nextInt();
+            switch (variant) {
+                case 1: {
+                    this.setTypeBody("классический");
+                    return;
+                }
+                case 2: {
+                    this.setTypeBody("раскладушка");
+                    return;
+                }
+                default: {
+                    System.out.println("Ошибка не корректный вариант! Повторите ввод");
+
+                }
+            }
+        }
+
     }
     @Override
     public void delete()
