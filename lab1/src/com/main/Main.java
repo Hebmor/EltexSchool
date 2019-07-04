@@ -4,11 +4,12 @@ package com.main;
 import dev.*;
 
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    private static abstract_devices[]DevicesArray = null;
+    private static ArrayList<abstract_devices> DevicesArray = null;
     public static void main(String[] args) {
 
         RunningInput(args);
@@ -25,39 +26,38 @@ public class Main {
         }
         countObject = Integer.parseInt(_args[0]);
         typeObject = _args[1];
+        DevicesArray = new ArrayList<abstract_devices>();
 
         switch (typeObject)
         {
             case  "phones":
             {
-                DevicesArray = new phones[countObject];
+
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray[i] = new phones();
+                    DevicesArray.add(new phones());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.phones)DevicesArray[i]).update();
+                    ((dev.phones)DevicesArray.get(i)).update();
                 }
                 break;
             }
             case  "smartphones":
             {
-                DevicesArray = new smartphones[countObject];
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray[i] = new smartphones();
+                    DevicesArray.add(new smartphones());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.smartphones)DevicesArray[i]).update();
+                    ((dev.smartphones)DevicesArray.get(i)).update();
                 }
                 break;
             }
             case  "tablets":
             {
-                DevicesArray = new tablets[countObject];
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray[i] = new tablets();
+                    DevicesArray.add(new tablets());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.tablets)DevicesArray[i]).update();
+                    ((dev.tablets)DevicesArray.get(i)).update();
                 }
                 break;
             }
