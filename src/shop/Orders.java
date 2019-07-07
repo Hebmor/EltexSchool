@@ -30,13 +30,8 @@ public class Orders {
     public void OrdersCheck()
     {
         for(Order order : ordersArrayList)
-        {
             if(order.isNOTvalidOrder())
-            {
                 ordersArrayList.remove(order);
-            }
-
-        }
     }
 
 }
