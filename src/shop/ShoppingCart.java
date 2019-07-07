@@ -1,24 +1,32 @@
 package shop;
 
+import dev.abstract_devices;
+
 import java.util.LinkedList;
 
 public class ShoppingCart {
-    private LinkedList<Credentials> credentialsLinkedList;
 
-    public ShoppingCart(LinkedList<Credentials> credentialsLinkedList) {
-        this.credentialsLinkedList = credentialsLinkedList;
+
+    private Credentials credential;
+    private LinkedList<abstract_devices> devicesLinkedList;
+
+    public ShoppingCart(Credentials _credential,LinkedList<abstract_devices> _devicesLinkedList) {
+        this.devicesLinkedList = _devicesLinkedList;
     }
-
-    public void add(Credentials _credentials)
+    public void setCredential(Credentials credential) {
+        this.credential = credential;
+    }
+    public void add(abstract_devices _device)
     {
-        credentialsLinkedList.add(_credentials);
+        this.devicesLinkedList.add(_device);
     }
     public void delete(int idx)
     {
-        credentialsLinkedList.remove(idx);
+        this.devicesLinkedList.remove(idx);
     }
-    public void delete(Credentials obj)
+    public void delete(abstract_devices obj)
     {
-        credentialsLinkedList.remove(obj);
+        this.devicesLinkedList.remove(obj);
     }
+
 }

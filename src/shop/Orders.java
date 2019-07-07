@@ -1,25 +1,31 @@
 package shop;
 
+import dev.abstract_devices;
+
 import java.util.ArrayList;
 
 public class Orders {
-    private ArrayList<Order> orderArrayList = new ArrayList<Order>();
+    private ArrayList<Order> ordersArrayList = new ArrayList<Order>();
     public void add(Order order)
     {
-        orderArrayList.add(order);
+        ordersArrayList.add(order);
     }
     public Order get(int idx)
     {
-        if(idx < 0 || idx > orderArrayList.size())
+        if(idx < 0 || idx > ordersArrayList.size())
         {
             System.out.println("Ошибка заказ не может быть получен!");
             return null;
         }
-        return orderArrayList.get(idx);
+        return ordersArrayList.get(idx);
     }
     public  void set(Order order,int idx)
     {
-        orderArrayList.add(idx,order);
+        ordersArrayList.add(idx,order);
+    }
+    public  void Checkout(ShoppingCart shoppingCart)
+    {
+        this.ordersArrayList.add(new Order(shoppingCart));
     }
 
 }
