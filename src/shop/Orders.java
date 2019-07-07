@@ -27,5 +27,16 @@ public class Orders {
     {
         this.ordersArrayList.add(new Order(shoppingCart));
     }
+    public void OrdersCheck()
+    {
+        for(Order order : ordersArrayList)
+        {
+            if(order.isNOTvalidOrder())
+            {
+                ordersArrayList.remove(order);
+            }
+
+        }
+    }
 
 }
