@@ -11,7 +11,7 @@ public class ShoppingCart {
 
     private Credentials credential;
     private LinkedList<abstract_devices> devicesLinkedList;
-    public HashSet<UUID> productIdentifiers;
+    private HashSet<UUID> productIdentifiers;
 
 
     public ShoppingCart(Credentials _credential,LinkedList<abstract_devices> _devicesLinkedList) {
@@ -53,6 +53,19 @@ public class ShoppingCart {
         if(productIdentifiers.isEmpty())
             return false;
         return productIdentifiers.contains(ID);
+    }
+    public void showAllObjects()
+    {
+        System.out.println("------------------------------------------------");
+        System.out.println("Информация об покупателе -" + credential.getID());
+        System.out.println("Заказчик: " + credential.getFamilia() + " " + credential.getName() + " " + credential.getOchestvo());
+        System.out.println("EMAIL: " + credential.getEmail());
+        System.out.println("------------------------------------------------");
+        System.out.println("*********************Покупки********************");
+        for (abstract_devices device : devicesLinkedList)
+            device.read();
+        System.out.println("------------------------------------------------");
+
     }
 
 }

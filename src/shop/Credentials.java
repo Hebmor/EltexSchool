@@ -7,12 +7,24 @@ public class Credentials {
     private  String Name;
     private String Ochestvo;
     private  String email;
+    static private int countCredentials = 0;
 
+    public  Credentials()
+    {
+        countCredentials++;
+        ID = countCredentials;
+    }
     public Credentials(int ID, String familia, String name, String ochestvo, String email) {
         this.ID = ID;
-        Familia = familia;
-        Name = name;
-        Ochestvo = ochestvo;
+        this.Familia = familia;
+        this.Name = name;
+        this.Ochestvo = ochestvo;
+        this.email = email;
+    }
+    public Credentials(String familia, String name, String ochestvo, String email) {
+        this.Familia = familia;
+        this.Name = name;
+        this.Ochestvo = ochestvo;
         this.email = email;
     }
     public int getID() {
