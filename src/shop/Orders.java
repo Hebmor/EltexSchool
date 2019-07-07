@@ -33,5 +33,13 @@ public class Orders {
             if(order.isNOTvalidOrder())
                 ordersArrayList.remove(order);
     }
+    public void showAllOrders()
+    {
+        OrdersCheck();
+        for(Order order : ordersArrayList)
+        {
+            order.showOrder();
+        }
+    }
 
 }

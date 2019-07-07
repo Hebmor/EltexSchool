@@ -71,5 +71,9 @@ public class Order {
         else
             return false;
     }
+    public void showOrder()
+    {
+        this.shoppingCart.showAllObjects();
+    }
 
 }
