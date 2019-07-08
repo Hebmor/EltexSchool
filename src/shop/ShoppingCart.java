@@ -1,6 +1,6 @@
 package shop;
 
-import dev.abstract_devices;
+import dev.Devices;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -10,11 +10,11 @@ public class ShoppingCart {
 
 
     private Credentials credential;
-    private LinkedList<abstract_devices> devicesLinkedList;
+    private LinkedList<Devices> devicesLinkedList;
     private HashSet<UUID> productIdentifiers;
 
 
-    public ShoppingCart(Credentials _credential,LinkedList<abstract_devices> _devicesLinkedList) {
+    public ShoppingCart(Credentials _credential,LinkedList<Devices> _devicesLinkedList) {
         this.devicesLinkedList = _devicesLinkedList;
         this.credential = _credential;
 
@@ -22,7 +22,7 @@ public class ShoppingCart {
     public void setCredential(Credentials credential) {
         this.credential = credential;
     }
-    public void add(abstract_devices _device)
+    public void add(Devices _device)
     {
         this.devicesLinkedList.add(_device);
         this.productIdentifiers.add(_device.getID());
@@ -32,17 +32,17 @@ public class ShoppingCart {
         this.devicesLinkedList.remove(idx);
         this.productIdentifiers.remove(this.devicesLinkedList.get(idx).getID());
     }
-    public void delete(abstract_devices obj)
+    public void delete(Devices obj)
     {
         this.devicesLinkedList.remove(obj);
         this.productIdentifiers.remove(obj.getID());
     }
-    public  abstract_devices searchByID(UUID ID)
+    public Devices searchByID(UUID ID)
     {
 
         if(!productIdentifiers.isEmpty())
             if(productIdentifiers.contains(ID))
-                for (abstract_devices device : devicesLinkedList)
+                for (Devices device : devicesLinkedList)
                     if (device.getID().equals(ID))
                         return device;
 
@@ -62,7 +62,7 @@ public class ShoppingCart {
         System.out.println("EMAIL: " + credential.getEmail());
         System.out.println("------------------------------------------------");
         System.out.println("*********************Покупки********************");
-        for (abstract_devices device : devicesLinkedList)
+        for (Devices device : devicesLinkedList)
             device.read();
         System.out.println("------------------------------------------------");
 

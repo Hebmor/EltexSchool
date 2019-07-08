@@ -1,6 +1,6 @@
 package dev;
 
-public class phones extends  abstract_devices{
+public class phones extends Devices {
 
     private String typeBody;
     private String [] random_database_typeBode = {"классический","раскладушка"};
@@ -42,7 +42,6 @@ public class phones extends  abstract_devices{
                 }
             }
         }
-
     }
     @Override
     public void delete()

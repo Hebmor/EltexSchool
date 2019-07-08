@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class abstract_devices implements prototype_devices,ICrubAction {
+public class Devices implements prototype_devices,ICrubAction {
     private UUID ID;
     private int Price;
     private static int CountProduct = 0;
@@ -20,12 +20,12 @@ public class abstract_devices implements prototype_devices,ICrubAction {
 
     protected Scanner in = new Scanner(System.in);
 
-    public abstract_devices ()
+    public Devices()
     {
         ID = UUID.randomUUID();
         CountProduct++;
     }
-    public abstract_devices(int _Price,String _Firma,String _Model,String _OS,String _Name)
+    public Devices(int _Price, String _Firma, String _Model, String _OS, String _Name)
     {
         this.ID = UUID.randomUUID();
         this.Price = _Price;

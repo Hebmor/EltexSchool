@@ -1,7 +1,5 @@
 package shop;
 
-import dev.abstract_devices;
-
 import java.util.ArrayList;
 
 public class Orders {

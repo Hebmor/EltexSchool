@@ -3,18 +3,14 @@ package com.main;
 
 import dev.*;
 import shop.Credentials;
-import shop.Order;
 import shop.Orders;
 import shop.ShoppingCart;
 
-import java.io.Console;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class Main {
 
-    private static LinkedList<abstract_devices> DevicesArray = null;
+    private static LinkedList<Devices> DevicesArray = null;
     public static void main(String[] args) {
 
         GenerateInput(args);
@@ -32,7 +28,7 @@ public class Main {
         }
         countObject = Integer.parseInt(_args[0]);
         typeObject = _args[1];
-        DevicesArray = new LinkedList<abstract_devices>();
+        DevicesArray = new LinkedList<Devices>();
 
         switch (typeObject)
         {
@@ -113,7 +109,7 @@ public class Main {
         }
         countObject = Integer.parseInt(_args[0]);
         typeObject = _args[1];
-        DevicesArray = new LinkedList<abstract_devices>();
+        DevicesArray = new LinkedList<Devices>();
 
         switch (typeObject)
         {

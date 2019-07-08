@@ -1,8 +1,6 @@
 package dev;
 
-import java.util.Scanner;
-
-public class smartphones extends abstract_devices {
+public class smartphones extends Devices {
 
     public smartphones(String[] random_database_typeSIMcard) {
         this.random_database_typeSIMcard = random_database_typeSIMcard;

@@ -1,8 +1,6 @@
 package shop;
 
 
-import dev.abstract_devices;
-
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 

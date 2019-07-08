@@ -1,9 +1,8 @@
 package dev;
 
 import java.util.Random;
-import java.util.Scanner;
 
-public class tablets extends  abstract_devices {
+public class tablets extends Devices {
 
     private String GPU;
     private  screen_resolution screen;
