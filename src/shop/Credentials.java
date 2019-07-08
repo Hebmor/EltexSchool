@@ -1,8 +1,11 @@
 package shop;
 
+import java.util.Scanner;
+
 public class Credentials {
 
     private int ID = 0;
+    private Scanner in = new Scanner(System.in);;
     private String Familia;
     private  String Name;
     private String Ochestvo;
@@ -67,5 +70,18 @@ public class Credentials {
         this.email = email;
     }
 
+    public  void Input()
+    {
+        System.out.println("------------------------------------------------");
+        System.out.println("Введите ФИО");
+        System.out.println("Введите Фамилию: ");
+        setFamilia(in.nextLine());
+        System.out.println("Введите Имя: ");
+        setName(in.nextLine());
+        System.out.println("Введите Отчество:");
+        setOchestvo(in.nextLine());
+        System.out.println("Введите email:");
+        setEmail(in.nextLine());
+    }
 
 }

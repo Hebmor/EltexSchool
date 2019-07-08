@@ -2,14 +2,14 @@ package dev;
 
 public class phones extends  abstract_devices{
 
-    private StringBuilder typeBody;
+    private String typeBody;
     private String [] random_database_typeBode = {"классический","раскладушка"};
 
     public phones(String[] random_database_typeBode) {
         this.random_database_typeBode = random_database_typeBode;
     }
 
-    public phones(StringBuilder typeBody) {
+    public phones(String typeBody) {
         this.typeBody = typeBody;
     }
 
@@ -29,11 +29,11 @@ public class phones extends  abstract_devices{
             variant = in.nextInt();
             switch (variant) {
                 case 1: {
-                    this.setTypeBody(new StringBuilder("классический"));
+                    this.setTypeBody(new String("классический"));
                     return;
                 }
                 case 2: {
-                    this.setTypeBody(new StringBuilder("раскладушка"));
+                    this.setTypeBody(new String("раскладушка"));
                     return;
                 }
                 default: {
@@ -48,13 +48,13 @@ public class phones extends  abstract_devices{
     public void delete()
     {
         super.delete();
-        this.typeBody.delete(0,typeBody.length());
+       this.typeBody = "";
     }
     @Override
     public  void create()
     {
         super.create();
-        setTypeBody((StringBuilder) getRandArrayElement(random_database_typeBode));
+        setTypeBody((String) getRandArrayElement(random_database_typeBode));
     }
     @Override
     public  void read()
@@ -63,11 +63,11 @@ public class phones extends  abstract_devices{
         System.out.println("Тип корпуса: " + this.getTypeBody());
     }
 
-    public StringBuilder getTypeBody() {
+    public String getTypeBody() {
         return typeBody;
     }
 
-    public void setTypeBody(StringBuilder typeBody) {
+    public void setTypeBody(String typeBody) {
         this.typeBody = typeBody;
     }
 }

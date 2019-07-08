@@ -37,9 +37,8 @@ public class Order {
 
     public Order()
     {
-        timeCreate = new Date(timeCreate.getTime() + TimeUnit.MINUTES.toMillis(20));
+        timeWait = new Date(timeCreate.getTime() + TimeUnit.MINUTES.toMillis(20));
     }
-
 
     public  void startOrder()
     {
@@ -48,6 +47,11 @@ public class Order {
     public Order(ShoppingCart _shoppingCard)
     {
         this.shoppingCart = _shoppingCard;
+        this.setState(stateWork.PENDING);
+
+        startOrder();
+        timeWait = new Date(timeCreate.getTime() + TimeUnit.MINUTES.toMillis(20));
+
     }
     public void setState(stateWork _state)
     {

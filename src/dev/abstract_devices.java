@@ -158,6 +158,7 @@ public class abstract_devices implements prototype_devices,ICrubAction {
     @Override
     public void read() {
 
+        System.out.println("------------------------------------------------------");
         System.out.println("Устройство с номером " + this.ID);
         System.out.println("Название:" + this.Name);
         System.out.println("Модель:" + this.Model);

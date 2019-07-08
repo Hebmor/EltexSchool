@@ -57,7 +57,7 @@ public class ShoppingCart {
     public void showAllObjects()
     {
         System.out.println("------------------------------------------------");
-        System.out.println("Информация об покупателе -" + credential.getID());
+        System.out.println("Информация об покупателе: " + credential.getID());
         System.out.println("Заказчик: " + credential.getFamilia() + " " + credential.getName() + " " + credential.getOchestvo());
         System.out.println("EMAIL: " + credential.getEmail());
         System.out.println("------------------------------------------------");
