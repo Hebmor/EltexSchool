@@ -3,6 +3,7 @@ package com.main;
 
 import dev.*;
 import shop.Credentials;
+import shop.Order;
 import shop.Orders;
 import shop.ShoppingCart;
 
@@ -82,9 +83,9 @@ public class Main {
     }
     private static  void TestShop()
     {
-        ShoppingCart shoppingCart;
+        ShoppingCart <Devices>shoppingCart;
         Credentials credentials = new Credentials();
-        Orders orders;
+        Orders <Order>orders;
         credentials.Input();
         if(DevicesArray != null)
         {
