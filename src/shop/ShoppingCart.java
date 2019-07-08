@@ -6,15 +6,15 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.UUID;
 
-public class ShoppingCart {
+public class ShoppingCart<T extends Devices> {
 
 
     private Credentials credential;
-    private LinkedList<Devices> devicesLinkedList;
+    private LinkedList<T> devicesLinkedList;
     private HashSet<UUID> productIdentifiers;
 
 
-    public ShoppingCart(Credentials _credential,LinkedList<Devices> _devicesLinkedList) {
+    public ShoppingCart(Credentials _credential,LinkedList<T> _devicesLinkedList) {
         this.devicesLinkedList = _devicesLinkedList;
         this.credential = _credential;
 
@@ -22,7 +22,7 @@ public class ShoppingCart {
     public void setCredential(Credentials credential) {
         this.credential = credential;
     }
-    public void add(Devices _device)
+    public void add(T _device)
     {
         this.devicesLinkedList.add(_device);
         this.productIdentifiers.add(_device.getID());
@@ -32,7 +32,7 @@ public class ShoppingCart {
         this.devicesLinkedList.remove(idx);
         this.productIdentifiers.remove(this.devicesLinkedList.get(idx).getID());
     }
-    public void delete(Devices obj)
+    public void delete(T obj)
     {
         this.devicesLinkedList.remove(obj);
         this.productIdentifiers.remove(obj.getID());
@@ -42,7 +42,7 @@ public class ShoppingCart {
 
         if(!productIdentifiers.isEmpty())
             if(productIdentifiers.contains(ID))
-                for (Devices device : devicesLinkedList)
+                for (T device : devicesLinkedList)
                     if (device.getID().equals(ID))
                         return device;
 
@@ -62,7 +62,7 @@ public class ShoppingCart {
         System.out.println("EMAIL: " + credential.getEmail());
         System.out.println("------------------------------------------------");
         System.out.println("*********************Покупки********************");
-        for (Devices device : devicesLinkedList)
+        for (T device : devicesLinkedList)
             device.read();
         System.out.println("------------------------------------------------");
 
