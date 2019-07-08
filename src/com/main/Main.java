@@ -83,7 +83,7 @@ public class Main {
     }
     private static  void TestShop()
     {
-        ShoppingCart <Devices>shoppingCart;
+        ShoppingCart <smartphones>shoppingCart;
         Credentials credentials = new Credentials();
         Orders <Order>orders;
         credentials.Input();

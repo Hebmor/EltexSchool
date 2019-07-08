@@ -10,7 +10,7 @@ public class Order {
     private Date  timeCreate;
     private Date timeWait;
 
-    private enum stateWork
+    public enum stateWork
     {
         PENDING ("в ожидании"),
         PROCESSED ("обработан");
@@ -68,10 +68,8 @@ public class Order {
     }
     boolean isNOTvalidOrder()
     {
-        if(checkTime() || getState() == stateWork.PROCESSED)
-            return true;
-        else
-            return false;
+        return (checkTime() || getState() == stateWork.PROCESSED);
+
     }
     public void showOrder()
     {
