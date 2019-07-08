@@ -1,11 +1,14 @@
-package com.main;
+package ru.eltex.app.java.main;
 
 
-import dev.*;
-import shop.Credentials;
-import shop.Order;
-import shop.Orders;
-import shop.ShoppingCart;
+import ru.eltex.app.java.dev.Devices;
+import ru.eltex.app.java.dev.Phones;
+import ru.eltex.app.java.dev.Smartphones;
+import ru.eltex.app.java.dev.Tablets;
+import ru.eltex.app.java.shop.Credentials;
+import ru.eltex.app.java.shop.Order;
+import ru.eltex.app.java.shop.Orders;
+import ru.eltex.app.java.shop.ShoppingCart;
 
 import java.util.LinkedList;
 
@@ -33,34 +36,34 @@ public class Main {
 
         switch (typeObject)
         {
-            case  "phones":
+            case  "Phones":
             {
 
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new phones());
+                    DevicesArray.add(new Phones());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.phones)DevicesArray.get(i)).update();
+                    ((Phones)DevicesArray.get(i)).update();
                 }
                 break;
             }
-            case  "smartphones":
+            case  "Smartphones":
             {
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new smartphones());
+                    DevicesArray.add(new Smartphones());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.smartphones)DevicesArray.get(i)).update();
+                    ((Smartphones)DevicesArray.get(i)).update();
                 }
                 break;
             }
-            case  "tablets":
+            case  "Tablets":
             {
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new tablets());
+                    DevicesArray.add(new Tablets());
                     System.out.println("Ввод объекта: " + ++counter);
-                    ((dev.tablets)DevicesArray.get(i)).update();
+                    ((Tablets)DevicesArray.get(i)).update();
                 }
                 break;
             }
@@ -83,7 +86,7 @@ public class Main {
     }
     private static  void TestShop()
     {
-        ShoppingCart <smartphones>shoppingCart;
+        ShoppingCart <Smartphones>shoppingCart;
         Credentials credentials = new Credentials();
         Orders <Order>orders;
         credentials.Input();
@@ -114,31 +117,31 @@ public class Main {
 
         switch (typeObject)
         {
-            case  "phones":
+            case  "Phones":
             {
 
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new phones());
-                    ((dev.phones)DevicesArray.get(i)).create();
+                    DevicesArray.add(new Phones());
+                    ((Phones)DevicesArray.get(i)).create();
                 }
                 break;
             }
-            case  "smartphones":
+            case  "Smartphones":
             {
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new smartphones());
-                    ((dev.smartphones)DevicesArray.get(i)).create();
+                    DevicesArray.add(new Smartphones());
+                    ((Smartphones)DevicesArray.get(i)).create();
                 }
                 break;
             }
-            case  "tablets":
+            case  "Tablets":
             {
                 for(int i = 0;i < countObject; i++)
                 {
-                    DevicesArray.add(new tablets());
-                    ((dev.tablets)DevicesArray.get(i)).create();
+                    DevicesArray.add(new Tablets());
+                    ((Tablets)DevicesArray.get(i)).create();
                 }
                 break;
             }

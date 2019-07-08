@@ -1,19 +1,19 @@
-package dev;
+package ru.eltex.app.java.dev;
 
-public class phones extends Devices {
+public class Phones extends Devices {
 
     private String typeBody;
     private String [] random_database_typeBode = {"классический","раскладушка"};
 
-    public phones(String[] random_database_typeBode) {
+    public Phones(String[] random_database_typeBode) {
         this.random_database_typeBode = random_database_typeBode;
     }
 
-    public phones(String typeBody) {
+    public Phones(String typeBody) {
         this.typeBody = typeBody;
     }
 
-    public phones() {
+    public Phones() {
 
     }
 

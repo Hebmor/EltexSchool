@@ -1,4 +1,4 @@
-package dev;
+package ru.eltex.app.java.dev;
 
 public interface ICrubAction {
     void create();

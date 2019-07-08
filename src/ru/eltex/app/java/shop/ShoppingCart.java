@@ -1,6 +1,6 @@
-package shop;
+package ru.eltex.app.java.shop;
 
-import dev.Devices;
+import ru.eltex.app.java.dev.Devices;
 
 import java.util.HashSet;
 import java.util.LinkedList;

@@ -1,8 +1,8 @@
-package dev;
+package ru.eltex.app.java.dev;
 
 import java.util.UUID;
 
-public interface prototype_devices {
+public interface Prototype_devices {
 
     UUID getID();
     int getPrice();

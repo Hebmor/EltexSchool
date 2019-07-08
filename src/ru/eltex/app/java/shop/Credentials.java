@@ -1,4 +1,4 @@
-package shop;
+package ru.eltex.app.java.shop;
 
 import java.util.Scanner;
 

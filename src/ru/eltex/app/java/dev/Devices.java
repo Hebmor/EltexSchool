@@ -1,10 +1,10 @@
-package dev;
+package ru.eltex.app.java.dev;
 
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Devices implements prototype_devices,ICrubAction {
+public class Devices implements Prototype_devices,ICrubAction {
     private UUID ID;
     private int Price;
     private static int CountProduct = 0;

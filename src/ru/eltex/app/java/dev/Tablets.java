@@ -1,11 +1,11 @@
-package dev;
+package ru.eltex.app.java.dev;
 
 import java.util.Random;
 
-public class tablets extends Devices {
+public class Tablets extends Devices {
 
     private String GPU;
-    private  screen_resolution screen;
+    private  screen_resolution screen = new screen_resolution(0,0);
     public class screen_resolution
     {
 
@@ -42,25 +42,25 @@ public class tablets extends Devices {
     private String [] random_database_GPU = {"Apple A12X Bionic GPU","Qualcomm Adreno 640","ARM Mali-G76 MP10","PowerVR GXA6850","NVIDIA Tegra K1 Kepler GPU","ARM Mali-400 MP2","PowerVR SGX530"};
     private String [] random_database_screen_resolution = {"640x480","800x600","1024x748","1360x768","1920x1080","2560x1440","3440x1440"};
 
-    public tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String GPU) {
+    public Tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String GPU) {
         super(_Price, _Firma, _Model, _OS, _Name);
         this.GPU = GPU;
     }
 
-    public tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String[] random_database_screen_resolution) {
+    public Tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String[] random_database_screen_resolution) {
         super(_Price, _Firma, _Model, _OS, _Name);
         this.random_database_screen_resolution = random_database_screen_resolution;
     }
 
-    public tablets(String GPU) {
+    public Tablets(String GPU) {
         this.GPU = GPU;
     }
 
-    public tablets(String[] random_database_GPU) {
+    public Tablets(String[] random_database_GPU) {
         this.random_database_GPU = random_database_GPU;
     }
 
-    public tablets() {
+    public Tablets() {
 
     }
 
