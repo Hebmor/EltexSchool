@@ -38,6 +38,9 @@ public class Orders<T extends Order> {
         }
     }
 
+    public ArrayList<T> get_ordersArrayList() {
+        return ordersArrayList;
+    }
     public void delete(T _order) {
         ordersArrayList.remove(_order);
     }
