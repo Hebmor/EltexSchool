@@ -5,18 +5,19 @@ import java.util.Scanner;
 public class Credentials {
 
     private int ID = 0;
-    private Scanner in = new Scanner(System.in);;
+    private Scanner in = new Scanner(System.in);
+    ;
     private String Familia;
-    private  String Name;
+    private String Name;
     private String Ochestvo;
-    private  String email;
+    private String email;
     static private int countCredentials = 0;
 
-    public  Credentials()
-    {
+    public Credentials() {
         countCredentials++;
         ID = countCredentials;
     }
+
     public Credentials(int ID, String familia, String name, String ochestvo, String email) {
         this.ID = ID;
         this.Familia = familia;
@@ -24,12 +25,14 @@ public class Credentials {
         this.Ochestvo = ochestvo;
         this.email = email;
     }
+
     public Credentials(String familia, String name, String ochestvo, String email) {
         this.Familia = familia;
         this.Name = name;
         this.Ochestvo = ochestvo;
         this.email = email;
     }
+
     public int getID() {
         return ID;
     }
@@ -70,8 +73,7 @@ public class Credentials {
         this.email = email;
     }
 
-    public  void Input()
-    {
+    public void Input() {
         System.out.println("------------------------------------------------");
         System.out.println("Введите ФИО");
         System.out.println("Введите Фамилию: ");

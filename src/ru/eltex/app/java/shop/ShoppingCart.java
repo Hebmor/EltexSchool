@@ -14,48 +14,49 @@ public class ShoppingCart<T extends Devices> {
     private HashSet<UUID> productIdentifiers;
 
 
-    public ShoppingCart(Credentials _credential,LinkedList<T> _devicesLinkedList) {
+    public ShoppingCart(Credentials _credential, LinkedList<T> _devicesLinkedList) {
         this.devicesLinkedList = _devicesLinkedList;
         this.credential = _credential;
 
     }
+
     public void setCredential(Credentials credential) {
         this.credential = credential;
     }
-    public void add(T _device)
-    {
+
+    public void add(T _device) {
         this.devicesLinkedList.add(_device);
         this.productIdentifiers.add(_device.getID());
     }
-    public void delete(int idx)
-    {
+
+    public void delete(int idx) {
         this.devicesLinkedList.remove(idx);
         this.productIdentifiers.remove(this.devicesLinkedList.get(idx).getID());
     }
-    public void delete(T obj)
-    {
+
+    public void delete(T obj) {
         this.devicesLinkedList.remove(obj);
         this.productIdentifiers.remove(obj.getID());
     }
-    public Devices searchByID(UUID ID)
-    {
 
-        if(!productIdentifiers.isEmpty())
-            if(productIdentifiers.contains(ID))
+    public Devices searchByID(UUID ID) {
+
+        if (!productIdentifiers.isEmpty())
+            if (productIdentifiers.contains(ID))
                 for (T device : devicesLinkedList)
                     if (device.getID().equals(ID))
                         return device;
 
         return null;
     }
-    public  boolean isExistDeviceByID(UUID ID)
-    {
-        if(productIdentifiers.isEmpty())
+
+    public boolean isExistDeviceByID(UUID ID) {
+        if (productIdentifiers.isEmpty())
             return false;
         return productIdentifiers.contains(ID);
     }
-    public void showAllObjects()
-    {
+
+    public void showAllObjects() {
         System.out.println("------------------------------------------------");
         System.out.println("Информация об покупателе: " + credential.getID());
         System.out.println("Заказчик: " + credential.getFamilia() + " " + credential.getName() + " " + credential.getOchestvo());
