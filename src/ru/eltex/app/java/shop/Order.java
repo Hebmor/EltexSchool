@@ -39,6 +39,7 @@ public class Order {
 
     public Order(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+        startOrder();
     }
 
     public void startOrder() {
@@ -52,6 +53,7 @@ public class Order {
 
         startOrder();
         timeWait = _timeWait;
+
 
     }
 

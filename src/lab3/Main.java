@@ -1,4 +1,4 @@
-package ru.eltex.app.java.lab2;
+package lab3;
 
 
 import ru.eltex.app.java.dev.Devices;
@@ -21,6 +21,7 @@ public class Main {
         GenerateInput(args);
         TestShop();
         printDevicesArray();
+
     }
 
     public static void RunningInput(String[] _args) {
@@ -68,19 +69,20 @@ public class Main {
             }
 
         }
-        printDevicesArray();
+
     }
 
     private static void printDevicesArray() {
-        for (var deviceObject : DevicesArray) {
-            System.out.println("-------------------------------------------------------------------");
-            deviceObject.read();
-            System.out.println("-------------------------------------------------------------------");
-        }
+        if (DevicesArray != null)
+            for (var deviceObject : DevicesArray) {
+                System.out.println("-------------------------------------------------------------------");
+                deviceObject.read();
+                System.out.println("-------------------------------------------------------------------");
+            }
     }
 
     private static void TestShop() {
-        ShoppingCart<Smartphones> shoppingCart;
+        ShoppingCart<Devices> shoppingCart;
         Credentials credentials = new Credentials();
         Orders<Order> orders;
         credentials.Input();
