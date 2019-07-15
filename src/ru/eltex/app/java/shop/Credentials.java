@@ -1,5 +1,7 @@
 package ru.eltex.app.java.shop;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Credentials {
@@ -12,6 +14,12 @@ public class Credentials {
     private String Ochestvo;
     private String email;
     static private int countCredentials = 0;
+
+    private DataBaseController nameDatabase = new DataBaseController("source/NameBase");
+    private DataBaseController familiesDatabase = new DataBaseController("source/FamiliaBase");
+    private DataBaseController otchDatabase = new DataBaseController("source/OtchBase");
+    private DataBaseController emailDatabase = new DataBaseController("source/EmailBase");
+
 
     public Credentials() {
         countCredentials++;
@@ -84,6 +92,14 @@ public class Credentials {
         setOchestvo(in.nextLine());
         System.out.println("Введите email:");
         setEmail(in.nextLine());
+    }
+
+    public void GenerateFieldsCredentials() {
+
+        this.Name = nameDatabase.getRandomString();
+        this.Familia = familiesDatabase.getRandomString();
+        this.Ochestvo = otchDatabase.getRandomString();
+        this.email = emailDatabase.getRandomString();
     }
 
 }

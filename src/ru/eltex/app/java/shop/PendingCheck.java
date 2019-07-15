@@ -11,12 +11,13 @@ public class PendingCheck extends ACheck {
 
     @Override
     public void run() {
-        while (isInterrupted()) {
+        while (!isInterrupted()) {
             try {
                 Thread.sleep(this.IntervalTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println(this.getName());
             check();
         }
     }

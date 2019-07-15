@@ -20,6 +20,10 @@ public class ShoppingCart<T extends Devices> {
 
     }
 
+    public ShoppingCart(Credentials _credential, T _device) {
+        this.credential = _credential;
+        this.devicesLinkedList.add(_device);
+    }
     public void setCredential(Credentials credential) {
         this.credential = credential;
     }

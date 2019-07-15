@@ -1,4 +1,4 @@
-package ru.eltex.app.java.lab2;
+package ru.eltex.app.java.lab23;
 
 
 import ru.eltex.app.java.dev.Devices;

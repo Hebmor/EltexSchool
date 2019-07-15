@@ -8,14 +8,18 @@ public abstract class ACheck extends Thread {
     protected long IntervalTime = 0;
 
     public ACheck(Orders _orders, long _IntervalTime) {
-        this.orders = orders;
+        this.orders = _orders;
         this.IntervalTime = _IntervalTime;
     }
 
     public ACheck(String nameThread, Orders _orders, long _IntervalTime) {
         super(nameThread);
-        this.orders = orders;
+        this.orders = _orders;
         this.IntervalTime = _IntervalTime;
+    }
+
+    public ACheck() {
+
     }
 
     public Orders getOrders() {

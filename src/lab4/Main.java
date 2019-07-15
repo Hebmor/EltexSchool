@@ -1,14 +1,11 @@
-package lab3;
+package lab4;
 
 
 import ru.eltex.app.java.dev.Devices;
 import ru.eltex.app.java.dev.Phones;
 import ru.eltex.app.java.dev.Smartphones;
 import ru.eltex.app.java.dev.Tablets;
-import ru.eltex.app.java.shop.Credentials;
-import ru.eltex.app.java.shop.Order;
-import ru.eltex.app.java.shop.Orders;
-import ru.eltex.app.java.shop.ShoppingCart;
+import ru.eltex.app.java.shop.*;
 
 import java.util.LinkedList;
 
@@ -18,9 +15,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GenerateInput(args);
-        TestShop();
-        printDevicesArray();
+        //GenerateInput(args);
+        //TestShop();
+        //printDevicesArray();
+        Orders<Devices> orders = new Orders<Devices>();
+        TestThread(orders);
 
     }
 
@@ -84,15 +83,17 @@ public class Main {
     private static void TestShop() {
         ShoppingCart<Devices> shoppingCart;
         Credentials credentials = new Credentials();
-        Orders<Order> orders;
+        Orders<Order> orders = new Orders<>();
         credentials.Input();
+
         if (DevicesArray != null) {
             shoppingCart = new ShoppingCart(credentials, DevicesArray);
 
-            orders = new Orders();
+
             orders.Checkout(shoppingCart);
             orders.OrdersCheck();
             orders.showAllOrders();
+            TestThread(orders);
         }
 
     }
@@ -140,6 +141,16 @@ public class Main {
 
         }
         //  printDevicesArray();
+    }
+
+    public static void TestThread(Orders orders) {
+        //PendingCheck pendingCheck = new PendingCheck("PendingChecker1",orders,1000);
+        //ProcessedCheck processedCheck = new ProcessedCheck("ProcessedCheck1",orders,1000);
+        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", orders, 2000, 15);
+        //pendingCheck.start();
+        //processedCheck.start();
+        generatorOrders.start();
+        System.out.println("DONE");
     }
 
 }

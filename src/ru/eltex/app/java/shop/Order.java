@@ -38,6 +38,7 @@ public class Order {
     }
 
     public Order(ShoppingCart shoppingCart) {
+        this.setState(stateWork.PENDING);
         this.shoppingCart = shoppingCart;
         startOrder();
     }
@@ -58,7 +59,7 @@ public class Order {
     }
 
     public void setState(stateWork _state) {
-        this.state = state;
+        this.state = _state;
     }
 
     public stateWork getState() {

@@ -1,10 +1,12 @@
 package ru.eltex.app.java.dev;
 
+import ru.eltex.app.java.shop.Order;
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Devices implements Prototype_devices,ICrubAction {
+public class Devices extends Order implements Prototype_devices, ICrubAction {
     private UUID ID;
     private int Price;
     private static int CountProduct = 0;
@@ -194,7 +196,8 @@ public class Devices implements Prototype_devices,ICrubAction {
 
         CountProduct = 0;
     }
-    protected Object getRandArrayElement(Object [] array){
+
+    public static Object getRandArrayElement(Object[] array) {
         return array[new Random().nextInt(array.length)];
     }
 
