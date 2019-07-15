@@ -1,7 +1,5 @@
 package ru.eltex.app.java.shop;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Credentials {
@@ -10,7 +8,7 @@ public class Credentials {
     private Scanner in = new Scanner(System.in);
     private String Familia;
     private String Name;
-    private String Ochestvo;
+    private String Ochers;
     private String email;
     static private int countCredentials = 0;
 
@@ -25,18 +23,18 @@ public class Credentials {
         ID = countCredentials;
     }
 
-    public Credentials(int ID, String familia, String name, String ochestvo, String email) {
+    public Credentials(int ID, String familia, String name, String ochers, String email) {
         this.ID = ID;
         this.Familia = familia;
         this.Name = name;
-        this.Ochestvo = ochestvo;
+        this.Ochers = ochers;
         this.email = email;
     }
 
-    public Credentials(String familia, String name, String ochestvo, String email) {
+    public Credentials(String familia, String name, String ochers, String email) {
         this.Familia = familia;
         this.Name = name;
-        this.Ochestvo = ochestvo;
+        this.Ochers = ochers;
         this.email = email;
     }
 
@@ -52,8 +50,8 @@ public class Credentials {
         return Name;
     }
 
-    public String getOchestvo() {
-        return Ochestvo;
+    public String getOchers() {
+        return Ochers;
     }
 
     public String getEmail() {
@@ -72,8 +70,8 @@ public class Credentials {
         Name = name;
     }
 
-    public void setOchestvo(String ochestvo) {
-        Ochestvo = ochestvo;
+    public void setOchers(String ochers) {
+        Ochers = ochers;
     }
 
     public void setEmail(String email) {
@@ -88,7 +86,7 @@ public class Credentials {
         System.out.println("Введите Имя: ");
         setName(in.nextLine());
         System.out.println("Введите Отчество:");
-        setOchestvo(in.nextLine());
+        setOchers(in.nextLine());
         System.out.println("Введите email:");
         setEmail(in.nextLine());
     }
@@ -97,7 +95,7 @@ public class Credentials {
 
         this.Name = nameDatabase.getRandomString();
         this.Familia = familiesDatabase.getRandomString();
-        this.Ochestvo = otchDatabase.getRandomString();
+        this.Ochers = otchDatabase.getRandomString();
         this.email = emailDatabase.getRandomString();
     }
 

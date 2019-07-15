@@ -101,7 +101,4 @@ fabric.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-lab2/.idea/modules.xml
-lab2/.idea/workspace.xml
-lab2/lab2.iml
-lab2/src/Credentials.java
+

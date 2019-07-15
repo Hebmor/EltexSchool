@@ -1,4 +1,4 @@
-package lab4;
+package ru.eltex.app.java.lab4;
 
 
 import ru.eltex.app.java.dev.Devices;
