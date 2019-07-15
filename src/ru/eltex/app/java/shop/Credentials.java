@@ -8,17 +8,16 @@ public class Credentials {
 
     private int ID = 0;
     private Scanner in = new Scanner(System.in);
-    ;
     private String Familia;
     private String Name;
     private String Ochestvo;
     private String email;
     static private int countCredentials = 0;
 
-    private DataBaseController nameDatabase = new DataBaseController("source/NameBase");
-    private DataBaseController familiesDatabase = new DataBaseController("source/FamiliaBase");
-    private DataBaseController otchDatabase = new DataBaseController("source/OtchBase");
-    private DataBaseController emailDatabase = new DataBaseController("source/EmailBase");
+    private DataBaseController nameDatabase = new DataBaseController("source/txt/NameBase");
+    private DataBaseController familiesDatabase = new DataBaseController("source/txt/FamiliaBase");
+    private DataBaseController otchDatabase = new DataBaseController("source/txt/OtchBase");
+    private DataBaseController emailDatabase = new DataBaseController("source/txt/EmailBase");
 
 
     public Credentials() {

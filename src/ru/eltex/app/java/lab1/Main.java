@@ -79,22 +79,6 @@ public class Main {
         }
     }
 
-    private static void TestShop() {
-        ShoppingCart<Smartphones> shoppingCart;
-        Credentials credentials = new Credentials();
-        Orders<Order> orders;
-        credentials.Input();
-        if (DevicesArray != null) {
-            shoppingCart = new ShoppingCart(credentials, DevicesArray);
-
-            orders = new Orders();
-            orders.Checkout(shoppingCart);
-            orders.OrdersCheck();
-            orders.showAllOrders();
-        }
-
-    }
-
     public static void GenerateInput(String[] _args) {
         int countObject = 0;
         int counter = 0;
@@ -137,7 +121,6 @@ public class Main {
             }
 
         }
-        //  printDevicesArray();
     }
 
 }

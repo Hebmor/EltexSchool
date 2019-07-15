@@ -1,5 +1,7 @@
 package ru.eltex.app.java.dev;
 
+import java.util.Random;
+
 public class Smartphones extends Devices {
 
     public Smartphones(String[] random_database_typeSIMcard) {
@@ -82,6 +84,7 @@ public class Smartphones extends Devices {
     {
         super.create();
         typeSIMcard = (String) getRandArrayElement(random_database_typeSIMcard);
+        countSIMcard = new Random().nextInt(2) + 1;
     }
     @Override
     public  void read()

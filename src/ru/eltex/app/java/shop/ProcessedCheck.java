@@ -19,7 +19,6 @@ public class ProcessedCheck extends ACheck {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(this.getName());
             check();
         }
     }

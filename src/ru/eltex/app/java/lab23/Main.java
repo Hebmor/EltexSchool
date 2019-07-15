@@ -11,6 +11,7 @@ import ru.eltex.app.java.shop.Orders;
 import ru.eltex.app.java.shop.ShoppingCart;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Main {
 
@@ -88,7 +89,7 @@ public class Main {
             shoppingCart = new ShoppingCart(credentials, DevicesArray);
 
             orders = new Orders();
-            orders.Checkout(shoppingCart);
+            orders.Checkout(shoppingCart, 1000 + (long) (new Random().nextDouble() * (100000 - 1000)));
             orders.OrdersCheck();
             orders.showAllOrders();
         }

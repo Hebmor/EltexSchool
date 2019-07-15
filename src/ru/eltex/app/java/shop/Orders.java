@@ -21,8 +21,8 @@ public class Orders<T extends Order> {
         ordersArrayList.add(idx, order);
     }
 
-    public void Checkout(ShoppingCart shoppingCart) {
-        this.ordersArrayList.add((T) new Order(shoppingCart));
+    public void Checkout(ShoppingCart shoppingCart, long timeWait_ms) {
+        this.ordersArrayList.add((T) new Order(shoppingCart, timeWait_ms));
     }
 
     public void OrdersCheck() {
@@ -41,6 +41,7 @@ public class Orders<T extends Order> {
     public ArrayList<T> get_ordersArrayList() {
         return ordersArrayList;
     }
+
     public void delete(T _order) {
         ordersArrayList.remove(_order);
     }

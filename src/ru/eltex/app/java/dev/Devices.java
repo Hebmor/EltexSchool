@@ -160,8 +160,8 @@ public class Devices extends Order implements Prototype_devices, ICrubAction {
     @Override
     public void read() {
 
-        System.out.println("------------------------------------------------------");
-        System.out.println("Устройство с номером " + this.ID);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Устройство с ID: " + this.ID);
         System.out.println("Название:" + this.Name);
         System.out.println("Модель:" + this.Model);
         System.out.println("ОС:" + this.OS);
@@ -172,15 +172,15 @@ public class Devices extends Order implements Prototype_devices, ICrubAction {
     @Override
     public void update() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Введите название");
+        System.out.println("Введите название:");
         this.setName(in.nextLine());
-        System.out.println("Введите модель");
+        System.out.println("Введите модель:");
         this.setModel(in.nextLine());
-        System.out.println("Введите фирму");
+        System.out.println("Введите фирму:");
         this.setFirm(in.nextLine());
-        System.out.println("Введите операционную систему");
+        System.out.println("Введите операционную систему:");
         this.setOS(in.nextLine());
-        System.out.println("Введите цену");
+        System.out.println("Введите цену:");
         this.setPrice(in.nextInt());
     }
 

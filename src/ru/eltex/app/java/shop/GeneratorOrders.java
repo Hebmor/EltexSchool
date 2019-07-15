@@ -47,7 +47,7 @@ public class GeneratorOrders extends ACheck {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(this.getName());
+
             try {
                 Order new_order = getGenerateOrder();
                 if (!(new_order == null)) {
@@ -55,7 +55,7 @@ public class GeneratorOrders extends ACheck {
                 } else {
                     System.out.println("Ошибка генерации Order!");
                 }
-                orders.showAllOrders();
+                new_order.showOrder();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -69,7 +69,7 @@ public class GeneratorOrders extends ACheck {
         Credentials credentials = new Credentials();
         credentials.GenerateFieldsCredentials();
         LinkedList<Devices> devicesLinkedList = new LinkedList<>();
-        for (int i = 0; i < random.nextInt(maxRand + 1); i++) {
+        for (int i = 0; i < random.nextInt(maxRand) + 1; i++) {
             Devices device = getRandomDevice();
             if (!(device == null))
                 devicesLinkedList.add(device);
@@ -77,7 +77,7 @@ public class GeneratorOrders extends ACheck {
                 System.out.println("Ошибка генерации потомков Devices!");
         }
 
-        return new Order(new ShoppingCart<Devices>(credentials, devicesLinkedList));
+        return new Order(new ShoppingCart<Devices>(credentials, devicesLinkedList), 1000 + (long) (new Random().nextDouble() * (100000 - 1000)));
 
     }
 

@@ -95,7 +95,7 @@ public class Main {
             shoppingCart = new ShoppingCart(credentials,DevicesArray);
 
             orders = new Orders();
-            orders.Checkout(shoppingCart);
+            orders.Checkout(shoppingCart, 10000);
             orders.OrdersCheck();
             orders.showAllOrders();
         }

@@ -8,7 +8,6 @@ import java.util.UUID;
 
 public class ShoppingCart<T extends Devices> {
 
-
     private Credentials credential;
     private LinkedList<T> devicesLinkedList;
     private HashSet<UUID> productIdentifiers;
@@ -61,15 +60,15 @@ public class ShoppingCart<T extends Devices> {
     }
 
     public void showAllObjects() {
-        System.out.println("------------------------------------------------");
-        System.out.println("Информация об покупателе: " + credential.getID());
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Информация о покупателе: " + credential.getID());
         System.out.println("Заказчик: " + credential.getFamilia() + " " + credential.getName() + " " + credential.getOchestvo());
         System.out.println("EMAIL: " + credential.getEmail());
-        System.out.println("------------------------------------------------");
-        System.out.println("*********************Покупки********************");
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("**************************Покупки**************************");
         for (T device : devicesLinkedList)
             device.read();
-        System.out.println("------------------------------------------------");
+        System.out.println("-----------------------------------------------------------");
 
     }
 

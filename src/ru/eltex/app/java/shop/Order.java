@@ -2,13 +2,12 @@ package ru.eltex.app.java.shop;
 
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class Order {
 
     private ShoppingCart shoppingCart;
     private Date timeCreate;
-    private long timeWait = 0;
+    private long timeWait_ms = 0;
 
     public enum stateWork {
         PENDING("в ожидании"),
@@ -53,7 +52,7 @@ public class Order {
         this.setState(stateWork.PENDING);
 
         startOrder();
-        timeWait = _timeWait;
+        timeWait_ms = _timeWait;
 
 
     }
@@ -67,7 +66,7 @@ public class Order {
     }
 
     boolean checkTime() {
-        return (new Date().getTime() - timeCreate.getTime() > timeCreate.getTime() + timeWait);
+        return (new Date().getTime() - timeCreate.getTime() > timeCreate.getTime() + timeWait_ms);
     }
 
     boolean isNOTvalidOrder() {
@@ -76,7 +75,12 @@ public class Order {
     }
 
     public void showOrder() {
+        System.out.println("Статус:" + this.getState());
+        System.out.println("Время обработки:" + this.getTimeWait_ms());
         this.shoppingCart.showAllObjects();
     }
 
+    public long getTimeWait_ms() {
+        return timeWait_ms;
+    }
 }
