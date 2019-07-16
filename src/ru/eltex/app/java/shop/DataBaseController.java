@@ -25,7 +25,7 @@ public class DataBaseController {
 
     public DataBaseController(String path) {
         File file = openFile(path);
-        if (file.exists())
+        if (file != null)
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String read;

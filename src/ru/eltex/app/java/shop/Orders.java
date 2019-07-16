@@ -1,8 +1,9 @@
 package ru.eltex.app.java.shop;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Orders<T extends Order> {
+public class Orders<T extends Order> implements Serializable {
     private ArrayList<T> ordersArrayList = new ArrayList<T>();
 
     public void add(T order) {
@@ -36,6 +37,10 @@ public class Orders<T extends Order> {
         for (T order : ordersArrayList) {
             order.showOrder();
         }
+    }
+
+    public void setOrdersArrayList(ArrayList<T> ordersArrayList) {
+        this.ordersArrayList = ordersArrayList;
     }
 
     public ArrayList<T> get_ordersArrayList() {

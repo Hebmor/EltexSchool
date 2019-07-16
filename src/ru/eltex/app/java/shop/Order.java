@@ -1,15 +1,16 @@
 package ru.eltex.app.java.shop;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Order {
+public class Order implements Serializable {
 
     private ShoppingCart shoppingCart;
     private Date timeCreate;
     private long timeWait_ms = 0;
 
-    public enum stateWork {
+    public enum stateWork implements Serializable {
         PENDING("в ожидании"),
         PROCESSED("обработан");
 

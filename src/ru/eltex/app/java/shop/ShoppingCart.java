@@ -2,11 +2,12 @@ package ru.eltex.app.java.shop;
 
 import ru.eltex.app.java.products.Devices;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.UUID;
 
-public class ShoppingCart<T extends Devices> {
+public class ShoppingCart<T extends Devices> implements Serializable {
 
     private Credentials credential;
     private LinkedList<T> devicesLinkedList;

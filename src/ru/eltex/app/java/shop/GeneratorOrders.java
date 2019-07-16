@@ -11,9 +11,16 @@ import java.util.Random;
 
 public class GeneratorOrders extends ACheck {
 
-    private int maxRand = 10;
+    private int maxCountDevices = 10;
+    private int maxCountOrders = 1;
+    private int countOrder = 1;
     private Random random = new Random();
-
+    private boolean randomFlag = false;
+    private boolean repeatFlag = false;
+    private DataBaseController nameDatabase = new DataBaseController("resource/txt/NameBase");
+    private DataBaseController familiesDatabase = new DataBaseController("resource/txt/FamiliaBase");
+    private DataBaseController otchDatabase = new DataBaseController("resource/txt/OtchBase");
+    private DataBaseController emailDatabase = new DataBaseController("resource/txt/EmailBase");
     public GeneratorOrders() {
         super();
 
@@ -24,60 +31,128 @@ public class GeneratorOrders extends ACheck {
 
     }
 
-    public GeneratorOrders(String nameThread, Orders _orders, long timeInterval, int maxRand) {
+    public GeneratorOrders(String nameThread, Orders _orders, long timeInterval, int maxCountDevices, int maxCountOrders, boolean randomFlag, boolean repeatFlag) {
         super(nameThread, _orders, timeInterval);
-        this.maxRand = maxRand;
+        setMaxCountDevices(maxCountDevices);
+        setMaxCountOrders(maxCountOrders);
+
+        setRandomFlag(randomFlag);
+        setRepeatFlag(repeatFlag);
     }
 
+    public boolean isRandomFlag() {
+        return randomFlag;
+    }
+
+    public boolean isRepeatFlag() {
+        return repeatFlag;
+    }
 
     public void setTimeInterval(long timeInterval) {
         this.IntervalTime = timeInterval;
     }
 
-    public void setMaxRand(int maxRand) {
-        this.maxRand = maxRand;
+    public void setMaxCountDevices(int maxCountDevices) {
+        this.maxCountDevices = maxCountDevices;
     }
 
+    public void setRandomFlag(boolean randomFlag) {
+        this.randomFlag = randomFlag;
+    }
+
+    public void setRepeatFlag(boolean repeatFlag) {
+        this.repeatFlag = repeatFlag;
+    }
+
+    public void setMaxCountOrders(int maxCountOrders) {
+        this.maxCountOrders = maxCountOrders;
+    }
+
+    public int getMaxCountDevices() {
+        return maxCountDevices;
+    }
+
+    public int getMaxCountOrders() {
+        return maxCountOrders;
+    }
 
     @Override
     public void run() {
-        while (!isInterrupted()) {
-            try {
-                Thread.sleep(this.IntervalTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                Order new_order = getGenerateOrder();
-                if (!(new_order == null)) {
-                    this.orders.add(new_order);
-                } else {
-                    System.out.println("Ошибка генерации Order!");
+        if (repeatFlag) {
+            while (!isInterrupted()) {
+                try {
+                    Thread.sleep(this.IntervalTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                new_order.showOrder();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                try {
+                    Order new_order = getGenerateOrder();
+                    if (!(new_order == null)) {
+                        this.orders.add(new_order);
+                    } else {
+                        System.out.println("Ошибка генерации Order!");
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            for (int i = 0; i < maxCountOrders; i++) {
+                try {
+                    Thread.sleep(this.IntervalTime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
+                try {
+                    Order new_order = getGenerateOrder();
+                    if (!(new_order == null)) {
+                        this.orders.add(new_order);
+                    } else {
+                        System.out.println("Ошибка генерации Order!");
+                    }
 
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
     private Order getGenerateOrder() throws IOException {
-        Credentials credentials = new Credentials();
-        credentials.GenerateFieldsCredentials();
+        Credentials credentials = GenerateFieldsCredentials();
         LinkedList<Devices> devicesLinkedList = new LinkedList<>();
-        for (int i = 0; i < random.nextInt(maxRand) + 1; i++) {
-            Devices device = getRandomDevice();
-            if (!(device == null))
-                devicesLinkedList.add(device);
-            else
-                System.out.println("Ошибка генерации потомков Devices!");
+        if (randomFlag)
+            for (int i = 0; i < random.nextInt(maxCountDevices) + 1; i++) {
+                Devices device = getRandomDevice();
+                if (!(device == null))
+                    devicesLinkedList.add(device);
+                else
+                    System.out.println("Ошибка генерации потомков Devices!");
+            }
+        else {
+            for (int i = 0; i < maxCountDevices; i++) {
+                Devices device = getRandomDevice();
+                if (!(device == null))
+                    devicesLinkedList.add(device);
+
+                else
+                    System.out.println("Ошибка генерации потомков Devices!");
+            }
         }
 
         return new Order(new ShoppingCart<Devices>(credentials, devicesLinkedList), 1000 + (long) (new Random().nextDouble() * (100000 - 1000)));
+
+    }
+
+    public void Join() throws InterruptedException {
+        if (isRepeatFlag()) {
+            this.isInterrupted();
+            super.join();
+        } else
+            super.join();
 
     }
 
@@ -108,4 +183,7 @@ public class GeneratorOrders extends ACheck {
         return tmp;
     }
 
+    public Credentials GenerateFieldsCredentials() {
+        return new Credentials(nameDatabase.getRandomString(), familiesDatabase.getRandomString(), otchDatabase.getRandomString(), emailDatabase.getRandomString());
+    }
 }

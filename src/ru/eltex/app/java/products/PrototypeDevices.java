@@ -2,7 +2,7 @@ package ru.eltex.app.java.products;
 
 import java.util.UUID;
 
-public interface Prototype_devices {
+public interface PrototypeDevices {
 
     UUID getID();
     int getPrice();

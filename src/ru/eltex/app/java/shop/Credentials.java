@@ -1,22 +1,17 @@
 package ru.eltex.app.java.shop;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Credentials {
+public class Credentials implements Serializable {
 
     private int ID = 0;
-    private Scanner in = new Scanner(System.in);
+    private transient Scanner in = new Scanner(System.in);
     private String Familia;
     private String Name;
     private String Ochers;
     private String email;
-    static private int countCredentials = 0;
-
-    private DataBaseController nameDatabase = new DataBaseController("source/txt/NameBase");
-    private DataBaseController familiesDatabase = new DataBaseController("source/txt/FamiliaBase");
-    private DataBaseController otchDatabase = new DataBaseController("source/txt/OtchBase");
-    private DataBaseController emailDatabase = new DataBaseController("source/txt/EmailBase");
-
+    static transient private int countCredentials = 0;
 
     public Credentials() {
         countCredentials++;
@@ -24,6 +19,8 @@ public class Credentials {
     }
 
     public Credentials(int ID, String familia, String name, String ochers, String email) {
+        countCredentials++;
+        ID = countCredentials;
         this.ID = ID;
         this.Familia = familia;
         this.Name = name;
@@ -32,6 +29,8 @@ public class Credentials {
     }
 
     public Credentials(String familia, String name, String ochers, String email) {
+        countCredentials++;
+        ID = countCredentials;
         this.Familia = familia;
         this.Name = name;
         this.Ochers = ochers;
@@ -91,12 +90,6 @@ public class Credentials {
         setEmail(in.nextLine());
     }
 
-    public void GenerateFieldsCredentials() {
 
-        this.Name = nameDatabase.getRandomString();
-        this.Familia = familiesDatabase.getRandomString();
-        this.Ochers = otchDatabase.getRandomString();
-        this.email = emailDatabase.getRandomString();
-    }
 
 }

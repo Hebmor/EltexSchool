@@ -1,15 +1,16 @@
 package ru.eltex.app.java.products;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Smartphones extends Devices {
+public class Smartphones extends Devices implements Serializable {
 
     public Smartphones(String[] random_database_typeSIMcard) {
         this.random_database_typeSIMcard = random_database_typeSIMcard;
     }
 
     public String typeSIMcard;
-    private String [] random_database_typeSIMcard = {"micro-SIM","обычная"};
+    private transient String[] random_database_typeSIMcard = {"micro-SIM", "обычная"};
     public  int countSIMcard = 0;
 
     public Smartphones(String typeSIMcard) {

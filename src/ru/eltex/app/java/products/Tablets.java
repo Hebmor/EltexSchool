@@ -1,12 +1,14 @@
 package ru.eltex.app.java.products;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Tablets extends Devices {
+public class Tablets extends Devices implements Serializable {
 
     private String GPU;
     private  screen_resolution screen = new screen_resolution(0,0);
-    public class screen_resolution
+
+    public class screen_resolution implements Serializable
     {
 
         int height = 0;
@@ -39,8 +41,8 @@ public class Tablets extends Devices {
 
     }
 
-    private String [] random_database_GPU = {"Apple A12X Bionic GPU","Qualcomm Adreno 640","ARM Mali-G76 MP10","PowerVR GXA6850","NVIDIA Tegra K1 Kepler GPU","ARM Mali-400 MP2","PowerVR SGX530"};
-    private String [] random_database_screen_resolution = {"640x480","800x600","1024x748","1360x768","1920x1080","2560x1440","3440x1440"};
+    private transient String[] random_database_GPU = {"Apple A12X Bionic GPU", "Qualcomm Adreno 640", "ARM Mali-G76 MP10", "PowerVR GXA6850", "NVIDIA Tegra K1 Kepler GPU", "ARM Mali-400 MP2", "PowerVR SGX530"};
+    private transient String[] random_database_screen_resolution = {"640x480", "800x600", "1024x748", "1360x768", "1920x1080", "2560x1440", "3440x1440"};
 
     public Tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String GPU) {
         super(_Price, _Firma, _Model, _OS, _Name);

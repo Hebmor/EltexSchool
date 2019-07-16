@@ -2,25 +2,26 @@ package ru.eltex.app.java.products;
 
 import ru.eltex.app.java.shop.Order;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Devices extends Order implements Prototype_devices, ICrubAction {
+public class Devices extends Order implements PrototypeDevices, ICrubAction, Serializable {
     private UUID ID;
     private int Price;
-    private static int CountProduct = 0;
+    private transient static int CountProduct = 0;
     private String Firm;
     private String Model;
-    private  String OS;
-    private  String Name;
+    private String OS;
+    private String Name;
 
-    private String [] random_database_Firma = {"Samsung","Huawei","Lenovo","Xiaomi ","OnePlus ","LG ","SONY","Apple"};
-    private String [] random_database_Model = {"K1","N4","Redmi Note 7","C2","A1","EE","RB"};
-    private String [] random_database_OS = {"Android","IOS","Windows Phone"};
-    private String [] random_database_Name = {"Xiaomi Redmi 7 3/32GB","Xiaomi Redmi Note 6 Pro 4/64GB","HUAWEI P Smart (2019) 3/32GB","Samsung Galaxy A10","Apple iPhone 8 64GB","HUAWEI Y5 (2019) 32GB","Samsung Galaxy S10e 6/128GB"};
+    private transient String[] random_database_Firma = {"Samsung", "Huawei", "Lenovo", "Xiaomi ", "OnePlus ", "LG ", "SONY", "Apple"};
+    private transient String[] random_database_Model = {"K1", "N4", "Redmi Note 7", "C2", "A1", "EE", "RB"};
+    private transient String[] random_database_OS = {"Android", "IOS", "Windows Phone"};
+    private transient String[] random_database_Name = {"Xiaomi Redmi 7 3/32GB", "Xiaomi Redmi Note 6 Pro 4/64GB", "HUAWEI P Smart (2019) 3/32GB", "Samsung Galaxy A10", "Apple iPhone 8 64GB", "HUAWEI Y5 (2019) 32GB", "Samsung Galaxy S10e 6/128GB"};
 
-    protected Scanner in = new Scanner(System.in);
+    protected transient Scanner in = new Scanner(System.in);
 
     public Devices()
     {

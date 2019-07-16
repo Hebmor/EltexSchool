@@ -1,9 +1,11 @@
 package ru.eltex.app.java.products;
 
-public class Phones extends Devices {
+import java.io.Serializable;
+
+public class Phones extends Devices implements Serializable {
 
     private String typeBody;
-    private String [] random_database_typeBode = {"классический","раскладушка"};
+    private transient String[] random_database_typeBode = {"классический", "раскладушка"};
 
     public Phones(String[] random_database_typeBode) {
         this.random_database_typeBode = random_database_typeBode;
