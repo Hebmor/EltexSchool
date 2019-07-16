@@ -1,4 +1,4 @@
-package ru.eltex.app.java.dev;
+package ru.eltex.app.java.products;
 
 import java.util.UUID;
 

@@ -1,10 +1,10 @@
 package ru.eltex.app.java.lab23;
 
 
-import ru.eltex.app.java.dev.Devices;
-import ru.eltex.app.java.dev.Phones;
-import ru.eltex.app.java.dev.Smartphones;
-import ru.eltex.app.java.dev.Tablets;
+import ru.eltex.app.java.products.Devices;
+import ru.eltex.app.java.products.Phones;
+import ru.eltex.app.java.products.Smartphones;
+import ru.eltex.app.java.products.Tablets;
 import ru.eltex.app.java.shop.Credentials;
 import ru.eltex.app.java.shop.Order;
 import ru.eltex.app.java.shop.Orders;
