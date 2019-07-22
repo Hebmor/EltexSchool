@@ -1,10 +1,26 @@
 package ru.eltex.app.java.shop;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.*;
+
+@JsonAutoDetect(
+        fieldVisibility = Visibility.ANY,
+        getterVisibility = Visibility.NONE,
+        setterVisibility = Visibility.NONE,
+        creatorVisibility = Visibility.NONE
+)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Orders<T extends Order> implements Serializable {
+
+    @JsonProperty("ordersArrayList")
     private ArrayList<T> ordersArrayList = new ArrayList<T>();
+
 
     public void add(T order) {
         ordersArrayList.add(order);

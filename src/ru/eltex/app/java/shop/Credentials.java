@@ -1,16 +1,33 @@
 package ru.eltex.app.java.shop;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 import java.util.Scanner;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonAutoDetect(
+        fieldVisibility = JsonAutoDetect.Visibility.ANY,
+        getterVisibility = JsonAutoDetect.Visibility.NONE,
+        setterVisibility = JsonAutoDetect.Visibility.NONE,
+        creatorVisibility = JsonAutoDetect.Visibility.NONE
+)
 public class Credentials implements Serializable {
 
+
     private int ID = 0;
+
     private transient Scanner in = new Scanner(System.in);
+
     private String Familia;
+
     private String Name;
+
     private String Ochers;
+
     private String email;
+
     static transient private int countCredentials = 0;
 
     public Credentials() {
@@ -89,7 +106,6 @@ public class Credentials implements Serializable {
         System.out.println("Введите email:");
         setEmail(in.nextLine());
     }
-
 
 
 }

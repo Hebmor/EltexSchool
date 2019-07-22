@@ -1,14 +1,30 @@
 package ru.eltex.app.java.shop;
 
 
+import com.fasterxml.jackson.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@JsonAutoDetect(
+        fieldVisibility = JsonAutoDetect.Visibility.ANY,
+        getterVisibility = JsonAutoDetect.Visibility.NONE,
+        setterVisibility = JsonAutoDetect.Visibility.NONE,
+        creatorVisibility = JsonAutoDetect.Visibility.NONE
+)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order implements Serializable {
 
-    private ShoppingCart shoppingCart;
+
+    @JsonProperty("timeCreate")
     private Date timeCreate;
+    @JsonProperty("timeWait_ms")
     private long timeWait_ms = 0;
+    @JsonProperty("state")
+    stateWork state;
+    @JsonProperty("shoppingCart")
+    private ShoppingCart shoppingCart;
+
 
     public enum stateWork implements Serializable {
         PENDING("в ожидании"),
@@ -30,7 +46,13 @@ public class Order implements Serializable {
         }
     }
 
-    stateWork state;
+    @JsonCreator
+    public Order(@JsonProperty("timeCreate") Date timeCreate, @JsonProperty("timeWait_ms") long timeWait_ms, @JsonProperty("state") stateWork state, @JsonProperty("shoppingCart") ShoppingCart shoppingCart) {
+        this.timeCreate = timeCreate;
+        this.timeWait_ms = timeWait_ms;
+        this.state = state;
+        this.shoppingCart = shoppingCart;
+    }
 
     public Order() {
         state = stateWork.PENDING;
@@ -62,6 +84,7 @@ public class Order implements Serializable {
         this.state = _state;
     }
 
+    @JsonIgnore
     public stateWork getState() {
         return this.state;
     }
@@ -81,6 +104,7 @@ public class Order implements Serializable {
         this.shoppingCart.showAllObjects();
     }
 
+    @JsonIgnore
     public long getTimeWait_ms() {
         return timeWait_ms;
     }

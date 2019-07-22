@@ -1,7 +1,5 @@
 package ru.eltex.app.java.shop;
 
-import ru.eltex.app.java.products.Devices;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -13,7 +11,7 @@ public class ManagerOrderFile extends AManageOrder {
     ObjectOutputStream objectOutputStream;
     ObjectInputStream objectInputStream;
 
-    private ArrayList<Devices> bufferArrayList = new ArrayList<>();
+    private ArrayList<Order> bufferArrayList = new ArrayList<>();
 
     public ManagerOrderFile(String path) throws FileNotFoundException {
         outputStream = new FileOutputStream(path);
@@ -57,10 +55,10 @@ public class ManagerOrderFile extends AManageOrder {
     }
 
     @Override
-    public ArrayList<Devices> readAll() throws IOException, ClassNotFoundException {
+    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
         try {
             if (objectInputStream.available() == 0) {
-                bufferArrayList = (ArrayList<Devices>) objectInputStream.readObject();
+                bufferArrayList = (ArrayList<Order>) objectInputStream.readObject();
                 return bufferArrayList;
             }
 

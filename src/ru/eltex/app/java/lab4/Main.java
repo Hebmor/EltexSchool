@@ -13,9 +13,9 @@ public class Main {
 
     private static LinkedList<Devices> DevicesArray = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        Orders<Devices> orders = new Orders<Devices>();
+        Orders<Order> orders = new Orders<Order>();
         TestThread(orders);
 
     }
@@ -64,18 +64,24 @@ public class Main {
         }
     }
 
-    public static void TestThread(Orders orders) {
+    public static void TestThread(Orders orders) throws InterruptedException {
         PendingCheck pendingCheck = new PendingCheck("PendingChecker1", orders, 1000);
         ProcessedCheck processedCheck = new ProcessedCheck("ProcessedCheck1", orders, 1000);
         //Гонка потоков
-        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", orders, 2000, 15, 1, true, true);
-        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", orders, 4000, 8, 1, true, true);
+        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", orders, 1000, 4, 1, true, false);
+        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", orders, 1000, 3, 1, true, false);
 
         generatorOrders.start();
         generatorOrders2.start();
 
         pendingCheck.start();
         processedCheck.start();
+
+        generatorOrders.Join();
+        generatorOrders2.Join();
+
+        orders.showAllOrders();
+
     }
 
 }

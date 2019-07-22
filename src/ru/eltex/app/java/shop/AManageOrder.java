@@ -1,7 +1,5 @@
 package ru.eltex.app.java.shop;
 
-import ru.eltex.app.java.products.Devices;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -28,7 +26,7 @@ public abstract class AManageOrder implements IOrder {
     }
 
     @Override
-    public ArrayList<Devices> readAll() throws IOException, ClassNotFoundException {
+    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
         return null;
     }
 

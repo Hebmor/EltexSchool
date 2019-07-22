@@ -149,7 +149,7 @@ public class GeneratorOrders extends ACheck {
 
     public void Join() throws InterruptedException {
         if (isRepeatFlag()) {
-            this.isInterrupted();
+            this.interrupt();
             super.join();
         } else
             super.join();
@@ -184,6 +184,6 @@ public class GeneratorOrders extends ACheck {
     }
 
     public Credentials GenerateFieldsCredentials() {
-        return new Credentials(nameDatabase.getRandomString(), familiesDatabase.getRandomString(), otchDatabase.getRandomString(), emailDatabase.getRandomString());
+        return new Credentials(familiesDatabase.getRandomString(), nameDatabase.getRandomString(), otchDatabase.getRandomString(), emailDatabase.getRandomString());
     }
 }

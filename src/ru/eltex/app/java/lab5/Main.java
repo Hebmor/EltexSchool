@@ -7,7 +7,6 @@ import ru.eltex.app.java.products.Smartphones;
 import ru.eltex.app.java.products.Tablets;
 import ru.eltex.app.java.shop.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
 
@@ -15,11 +14,12 @@ public class Main {
 
     private static LinkedList<Devices> DevicesArray = null;
     private static ManagerOrderFile managerOrderFile;
+    private static ManagerOrderJSON managerOrderJSON;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
-        Orders<Devices> write_orders = new Orders<Devices>();
-        Orders<Devices> read_orders = new Orders<Devices>();
+        Orders<Order> write_orders = new Orders<>();
+        Orders<Order> read_orders = new Orders<>();
         TestWrite(write_orders);
         TestRead(read_orders);
 
@@ -71,11 +71,12 @@ public class Main {
 
     public static void TestWrite(Orders write_orders) throws IOException, InterruptedException {
 
-        managerOrderFile = new ManagerOrderFile("resource/binary_date/date.dat", write_orders);
+        managerOrderFile = new ManagerOrderFile("resource/binary_date/data.dat", write_orders);
+        managerOrderJSON = new ManagerOrderJSON("resource/binary_date/json_data.json", write_orders);
 
         //Гонка потоков
-        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 2000, 6, 5, false, false);
-        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 4000, 8, 4, false, false);
+        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 2000, 1, 1, false, false);
+        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 4000, 3, 2, false, false);
 
         generatorOrders.start();
         generatorOrders2.start();
@@ -83,14 +84,15 @@ public class Main {
         generatorOrders.Join();
         generatorOrders2.Join();
         managerOrderFile.saveAll();
+        managerOrderJSON.saveAll();
         //write_orders.showAllOrders();
 
     }
 
     public static void TestRead(Orders read_orders) throws IOException, ClassNotFoundException {
-        read_orders.add(managerOrderFile.readByID(2));
-        read_orders.add(managerOrderFile.readByID(1));
+
         read_orders.showAllOrders();
+        managerOrderJSON.readAll();
     }
 
 }

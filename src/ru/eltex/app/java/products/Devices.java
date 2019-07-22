@@ -1,26 +1,53 @@
 package ru.eltex.app.java.products;
 
-import ru.eltex.app.java.shop.Order;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class Devices extends Order implements PrototypeDevices, ICrubAction, Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonAutoDetect(
+        fieldVisibility = JsonAutoDetect.Visibility.ANY,
+        getterVisibility = JsonAutoDetect.Visibility.NONE,
+        setterVisibility = JsonAutoDetect.Visibility.NONE,
+        creatorVisibility = JsonAutoDetect.Visibility.NONE
+)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Devices.class, name = "device"),
+
+})
+public class Devices implements PrototypeDevices, ICrubAction, Serializable {
+
+    @JsonProperty("ID")
     private UUID ID;
+    @JsonProperty("Price")
     private int Price;
+    @JsonIgnore
     private transient static int CountProduct = 0;
+    @JsonProperty("Firm")
     private String Firm;
+    @JsonProperty("Model")
     private String Model;
+    @JsonProperty("OS")
     private String OS;
+    @JsonProperty("Name")
     private String Name;
 
+    @JsonIgnore
     private transient String[] random_database_Firma = {"Samsung", "Huawei", "Lenovo", "Xiaomi ", "OnePlus ", "LG ", "SONY", "Apple"};
+    @JsonIgnore
     private transient String[] random_database_Model = {"K1", "N4", "Redmi Note 7", "C2", "A1", "EE", "RB"};
+    @JsonIgnore
     private transient String[] random_database_OS = {"Android", "IOS", "Windows Phone"};
+    @JsonIgnore
     private transient String[] random_database_Name = {"Xiaomi Redmi 7 3/32GB", "Xiaomi Redmi Note 6 Pro 4/64GB", "HUAWEI P Smart (2019) 3/32GB", "Samsung Galaxy A10", "Apple iPhone 8 64GB", "HUAWEI Y5 (2019) 32GB", "Samsung Galaxy S10e 6/128GB"};
-
+    @JsonIgnore
     protected transient Scanner in = new Scanner(System.in);
 
     public Devices()
@@ -40,6 +67,15 @@ public class Devices extends Order implements PrototypeDevices, ICrubAction, Ser
         CountProduct++;
     }
 
+    @JsonCreator
+    public Devices(@JsonProperty("ID") UUID ID, @JsonProperty("Price") int price, @JsonProperty("Firm") String firm, @JsonProperty("Model") String model, @JsonProperty("OS") String OS, @JsonProperty("Name") String name) {
+        this.ID = ID;
+        Price = price;
+        Firm = firm;
+        Model = model;
+        this.OS = OS;
+        Name = name;
+    }
 
     @Override
     public UUID getID() {
@@ -143,7 +179,7 @@ public class Devices extends Order implements PrototypeDevices, ICrubAction, Ser
 
     @Override
     public void printName() {
-        System.out.println("Нахвание: "+this.Name );
+        System.out.println("Название: " + this.Name);
     }
 
     @Override
