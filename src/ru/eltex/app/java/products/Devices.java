@@ -15,11 +15,14 @@ import java.util.UUID;
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
 @JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
+        use = JsonTypeInfo.Id.CLASS,
         include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Devices.class, name = "device"),
+        @JsonSubTypes.Type(value = Phones.class, name = "phones"),
+        @JsonSubTypes.Type(value = Smartphones.class, name = "smartphones"),
+        @JsonSubTypes.Type(value = Tablets.class, name = "tablets")
 
 })
 public class Devices implements PrototypeDevices, ICrubAction, Serializable {

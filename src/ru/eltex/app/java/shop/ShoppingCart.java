@@ -87,7 +87,7 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     public void showAllObjects() {
         System.out.println("-----------------------------------------------------------");
         System.out.println("Информация о покупателе: " + credential.getID());
-        System.out.println("Заказчик: " + credential.getFamilia() + " " + credential.getName() + " " + credential.getOchers());
+        System.out.println("Заказчик: " + credential.getFamilies() + " " + credential.getName() + " " + credential.getOchers());
         System.out.println("EMAIL: " + credential.getEmail());
         System.out.println("-----------------------------------------------------------");
         System.out.println("**************************Покупки**************************");

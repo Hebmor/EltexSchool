@@ -12,6 +12,7 @@ import java.util.Date;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order implements Serializable {
 

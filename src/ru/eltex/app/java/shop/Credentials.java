@@ -20,7 +20,7 @@ public class Credentials implements Serializable {
 
     private transient Scanner in = new Scanner(System.in);
 
-    private String Familia;
+    private String Families;
 
     private String Name;
 
@@ -35,20 +35,20 @@ public class Credentials implements Serializable {
         ID = countCredentials;
     }
 
-    public Credentials(int ID, String familia, String name, String ochers, String email) {
+    public Credentials(int ID, String families, String name, String ochers, String email) {
         countCredentials++;
         ID = countCredentials;
         this.ID = ID;
-        this.Familia = familia;
+        this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
         this.email = email;
     }
 
-    public Credentials(String familia, String name, String ochers, String email) {
+    public Credentials(String families, String name, String ochers, String email) {
         countCredentials++;
         ID = countCredentials;
-        this.Familia = familia;
+        this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
         this.email = email;
@@ -58,8 +58,8 @@ public class Credentials implements Serializable {
         return ID;
     }
 
-    public String getFamilia() {
-        return Familia;
+    public String getFamilies() {
+        return Families;
     }
 
     public String getName() {
@@ -78,8 +78,8 @@ public class Credentials implements Serializable {
         this.ID = ID;
     }
 
-    public void setFamilia(String familia) {
-        Familia = familia;
+    public void setFamilies(String families) {
+        Families = families;
     }
 
     public void setName(String name) {
@@ -98,7 +98,7 @@ public class Credentials implements Serializable {
         System.out.println("------------------------------------------------");
         System.out.println("Введите ФИО");
         System.out.println("Введите Фамилию: ");
-        setFamilia(in.nextLine());
+        setFamilies(in.nextLine());
         System.out.println("Введите Имя: ");
         setName(in.nextLine());
         System.out.println("Введите Отчество:");

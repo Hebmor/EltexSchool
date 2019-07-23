@@ -1,13 +1,11 @@
 package ru.eltex.app.java.shop;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import static com.fasterxml.jackson.annotation.JsonAutoDetect.*;
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 @JsonAutoDetect(
         fieldVisibility = Visibility.ANY,

@@ -1,6 +1,5 @@
 package ru.eltex.app.java.shop;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -63,16 +62,17 @@ public class ManagerOrderJSON extends AManageOrder {
 
     @Override
     public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
-        ArrayList<Order> p = mapper.readValue(fr, new TypeReference<ArrayList<Order>>() {
-        });
-        return p;
+
+        Orders p = mapper.readValue(fr, Orders.class);
+        return p.get_ordersArrayList();
 
     }
 
     @Override
     public void saveAll() throws IOException {
-        mapper.writeValue(writer, getOrders().get_ordersArrayList());
-        fw.write(writer.toString());
+        //Запись в форматированном виде!
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(getOrders());
+        fw.write(json);
         fw.flush();
         fw.close();
 

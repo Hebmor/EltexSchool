@@ -1,9 +1,6 @@
 package ru.eltex.app.java.products;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -18,6 +15,16 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
         setterVisibility = NONE,
         creatorVisibility = NONE
 )
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Tablets.class, name = "tablets"),
+        @JsonSubTypes.Type(value = Tablets.screen_resolution.class, name = "screen_resolution"),
+
+
+})
 public class Tablets extends Devices implements Serializable {
 
     @JsonProperty("GPU")
@@ -25,9 +32,14 @@ public class Tablets extends Devices implements Serializable {
     @JsonProperty("screen_resolution screen")
     private  screen_resolution screen = new screen_resolution(0,0);
 
-    public class screen_resolution implements Serializable {
+    //    нестатические внутренние классы (включая анонимные) имеют набор скрытых переменных,
+//    добавляемых компилятором, передаваемых через (скрытый) конструктор
+//    Jackson не сможет провести парсинг не статического внутреннего класса!
+    public static class screen_resolution implements Serializable {
 
+        @JsonProperty("height")
         int height = 0;
+        @JsonProperty("width")
         int width = 0;
 
         public int getWidth() {
@@ -42,7 +54,7 @@ public class Tablets extends Devices implements Serializable {
             this.height = height;
         }
 
-        public screen_resolution(int height, int width) {
+        public screen_resolution(@JsonProperty("height") int height, @JsonProperty("width") int width) {
             this.height = height;
             this.width = width;
         }
@@ -76,10 +88,11 @@ public class Tablets extends Devices implements Serializable {
     }
 
     @JsonCreator
-    public Tablets(@JsonProperty("ID") UUID _ID, @JsonProperty("Price") int _price, @JsonProperty("Firm") String _firm, @JsonProperty("Model") String _model, @JsonProperty("OS") String _OS, @JsonProperty("Name") String _Name, @JsonProperty("GPU") String GPU, @JsonProperty("screen_resolution screen") screen_resolution screen) {
+    public Tablets(@JsonProperty("ID") UUID _ID, @JsonProperty("Price") int _price, @JsonProperty("Firm") String _firm, @JsonProperty("Model") String _model,
+                   @JsonProperty("OS") String _OS, @JsonProperty("Name") String _Name, @JsonProperty("GPU") String GPU, @JsonProperty("height") int height, @JsonProperty("width") int width) {
         super(_ID, _price, _firm, _model, _OS, _Name);
         this.GPU = GPU;
-        this.screen = screen;
+        this.screen = new screen_resolution(height, width);
     }
 
     @JsonIgnore
