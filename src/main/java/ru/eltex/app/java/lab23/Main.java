@@ -21,7 +21,6 @@ public class Main {
 
         GenerateInput(args);
         TestShop();
-        printDevicesArray();
     }
 
     public static void RunningInput(String[] _args) {
@@ -69,16 +68,8 @@ public class Main {
             }
 
         }
-        printDevicesArray();
     }
 
-    private static void printDevicesArray() {
-        for (var deviceObject : DevicesArray) {
-            System.out.println("-------------------------------------------------------------------");
-            deviceObject.read();
-            System.out.println("-------------------------------------------------------------------");
-        }
-    }
 
     private static void TestShop() {
         ShoppingCart<Smartphones> shoppingCart;

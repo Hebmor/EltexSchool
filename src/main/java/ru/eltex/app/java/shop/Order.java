@@ -110,6 +110,7 @@ public class Order implements Serializable {
     }
 
     public void showOrder() {
+        System.out.println("Заказ #:" + this.getID());
         System.out.println("Статус:" + this.getState());
         System.out.println("Время обработки:" + this.getTimeWait_ms());
         this.shoppingCart.showAllObjects();

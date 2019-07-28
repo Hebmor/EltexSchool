@@ -72,11 +72,11 @@ public class Main {
     public static void TestWrite(Orders write_orders) throws IOException, InterruptedException, ClassNotFoundException {
 
         managerOrderFile = new ManagerOrderFile("resource/binary_date/data.dat", write_orders);
-        managerOrderJSON = new ManagerOrderJSON("resource/binary_date/json_data.json", write_orders);
+        managerOrderJSON = new ManagerOrderJSON("resource/json/json_data.json", write_orders);
 
         //Гонка потоков
-        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 2000, 1, 1, false, false);
-        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 4000, 3, 2, false, false);
+        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 0, 3, 2, false, false);
+        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 0, 3, 2, false, false);
 
         generatorOrders.start();
         generatorOrders2.start();
@@ -85,7 +85,8 @@ public class Main {
         generatorOrders2.Join();
         managerOrderFile.saveAll();
         managerOrderJSON.saveById(1);
-        managerOrderJSON.saveById(3);
+        managerOrderJSON.saveById(0);
+        managerOrderJSON.saveById(2);
         //write_orders.showAllOrders();
 
     }
@@ -98,8 +99,9 @@ public class Main {
         binaryRead.setOrdersArrayList(managerOrderFile.readAll());
         binaryRead.showAllOrders();
         System.out.println("JSON FILE");
-        jsonRead.add(managerOrderJSON.readByID(1));
-        // jsonRead.add( managerOrderJSON.readByID(3));
+        jsonRead.add(managerOrderJSON.readByID(0));
+        jsonRead.add(managerOrderJSON.readByID(2));
+        //jsonRead.add( managerOrderJSON.readByID(3));
         jsonRead.showAllOrders();
     }
 
