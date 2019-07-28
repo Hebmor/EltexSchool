@@ -81,14 +81,19 @@ public class ManagerOrderJSON extends AManageOrder {
     @Override
     public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
 
+        File yourFile = new File(this.filePath);
+        yourFile.createNewFile(); // создать файл если не существует!
         fr = new FileReader(this.filePath);
+
         if (isFileClear(this.filePath)) {
+            File dir1 = new File(this.filePath);
             return null;
         } else {
             Orders p = mapper.readValue(fr, Orders.class);
             fr.close();
             return p.get_ordersArrayList();
         }
+
     }
 
     @Override
