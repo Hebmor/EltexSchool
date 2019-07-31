@@ -122,7 +122,7 @@ public class GeneratorOrders extends ACheck {
         }
     }
 
-    private Order getGenerateOrder() throws IOException {
+    public Order getGenerateOrder() throws IOException {
         Credentials credentials = GenerateFieldsCredentials();
         LinkedList<Devices> devicesLinkedList = new LinkedList<>();
         if (randomFlag)

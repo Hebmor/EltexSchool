@@ -298,6 +298,104 @@
         ]
       },
       "ID": 2
+    },
+    {
+      "timeCreate": 1564384850119,
+      "timeWait_ms": 56334,
+      "state": "PENDING",
+      "shoppingCart": {
+        "credential": {
+          "ID": 0,
+          "Families": "Бобров",
+          "Name": "Булат",
+          "Ochers": "Степанович",
+          "email": "gepetxhwoussb@sexpost.ru"
+        },
+        "devicesLinkedList": [
+          {
+            "type": "ru.eltex.app.java.products.Phones",
+            "ID": "7104e4e5-4af3-4d0c-8647-bda1d3fd960a",
+            "Price": 863399,
+            "Firm": "Lenovo",
+            "Model": "Redmi Note 7",
+            "OS": "Android",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeBody": "раскладушка"
+          },
+          {
+            "type": "ru.eltex.app.java.products.Phones",
+            "ID": "1229759a-06b0-442f-8444-d1e815654a6b",
+            "Price": 150355,
+            "Firm": "Samsung",
+            "Model": "Redmi Note 7",
+            "OS": "IOS",
+            "Name": "Apple iPhone 8 64GB",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.products.Phones",
+            "ID": "db0b388f-d814-4ce4-a44e-648d1a7a19a9",
+            "Price": 554895,
+            "Firm": "Huawei",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Apple iPhone 8 64GB",
+            "typeBody": "классический"
+          }
+        ]
+      },
+      "ID": 0
+    },
+    {
+      "timeCreate": 1564384850119,
+      "timeWait_ms": 73736,
+      "state": "PENDING",
+      "shoppingCart": {
+        "credential": {
+          "ID": 1,
+          "Families": "Громов",
+          "Name": "Тимофей",
+          "Ochers": "Георгиевич",
+          "email": "mitchellxb@gmail.com"
+        },
+        "devicesLinkedList": [
+          {
+            "type": "ru.eltex.app.java.products.Phones",
+            "ID": "f5845e0f-2338-4845-bac2-223ebf6df9a6",
+            "Price": 666433,
+            "Firm": "Lenovo",
+            "Model": "EE",
+            "OS": "Android",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeBody": "раскладушка"
+          },
+          {
+            "type": "ru.eltex.app.java.products.Phones",
+            "ID": "2259d238-bc14-4dfc-a0d6-7c5c7e984685",
+            "Price": 13326,
+            "Firm": "LG ",
+            "Model": "RB",
+            "OS": "IOS",
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.products.Tablets",
+            "ID": "f6d5eecd-490b-4eac-804b-2156d4f8047a",
+            "Price": 625140,
+            "Firm": "Huawei",
+            "Model": "RB",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "GPU": "PowerVR SGX530",
+            "screen_resolution screen": {
+              "height": 1098,
+              "width": 804
+            }
+          }
+        ]
+      },
+      "ID": 2
     }
   ]
 }

@@ -19,6 +19,14 @@ public class Orders<T extends Order> implements Serializable {
     @JsonProperty("ordersArrayList")
     private ArrayList<T> ordersArrayList = new ArrayList<T>();
 
+    public Orders(Order order) {
+        add((T) order);
+    }
+
+    public Orders() {
+
+    }
+
 
     public void add(T order) {
         ordersArrayList.add(order);
