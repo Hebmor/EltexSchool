@@ -71,8 +71,8 @@ public class Main {
 
     public static void TestWrite(Orders write_orders) throws IOException, InterruptedException, ClassNotFoundException {
 
-        managerOrderFile = new ManagerOrderFile("resource/binary_date/data.dat", write_orders);
-        managerOrderJSON = new ManagerOrderJSON("resource/json/json_data.json", write_orders);
+        managerOrderFile = new ManagerOrderFile("resources/binary_date/data.dat", write_orders);
+        managerOrderJSON = new ManagerOrderJSON("resources/json/json_data.json", write_orders);
 
         //Гонка потоков
         GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 0, 3, 2, false, false);
