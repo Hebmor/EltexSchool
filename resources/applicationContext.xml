@@ -7,9 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="ManagerOrderFile"
-          class="ru.eltex.app.java.shop.ManagerOrderFile">
-        <constructor-arg value="resources/binary_date/data.dat"/>
-    </bean>
+    <context:component-scan base-package="ru.eltex.app.java.model.shop" />
 
 </beans>

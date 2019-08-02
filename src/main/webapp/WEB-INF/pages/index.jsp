@@ -1,0 +1,13 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First MVC Application</title>
+</head>
+<body>
+
+<h1>First MVC Application</h1>
+<h2>${welcomemessage}</h2>
+
+</body>
+</html>
