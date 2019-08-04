@@ -15,7 +15,7 @@ import java.util.Date;
 )
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
+@JsonPropertyOrder({"ID", "state", "timeCreate", "timeWait_ms", "shoppingCart"})
 public class Order implements Serializable {
 
     @JsonView(View.Summary.class)

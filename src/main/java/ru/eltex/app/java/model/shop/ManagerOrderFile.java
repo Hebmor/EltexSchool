@@ -14,7 +14,7 @@ public class ManagerOrderFile extends AManageOrder {
 
     ObjectOutputStream objectOutputStream;
     ObjectInputStream objectInputStream;
-    private String filePath = "/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/binary_date/data.dat";
+    private String filePath = "src/main/resources/binary_date/data.dat";
 
 
     private ArrayList<Order> bufferArrayList = new ArrayList<>();

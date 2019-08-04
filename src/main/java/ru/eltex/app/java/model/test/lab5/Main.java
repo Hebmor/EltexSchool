@@ -71,8 +71,8 @@ public class Main {
 
     public static void TestWrite(Orders write_orders) throws IOException, InterruptedException, ClassNotFoundException, SimpleException {
 
-        managerOrderFile = new ManagerOrderFile("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/binary_date/data.dat", write_orders);
-        managerOrderJSON = new ManagerOrderJSON("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/json/json_data.json", write_orders);
+        managerOrderFile = new ManagerOrderFile("src/main/resources/binary_date/data.dat", write_orders);
+        managerOrderJSON = new ManagerOrderJSON("src/main/resources/json/json_data.json", write_orders);
 
         //Гонка потоков
         GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 0, 3, 4, false, false);

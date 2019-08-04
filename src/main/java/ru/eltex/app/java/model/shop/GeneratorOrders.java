@@ -19,10 +19,10 @@ public class GeneratorOrders extends ACheck {
     private Random random = new Random();
     private boolean randomFlag = false;
     private boolean repeatFlag = false;
-    private DataBaseController nameDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/NameBase");
-    private DataBaseController familiesDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/FamiliaBase");
-    private DataBaseController otchDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/OtchBase");
-    private DataBaseController emailDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/EmailBase");
+    private DataBaseController nameDatabase = new DataBaseController("src/main/resources/txt/NameBase");
+    private DataBaseController familiesDatabase = new DataBaseController("src/main/resources/txt/FamiliaBase");
+    private DataBaseController otchDatabase = new DataBaseController("src/main/resources/txt/OtchBase");
+    private DataBaseController emailDatabase = new DataBaseController("src/main/resources/txt/EmailBase");
 
     public GeneratorOrders() {
         super();

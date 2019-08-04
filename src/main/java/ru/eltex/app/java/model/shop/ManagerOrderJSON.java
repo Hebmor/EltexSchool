@@ -18,7 +18,7 @@ public class ManagerOrderJSON extends AManageOrder {
 
     private FileWriter fw;
     private FileReader fr;
-    private String filePath = "/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/json/json_data.json";
+    private String filePath = "src/main/resources/json/json_data.json";
     private StringWriter writer = new StringWriter();
 
     ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
