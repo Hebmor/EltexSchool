@@ -1,4 +1,4 @@
-package ru.eltex.app.java.model.lab5;
+package ru.eltex.app.java.model.test.lab5;
 
 
 import ru.eltex.app.java.model.products.Devices;
@@ -16,7 +16,7 @@ public class Main {
     private static ManagerOrderFile managerOrderFile;
     private static ManagerOrderJSON managerOrderJSON;
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException, SimpleException {
 
         Orders<Order> write_orders = new Orders<>();
         Orders<Order> read_orders = new Orders<>();
@@ -69,14 +69,14 @@ public class Main {
         }
     }
 
-    public static void TestWrite(Orders write_orders) throws IOException, InterruptedException, ClassNotFoundException {
+    public static void TestWrite(Orders write_orders) throws IOException, InterruptedException, ClassNotFoundException, SimpleException {
 
-        managerOrderFile = new ManagerOrderFile("resources/binary_date/data.dat", write_orders);
-        managerOrderJSON = new ManagerOrderJSON("resources/json/json_data.json", write_orders);
+        managerOrderFile = new ManagerOrderFile("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/binary_date/data.dat", write_orders);
+        managerOrderJSON = new ManagerOrderJSON("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/json/json_data.json", write_orders);
 
         //Гонка потоков
-        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 0, 3, 2, false, false);
-        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 0, 3, 2, false, false);
+        GeneratorOrders generatorOrders = new GeneratorOrders("gen1", write_orders, 0, 3, 4, false, false);
+        GeneratorOrders generatorOrders2 = new GeneratorOrders("gen2", write_orders, 0, 3, 4, false, false);
 
         generatorOrders.start();
         generatorOrders2.start();
@@ -84,14 +84,14 @@ public class Main {
         generatorOrders.Join();
         generatorOrders2.Join();
         managerOrderFile.saveAll();
-        managerOrderJSON.saveById(1);
-        managerOrderJSON.saveById(0);
+        managerOrderJSON.saveAll();
         managerOrderJSON.saveById(2);
-        //write_orders.showAllOrders();
+        managerOrderJSON.saveById(2);
+
 
     }
 
-    public static void TestRead(Orders read_orders) throws IOException, ClassNotFoundException {
+    public static void TestRead(Orders read_orders) throws IOException, ClassNotFoundException, SimpleException {
 
         Orders binaryRead = new Orders();
         Orders jsonRead = new Orders();
@@ -99,8 +99,8 @@ public class Main {
         binaryRead.setOrdersArrayList(managerOrderFile.readAll());
         binaryRead.showAllOrders();
         System.out.println("JSON FILE");
-        jsonRead.add(managerOrderJSON.readByID(0));
-        jsonRead.add(managerOrderJSON.readByID(2));
+        jsonRead.add(managerOrderJSON.readByID(1));
+        // jsonRead.add(managerOrderJSON.readByID(2));
         //jsonRead.add( managerOrderJSON.readByID(3));
         jsonRead.showAllOrders();
     }

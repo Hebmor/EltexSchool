@@ -1,7 +1,7 @@
 package ru.eltex.app.java.model.shop;
 
 import com.fasterxml.jackson.annotation.*;
-import org.springframework.stereotype.Component;
+import ru.eltex.app.java.config.View;
 import ru.eltex.app.java.model.products.Devices;
 
 import java.io.Serializable;
@@ -19,10 +19,13 @@ import java.util.UUID;
 
 public class ShoppingCart<T extends Devices> implements Serializable {
 
+    @JsonView(View.Summary.class)
     @JsonProperty
     private Credentials credential;
+    @JsonView(View.Summary.class)
     @JsonProperty
     private LinkedList<T> devicesLinkedList;
+    @JsonView(View.Summary.class)
     @JsonIgnore
     private HashSet<UUID> productIdentifiers;
 

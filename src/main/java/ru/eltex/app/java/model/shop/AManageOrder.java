@@ -1,10 +1,15 @@
 package ru.eltex.app.java.model.shop;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
+@Component
 public abstract class AManageOrder implements IOrder {
 
+    @Autowired
     private Orders orders;
 
     public void setOrders(Orders orders) {
@@ -16,17 +21,17 @@ public abstract class AManageOrder implements IOrder {
     }
 
     @Override
-    public Order readByID(int id) throws IOException, ClassNotFoundException {
+    public Order readByID(int id) throws IOException, ClassNotFoundException, SimpleException {
         return null;
     }
 
     @Override
-    public void saveById(int id) throws IOException, ClassNotFoundException {
+    public void saveById(int id) throws IOException, ClassNotFoundException, SimpleException {
 
     }
 
     @Override
-    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
+    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException, SimpleException {
         return null;
     }
 

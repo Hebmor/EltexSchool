@@ -1,10 +1,7 @@
 package ru.eltex.app.java.model.products;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.*;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -24,10 +21,12 @@ public class Smartphones extends Devices implements Serializable {
     }
 
     @JsonProperty("typeSIMcard")
+    @JsonView(View.Summary.class)
     public String typeSIMcard;
     @JsonIgnore
     private transient String[] random_database_typeSIMcard = {"micro-SIM", "обычная"};
     @JsonProperty("countSIMcard")
+    @JsonView(View.Summary.class)
     public int countSIMcard = 0;
 
     public Smartphones(String typeSIMcard) {

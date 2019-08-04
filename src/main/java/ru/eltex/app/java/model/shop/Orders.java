@@ -2,6 +2,7 @@ package ru.eltex.app.java.model.shop;
 
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,12 +16,14 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
         creatorVisibility = Visibility.NONE
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
+@Service
 public class Orders<T extends Order> implements Serializable {
 
     @JsonProperty("ordersArrayList")
     private ArrayList<T> ordersArrayList = new ArrayList<T>();
 
+    public Orders() {
+    }
 
     public void add(T order) {
         ordersArrayList.add(order);
@@ -63,8 +66,18 @@ public class Orders<T extends Order> implements Serializable {
         return ordersArrayList;
     }
 
-    public void delete(T _order) {
-        ordersArrayList.remove(_order);
+    public boolean delete(T _order) {
+        return ordersArrayList.remove(_order);
+    }
+
+    public boolean delete(int id) throws SimpleException {
+        for (Order order : ordersArrayList) {
+            if (order.getID() == id) {
+                ordersArrayList.remove(order);
+                return true;
+            }
+        }
+        throw new SimpleException("Нет такого заказа!", 1);
     }
 
 }

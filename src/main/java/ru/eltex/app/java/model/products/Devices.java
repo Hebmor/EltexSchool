@@ -1,7 +1,7 @@
 package ru.eltex.app.java.model.products;
 
 import com.fasterxml.jackson.annotation.*;
-import org.springframework.stereotype.Component;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -30,18 +30,24 @@ import java.util.UUID;
 public class Devices implements PrototypeDevices, ICrubAction, Serializable {
 
     @JsonProperty("ID")
+    @JsonView(View.Summary.class)
     private UUID ID;
     @JsonProperty("Price")
+    @JsonView(View.Summary.class)
     private int Price;
     @JsonIgnore
     private transient static int CountProduct = 0;
     @JsonProperty("Firm")
+    @JsonView(View.Summary.class)
     private String Firm;
     @JsonProperty("Model")
+    @JsonView(View.Summary.class)
     private String Model;
     @JsonProperty("OS")
+    @JsonView(View.Summary.class)
     private String OS;
     @JsonProperty("Name")
+    @JsonView(View.Summary.class)
     private String Name;
 
     @JsonIgnore

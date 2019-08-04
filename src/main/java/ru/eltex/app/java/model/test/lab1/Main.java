@@ -1,4 +1,4 @@
-package ru.eltex.app.java.model.lab1;
+package ru.eltex.app.java.model.test.lab1;
 
 
 import ru.eltex.app.java.model.products.Devices;

@@ -2,7 +2,7 @@ package ru.eltex.app.java.model.shop;
 
 
 import com.fasterxml.jackson.annotation.*;
-import org.springframework.stereotype.Component;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,15 +18,19 @@ import java.util.Date;
 
 public class Order implements Serializable {
 
-
-    @JsonProperty("timeCreate")
-    private Date timeCreate;
-    @JsonProperty("timeWait_ms")
-    private long timeWait_ms = 0;
+    @JsonView(View.Summary.class)
     @JsonProperty("state")
     stateWork state;
+    @JsonView(View.Summary.class)
+    @JsonProperty("timeCreate")
+    private Date timeCreate;
+    @JsonView(View.Summary.class)
+    @JsonProperty("timeWait_ms")
+    private long timeWait_ms = 0;
+    @JsonView(View.Summary.class)
     @JsonProperty("shoppingCart")
     private ShoppingCart shoppingCart;
+    @JsonView(View.Summary.class)
     @JsonProperty("ID")
     private int ID;
     @JsonIgnore

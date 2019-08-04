@@ -1,7 +1,7 @@
 package ru.eltex.app.java.model.products;
 
 import com.fasterxml.jackson.annotation.*;
-import org.springframework.stereotype.Component;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -30,8 +30,10 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
 public class Tablets extends Devices implements Serializable {
 
     @JsonProperty("GPU")
+    @JsonView(View.Summary.class)
     private String GPU;
     @JsonProperty("screen_resolution screen")
+    @JsonView(View.Summary.class)
     private screen_resolution screen = new screen_resolution(0, 0);
 
     //    нестатические внутренние классы (включая анонимные) имеют набор скрытых переменных,
@@ -40,7 +42,9 @@ public class Tablets extends Devices implements Serializable {
     public static class screen_resolution implements Serializable {
 
         @JsonProperty("height")
+        @JsonView(View.Summary.class)
         int height = 0;
+        @JsonView(View.Summary.class)
         @JsonProperty("width")
         int width = 0;
 

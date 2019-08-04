@@ -1,10 +1,7 @@
 package ru.eltex.app.java.model.products;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.*;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -19,6 +16,7 @@ import java.util.UUID;
 public class Phones extends Devices implements Serializable {
 
 
+    @JsonView(View.Summary.class)
     @JsonProperty("typeBody")
     private String typeBody;
     @JsonIgnore

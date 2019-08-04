@@ -17,7 +17,7 @@ public class DataBaseController {
         if (path.exists())
             return path;
         else {
-            System.out.println("???? ?? ?????????? ???? ?? ??????????!");
+            System.out.println("Файл не может быть открыт или не существует!");
             return null;
         }
     }

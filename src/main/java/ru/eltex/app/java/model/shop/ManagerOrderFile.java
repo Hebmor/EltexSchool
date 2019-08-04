@@ -14,10 +14,25 @@ public class ManagerOrderFile extends AManageOrder {
 
     ObjectOutputStream objectOutputStream;
     ObjectInputStream objectInputStream;
+    private String filePath = "/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/binary_date/data.dat";
+
 
     private ArrayList<Order> bufferArrayList = new ArrayList<>();
 
+    public ManagerOrderFile() throws FileNotFoundException {
+        outputStream = new FileOutputStream(this.filePath);
+        fileInputStream = new FileInputStream(this.filePath);
+        try {
+            objectOutputStream = new ObjectOutputStream(outputStream);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public ManagerOrderFile(String path) throws FileNotFoundException {
+        this.filePath = path;
         outputStream = new FileOutputStream(path);
         fileInputStream = new FileInputStream(path);
         try {

@@ -1,0 +1,281 @@
+{
+  "ordersArrayList": [
+    {
+      "timeCreate": 1564918785186,
+      "timeWait_ms": 47193,
+      "state": "PENDING",
+      "shoppingCart": {
+        "credential": {
+          "ID": 0,
+          "Families": "Гуляев",
+          "Name": "Густав",
+          "Ochers": "Алексеевич",
+          "email": "dale.wijnand@gmail.com"
+        },
+        "devicesLinkedList": [
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "e03e6bfb-ee7c-4f9f-8106-8da926b5b34b",
+            "Price": 81035,
+            "Firm": "Xiaomi ",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "c20bf382-cb50-44c4-843b-8caa02d1f9fd",
+            "Price": 797391,
+            "Firm": "Xiaomi ",
+            "Model": "EE",
+            "OS": "IOS",
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "853d935a-afd0-4097-b2a5-f0c1829c0e43",
+            "Price": 580651,
+            "Firm": "Huawei",
+            "Model": "RB",
+            "OS": "IOS",
+            "Name": "HUAWEI P Smart (2019) 3/32GB",
+            "GPU": "NVIDIA Tegra K1 Kepler GPU",
+            "screen_resolution screen": {
+              "height": 1808,
+              "width": 3576
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "f4aebfac-96e8-42eb-8b54-34dd517cf443",
+            "Price": 226773,
+            "Firm": "OnePlus ",
+            "Model": "A1",
+            "OS": "Android",
+            "Name": "Samsung Galaxy A10",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 2
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "e99c4996-fda4-492d-93ed-94e635b14faf",
+            "Price": 825918,
+            "Firm": "Samsung",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "GPU": "Qualcomm Adreno 640",
+            "screen_resolution screen": {
+              "height": 866,
+              "width": 1936
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "e2533d95-1800-412e-8d3e-defec6154da0",
+            "Price": 85430,
+            "Firm": "Apple",
+            "Model": "A1",
+            "OS": "Windows Phone",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "91e45248-81df-41cd-8218-6f2209bff5a3",
+            "Price": 234488,
+            "Firm": "OnePlus ",
+            "Model": "K1",
+            "OS": "Android",
+            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "GPU": "Apple A12X Bionic GPU",
+            "screen_resolution screen": {
+              "height": 239,
+              "width": 825
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "5c17276b-4d46-4581-9a71-4c8f3b1212d9",
+            "Price": 441352,
+            "Firm": "LG ",
+            "Model": "N4",
+            "OS": "Android",
+            "Name": "HUAWEI P Smart (2019) 3/32GB",
+            "GPU": "ARM Mali-G76 MP10",
+            "screen_resolution screen": {
+              "height": 386,
+              "width": 1404
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "888edd33-feaf-47b8-b012-cd76005f551f",
+            "Price": 751320,
+            "Firm": "Apple",
+            "Model": "A1",
+            "OS": "Windows Phone",
+            "Name": "Apple iPhone 8 64GB",
+            "GPU": "PowerVR GXA6850",
+            "screen_resolution screen": {
+              "height": 433,
+              "width": 3221
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "c4bf5974-ee3c-4786-9574-3210f31831ab",
+            "Price": 927085,
+            "Firm": "Huawei",
+            "Model": "EE",
+            "OS": "IOS",
+            "Name": "HUAWEI Y5 (2019) 32GB",
+            "GPU": "PowerVR SGX530",
+            "screen_resolution screen": {
+              "height": 2026,
+              "width": 2080
+            }
+          }
+        ]
+      },
+      "ID": 3
+    },
+    {
+      "timeCreate": 1564918795019,
+      "timeWait_ms": 88616,
+      "state": "PENDING",
+      "shoppingCart": {
+        "credential": {
+          "ID": 9,
+          "Families": "Жуков",
+          "Name": "Даниэль",
+          "Ochers": "Леонидович",
+          "email": " tzgoaugil@email.ru "
+        },
+        "devicesLinkedList": [
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "0cf8019e-3dfd-4a49-8aea-292ccd2c01fc",
+            "Price": 559883,
+            "Firm": "Huawei",
+            "Model": "EE",
+            "OS": "Windows Phone",
+            "Name": "HUAWEI Y5 (2019) 32GB",
+            "GPU": "PowerVR SGX530",
+            "screen_resolution screen": {
+              "height": 3650,
+              "width": 3717
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "f4cbc588-502c-4977-8d03-f7d58dff30d7",
+            "Price": 440194,
+            "Firm": "Apple",
+            "Model": "K1",
+            "OS": "IOS",
+            "Name": "Apple iPhone 8 64GB",
+            "GPU": "Qualcomm Adreno 640",
+            "screen_resolution screen": {
+              "height": 1313,
+              "width": 2047
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "e0144599-a113-47a1-86c6-cff9ff9fbd2f",
+            "Price": 261667,
+            "Firm": "Xiaomi ",
+            "Model": "A1",
+            "OS": "IOS",
+            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "typeBody": "раскладушка"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "833bd3e3-060f-4848-8672-9951dd3c7a4a",
+            "Price": 328299,
+            "Firm": "Xiaomi ",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "typeBody": "раскладушка"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "002a3267-c456-46a9-91b0-2b59291bda1a",
+            "Price": 562566,
+            "Firm": "Apple",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Apple iPhone 8 64GB",
+            "GPU": "Qualcomm Adreno 640",
+            "screen_resolution screen": {
+              "height": 2200,
+              "width": 438
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "58a7c26a-77e0-4597-adf3-be1155ba7acc",
+            "Price": 795837,
+            "Firm": "LG ",
+            "Model": "K1",
+            "OS": "Windows Phone",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeBody": "раскладушка"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "736a9602-af55-42ed-a571-151307473d2f",
+            "Price": 460981,
+            "Firm": "LG ",
+            "Model": "EE",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "56fee80a-eb9c-4809-a2f9-4d9afa6901b4",
+            "Price": 831478,
+            "Firm": "Huawei",
+            "Model": "RB",
+            "OS": "Android",
+            "Name": "HUAWEI P Smart (2019) 3/32GB",
+            "typeSIMcard": "micro-SIM",
+            "countSIMcard": 1
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "79c5b746-2a0f-4fb9-b518-184174f0a169",
+            "Price": 563115,
+            "Firm": "SONY",
+            "Model": "C2",
+            "OS": "Android",
+            "Name": "HUAWEI Y5 (2019) 32GB",
+            "GPU": "PowerVR GXA6850",
+            "screen_resolution screen": {
+              "height": 1956,
+              "width": 1293
+            }
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "3f2630c6-dd6a-42d8-90c0-2bb62360931e",
+            "Price": 881014,
+            "Firm": "Huawei",
+            "Model": "C2",
+            "OS": "Android",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeBody": "раскладушка"
+          }
+        ]
+      },
+      "ID": 1
+    }
+  ]
+}

@@ -1,23 +1,33 @@
 package ru.eltex.app.java.model.shop;
 
+import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import ru.eltex.app.java.model.products.Devices;
+import ru.eltex.app.java.model.products.Phones;
+import ru.eltex.app.java.model.products.Smartphones;
+import ru.eltex.app.java.model.products.Tablets;
 
 import java.io.*;
 import java.util.ArrayList;
 
-
+@Service
 public class ManagerOrderJSON extends AManageOrder {
 
     private FileWriter fw;
     private FileReader fr;
-    private String filePath;
+    private String filePath = "/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/json/json_data.json";
     private StringWriter writer = new StringWriter();
 
     ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
+    public ManagerOrderJSON() {
+        this.mapper.enableDefaultTyping();
 
+        mapper.registerSubtypes(Phones.class, Devices.class, Smartphones.class, Tablets.class);
+    }
     public ManagerOrderJSON(String path, Orders orders) throws IOException {
 
         this.setOrders(orders);
@@ -28,6 +38,7 @@ public class ManagerOrderJSON extends AManageOrder {
     public ManagerOrderJSON(StringWriter writer, ObjectMapper mapper) throws IOException {
         this.writer = writer;
         this.mapper = mapper;
+        this.mapper.enableDefaultTyping();
     }
 
     public StringWriter getWriter() {
@@ -47,7 +58,7 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public Order readByID(int id) throws IOException, ClassNotFoundException {
+    public Order readByID(int id) throws IOException, ClassNotFoundException, SimpleException {
 
         Order order = SearchOrderByID(id, readAll());
         if (order == null) {
@@ -59,7 +70,7 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public void saveById(int id) throws IOException, ClassNotFoundException {
+    public void saveById(int id) throws IOException, ClassNotFoundException, SimpleException {
         Orders read_orders = new Orders();
         ArrayList<Order> orderArrayList = readAll();
         Order idOrder = SearchOrderByID(id, getOrders().get_ordersArrayList());
@@ -80,19 +91,24 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
+    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException, SimpleException {
 
-        File yourFile = new File(this.filePath);
-        yourFile.createNewFile(); // создать файл если не существует!
-        fr = new FileReader(this.filePath);
+        try {
+            File yourFile = new File(this.filePath);
+            yourFile.createNewFile(); // создать файл если не существует!
+            fr = new FileReader(this.filePath);
 
-        if (isFileClear(this.filePath)) {
-            File dir1 = new File(this.filePath);
-            return null;
-        } else {
-            Orders p = mapper.readValue(fr, Orders.class);
-            fr.close();
-            return p.get_ordersArrayList();
+            if (isFileClear(this.filePath)) {
+                File dir1 = new File(this.filePath);
+                fr.close();
+                return null;
+            } else {
+                Orders p = mapper.readValue(fr, Orders.class);
+                fr.close();
+                return p.get_ordersArrayList();
+            }
+        } catch (IOException ex) {
+            throw new SimpleException("Файл поврежден!", 2);
         }
 
     }

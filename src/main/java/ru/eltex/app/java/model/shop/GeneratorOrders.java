@@ -1,5 +1,6 @@
 package ru.eltex.app.java.model.shop;
 
+import org.springframework.stereotype.Service;
 import ru.eltex.app.java.model.products.Devices;
 import ru.eltex.app.java.model.products.Phones;
 import ru.eltex.app.java.model.products.Smartphones;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Random;
 
+@Service
 public class GeneratorOrders extends ACheck {
 
     private int maxCountDevices = 10;
@@ -17,10 +19,10 @@ public class GeneratorOrders extends ACheck {
     private Random random = new Random();
     private boolean randomFlag = false;
     private boolean repeatFlag = false;
-    private DataBaseController nameDatabase = new DataBaseController("resource/txt/NameBase");
-    private DataBaseController familiesDatabase = new DataBaseController("resource/txt/FamiliaBase");
-    private DataBaseController otchDatabase = new DataBaseController("resource/txt/OtchBase");
-    private DataBaseController emailDatabase = new DataBaseController("resource/txt/EmailBase");
+    private DataBaseController nameDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/NameBase");
+    private DataBaseController familiesDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/FamiliaBase");
+    private DataBaseController otchDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/OtchBase");
+    private DataBaseController emailDatabase = new DataBaseController("/home/ubuntumachina/IdeaProjects/EltexSchool/src/main/resources/txt/EmailBase");
 
     public GeneratorOrders() {
         super();
@@ -122,7 +124,7 @@ public class GeneratorOrders extends ACheck {
         }
     }
 
-    private Order getGenerateOrder() throws IOException {
+    public Order getGenerateOrder() throws IOException {
         Credentials credentials = GenerateFieldsCredentials();
         LinkedList<Devices> devicesLinkedList = new LinkedList<>();
         if (randomFlag)

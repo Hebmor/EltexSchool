@@ -2,7 +2,8 @@ package ru.eltex.app.java.model.shop;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonView;
+import ru.eltex.app.java.config.View;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -17,17 +18,18 @@ import java.util.Scanner;
 
 public class Credentials implements Serializable {
 
-
+    @JsonView(View.Summary.class)
     private int ID = 0;
 
     private transient Scanner in = new Scanner(System.in);
 
+    @JsonView(View.Summary.class)
     private String Families;
-
+    @JsonView(View.Summary.class)
     private String Name;
-
+    @JsonView(View.Summary.class)
     private String Ochers;
-
+    @JsonView(View.Summary.class)
     private String email;
 
     static transient private int countCredentials = 0;
