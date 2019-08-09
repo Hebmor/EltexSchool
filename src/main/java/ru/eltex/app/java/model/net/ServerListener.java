@@ -8,7 +8,8 @@ import java.net.*;
 
 public class ServerListener extends Thread {
 
-    int udpAlertPort = 0;
+    private int udpAlertPort = 0;
+    private int clientIP = 0;
     private Socket socket;
     private ObjectInputStream in;
     private BufferedWriter out;
@@ -25,9 +26,12 @@ public class ServerListener extends Thread {
         Order order = null;
 
         try {
+            System.out.println();
             order = (Order) in.readObject();
             this.udpAlertPort = (int) in.readObject();
-            Server.addOrderToOrderMap(udpAlertPort, order);
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(socket.getLocalAddress(),this.udpAlertPort);
+
+            Server.addOrderToOrderMap(inetSocketAddress, order);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

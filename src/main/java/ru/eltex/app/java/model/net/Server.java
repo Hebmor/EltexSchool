@@ -10,9 +10,8 @@ import java.util.*;
 
 public class Server {
     static public boolean checkFlag = false;
-    static HashMap<Integer, Order> ordersMap = new HashMap<Integer, Order>();
+    static HashMap<InetSocketAddress, Order> ordersMap = new HashMap<InetSocketAddress, Order>();
     private static PendingCheck pendingCheck;
-    private ArrayList<ServerListener> tcpSocketClientCollection = new ArrayList<>();
     private int broadcastUDP_Port = 1667;
     private int TCP_Port;
     private ServerSocket tcpSocket = new ServerSocket(0);
@@ -21,8 +20,8 @@ public class Server {
     public Server() throws IOException {
     }
 
-    static public void addOrderToOrderMap(int socketPort, Order order) {
-        ordersMap.put(socketPort, order);
+    static public void addOrderToOrderMap(InetSocketAddress clientAddress, Order order) {
+        ordersMap.put(clientAddress, order);
         updatePendingCheck(pendingCheck);
     }
 

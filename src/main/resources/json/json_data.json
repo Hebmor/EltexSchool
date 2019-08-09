@@ -3,54 +3,48 @@
     {
       "ID": 0,
       "state": "PENDING",
-      "timeCreate": 1564987993638,
-      "timeWait_ms": 11783,
+      "timeCreate": 1565335441871,
+      "timeWait_ms": 30719,
       "shoppingCart": {
         "credential": {
           "ID": 0,
-          "Families": "Вишняков",
-          "Name": "Арий",
-          "Ochers": "Григорьевич",
-          "email": " kat5ntu5cwa6niz@mail.ru "
+          "Families": "Воробьёв",
+          "Name": "Адам",
+          "Ochers": "Иванович",
+          "email": "teterin@agriculture.ru"
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "d3d08a51-8168-4fd2-996f-feeb8d901872",
-            "Price": 919700,
-            "Firm": "OnePlus ",
-            "Model": "A1",
-            "OS": "Windows Phone",
-            "Name": "Samsung Galaxy S10e 6/128GB",
-            "GPU": "Qualcomm Adreno 640",
-            "screen_resolution screen": {
-              "height": 2219,
-              "width": 3555
-            }
-          },
-          {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "4c2bea4b-9f29-4faf-aac6-5dc7b70bf36d",
-            "Price": 434907,
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "2a8f24a8-e17b-4e72-bed4-a0118f6a86a3",
+            "Price": 910076,
             "Firm": "Xiaomi ",
-            "Model": "N4",
-            "OS": "Windows Phone",
-            "Name": "Apple iPhone 8 64GB",
-            "GPU": "PowerVR SGX530",
-            "screen_resolution screen": {
-              "height": 2522,
-              "width": 2480
-            }
+            "Model": "Redmi Note 7",
+            "OS": "Android",
+            "Name": "HUAWEI Y5 (2019) 32GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 2
           },
           {
             "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "0ce8bed0-576a-45bd-aa47-fcadda7e0b57",
-            "Price": 140618,
-            "Firm": "Lenovo",
+            "ID": "84e11d48-5e7a-44d9-8438-b54ba2742eec",
+            "Price": 578223,
+            "Firm": "OnePlus ",
             "Model": "RB",
-            "OS": "Windows Phone",
-            "Name": "Samsung Galaxy A10",
-            "typeBody": "раскладушка"
+            "OS": "IOS",
+            "Name": "Apple iPhone 8 64GB",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "cd08c1ed-56e5-4ff5-bd4e-df335671c4e2",
+            "Price": 178699,
+            "Firm": "Huawei",
+            "Model": "Redmi Note 7",
+            "OS": "Android",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
           }
         ]
       }
@@ -58,50 +52,49 @@
     {
       "ID": 1,
       "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 90691,
+      "timeCreate": 1565335441872,
+      "timeWait_ms": 97557,
       "shoppingCart": {
         "credential": {
-          "ID": 2,
-          "Families": "Громов",
-          "Name": "Егор",
-          "Ochers": "Евгеньевич",
-          "email": "ChristopherDavenport@outlook.com"
+          "ID": 1,
+          "Families": "Гущин",
+          "Name": "Любим",
+          "Ochers": "Алексеевич",
+          "email": " lawpro-6045@list.ru "
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "a17592d3-6b53-4528-a855-2afce67d4574",
-            "Price": 663933,
-            "Firm": "Lenovo",
-            "Model": "C2",
-            "OS": "Windows Phone",
-            "Name": "Samsung Galaxy S10e 6/128GB",
-            "typeBody": "классический"
-          },
-          {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "2e68a905-778a-4a7a-b545-d0d0ffb6b98c",
-            "Price": 570035,
-            "Firm": "Apple",
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "ba4a6444-695b-4c42-b903-df7cef5aa485",
+            "Price": 498970,
+            "Firm": "Samsung",
             "Model": "N4",
             "OS": "IOS",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
-            "GPU": "ARM Mali-400 MP2",
-            "screen_resolution screen": {
-              "height": 89,
-              "width": 1241
-            }
+            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
           },
           {
-            "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "11cb16f1-fd4c-4393-b2b8-950f8fd6b71c",
-            "Price": 582700,
-            "Firm": "Apple",
-            "Model": "K1",
-            "OS": "IOS",
-            "Name": "Xiaomi Redmi 7 3/32GB",
-            "typeBody": "раскладушка"
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "7320fdce-ca9e-42b5-8488-0ab28ff97364",
+            "Price": 90036,
+            "Firm": "Samsung",
+            "Model": "EE",
+            "OS": "Android",
+            "Name": "HUAWEI P Smart (2019) 3/32GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 2
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "a810e7a1-bd3c-41df-a637-b9ee8c472496",
+            "Price": 943320,
+            "Firm": "Lenovo",
+            "Model": "Redmi Note 7",
+            "OS": "Windows Phone",
+            "Name": "Apple iPhone 8 64GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
           }
         ]
       }
@@ -109,52 +102,47 @@
     {
       "ID": 2,
       "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 65382,
+      "timeCreate": 1565335441872,
+      "timeWait_ms": 51212,
       "shoppingCart": {
         "credential": {
-          "ID": 3,
-          "Families": "Аксёнов",
-          "Name": "Соломон",
-          "Ochers": "Ярославович",
-          "email": " detka_05@mail.ru "
+          "ID": 2,
+          "Families": "Герасимов",
+          "Name": "Альберт",
+          "Ochers": "Юрьевич",
+          "email": "ichoran@gmail.com"
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "a2222928-5a73-45a5-be39-b8a5c082ea40",
-            "Price": 859632,
-            "Firm": "Lenovo",
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "c30912ea-7f56-48ab-837e-155739ae5db6",
+            "Price": 30081,
+            "Firm": "Huawei",
             "Model": "A1",
             "OS": "IOS",
-            "Name": "Samsung Galaxy S10e 6/128GB",
-            "typeSIMcard": "обычная",
-            "countSIMcard": 2
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeBody": "раскладушка"
           },
           {
             "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "f5191327-2269-4f46-b94b-afda0bb15359",
-            "Price": 977710,
-            "Firm": "LG ",
+            "ID": "7f1f6bc8-84d4-42c8-b658-14d3473ca6d1",
+            "Price": 99456,
+            "Firm": "Huawei",
             "Model": "N4",
-            "OS": "IOS",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
-            "typeSIMcard": "micro-SIM",
-            "countSIMcard": 2
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy A10",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
           },
           {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "d8e38f23-0995-408e-96fc-9995ff254961",
-            "Price": 176990,
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "86f26a91-9d7f-4158-af6c-c65a53ef6813",
+            "Price": 60852,
             "Firm": "Xiaomi ",
-            "Model": "A1",
+            "Model": "Redmi Note 7",
             "OS": "Android",
-            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
-            "GPU": "ARM Mali-400 MP2",
-            "screen_resolution screen": {
-              "height": 2591,
-              "width": 1873
-            }
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
           }
         ]
       }
@@ -162,51 +150,54 @@
     {
       "ID": 3,
       "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 49119,
+      "timeCreate": 1565335441872,
+      "timeWait_ms": 9774,
       "shoppingCart": {
         "credential": {
-          "ID": 4,
-          "Families": "Быков",
-          "Name": "Айрат",
-          "Ochers": "Феликсович",
-          "email": "michal.pociecha@gmail.com"
+          "ID": 3,
+          "Families": "Виноградов",
+          "Name": "Камиль",
+          "Ochers": "Кириллович",
+          "email": " kobwhhprtog@average.org "
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "a3b00ada-eef5-48a3-9f24-ad77b4f2dc97",
-            "Price": 981764,
-            "Firm": "Lenovo",
-            "Model": "K1",
-            "OS": "IOS",
-            "Name": "Xiaomi Redmi 7 3/32GB",
-            "typeSIMcard": "micro-SIM",
-            "countSIMcard": 1
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "8a7e5507-1990-4685-852c-b729028d3c1b",
+            "Price": 945238,
+            "Firm": "Samsung",
+            "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeBody": "классический"
           },
           {
             "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "b24ffa49-abee-47c1-844f-a2dbec5e241c",
-            "Price": 336962,
-            "Firm": "LG ",
-            "Model": "A1",
-            "OS": "IOS",
-            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
-            "GPU": "Apple A12X Bionic GPU",
+            "ID": "9ac480cf-1a92-4b9d-81d4-a505e8143bd2",
+            "Price": 915459,
+            "Firm": "Xiaomi ",
+            "Model": "N4",
+            "OS": "Android",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "GPU": "PowerVR GXA6850",
             "screen_resolution screen": {
-              "height": 3804,
-              "width": 1651
+              "height": 1720,
+              "width": 94
             }
           },
           {
-            "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "b4eb0f04-2f7b-4102-8269-67acf25490be",
-            "Price": 264878,
-            "Firm": "Lenovo",
-            "Model": "N4",
-            "OS": "Android",
-            "Name": "Xiaomi Redmi 7 3/32GB",
-            "typeBody": "раскладушка"
+            "type": "ru.eltex.app.java.model.products.Tablets",
+            "ID": "baedad9a-42e4-45ac-aa44-bb27e199b2db",
+            "Price": 635280,
+            "Firm": "Samsung",
+            "Model": "Redmi Note 7",
+            "OS": "IOS",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "GPU": "PowerVR GXA6850",
+            "screen_resolution screen": {
+              "height": 1433,
+              "width": 775
+            }
           }
         ]
       }
@@ -214,50 +205,51 @@
     {
       "ID": 4,
       "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 86323,
+      "timeCreate": 1565335441873,
+      "timeWait_ms": 32897,
       "shoppingCart": {
         "credential": {
-          "ID": 5,
-          "Families": "Белоусов",
-          "Name": "Ждан",
-          "Ochers": "Геннадиевич",
-          "email": " *@goldenmail.ru "
+          "ID": 4,
+          "Families": "Жданов",
+          "Name": "Клим",
+          "Ochers": "Леонидович",
+          "email": "Mailer-Daemon@f63.mail.ru "
         },
         "devicesLinkedList": [
           {
             "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "f78b182e-457e-45cf-81fa-b2d2bf4ac0a0",
-            "Price": 829673,
-            "Firm": "Huawei",
-            "Model": "Redmi Note 7",
+            "ID": "b6640e50-76bb-4924-b4f8-490a1fff1322",
+            "Price": 133279,
+            "Firm": "Xiaomi ",
+            "Model": "RB",
             "OS": "IOS",
-            "Name": "Samsung Galaxy A10",
-            "typeBody": "раскладушка"
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeBody": "классический"
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "e6a983f2-d75c-438a-8a00-61f2a179db1d",
+            "Price": 882026,
+            "Firm": "SONY",
+            "Model": "EE",
+            "OS": "IOS",
+            "Name": "Apple iPhone 8 64GB",
+            "typeSIMcard": "micro-SIM",
+            "countSIMcard": 1
           },
           {
             "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "529c7369-011d-48a1-b1c5-0cecb01eb996",
-            "Price": 705922,
+            "ID": "4e98cef9-225c-4aba-9a78-c141eaf23ba3",
+            "Price": 269146,
             "Firm": "Lenovo",
-            "Model": "A1",
-            "OS": "IOS",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
-            "GPU": "Apple A12X Bionic GPU",
+            "Model": "C2",
+            "OS": "Android",
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "GPU": "ARM Mali-G76 MP10",
             "screen_resolution screen": {
-              "height": 356,
-              "width": 2045
+              "height": 1848,
+              "width": 1437
             }
-          },
-          {
-            "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "98de7113-ba9f-4d69-a1eb-35b9845b16e2",
-            "Price": 451171,
-            "Firm": "LG ",
-            "Model": "N4",
-            "OS": "Windows Phone",
-            "Name": "Samsung Galaxy A10",
-            "typeBody": "классический"
           }
         ]
       }
@@ -265,48 +257,47 @@
     {
       "ID": 5,
       "state": "PENDING",
-      "timeCreate": 1564987993640,
-      "timeWait_ms": 67484,
+      "timeCreate": 1565335441873,
+      "timeWait_ms": 93631,
       "shoppingCart": {
         "credential": {
-          "ID": 6,
-          "Families": "Доронин",
-          "Name": "Автандил",
-          "Ochers": "Михайлович",
-          "email": "cvarming@twitter.com"
+          "ID": 5,
+          "Families": "Егоров",
+          "Name": "Архип",
+          "Ochers": "Викторович",
+          "email": " hwnmmcjll3gcvsa@mail.ru "
         },
         "devicesLinkedList": [
           {
             "type": "ru.eltex.app.java.model.products.Phones",
-            "ID": "58191d66-93fa-4d15-8aff-8ecc5d8de566",
-            "Price": 981863,
-            "Firm": "Xiaomi ",
-            "Model": "EE",
-            "OS": "Android",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
+            "ID": "e4e352cd-964e-4e5b-b6fb-9494e4c259e3",
+            "Price": 146591,
+            "Firm": "SONY",
+            "Model": "C2",
+            "OS": "IOS",
+            "Name": "Samsung Galaxy A10",
             "typeBody": "раскладушка"
           },
           {
             "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "7c5d45ff-97b1-43d7-961b-24ed7a1e56ea",
-            "Price": 703377,
-            "Firm": "OnePlus ",
-            "Model": "K1",
-            "OS": "IOS",
-            "Name": "Samsung Galaxy S10e 6/128GB",
+            "ID": "bc36520f-e15d-4e16-b8a4-146f8f33ccc1",
+            "Price": 672102,
+            "Firm": "LG ",
+            "Model": "RB",
+            "OS": "Android",
+            "Name": "Samsung Galaxy A10",
             "typeSIMcard": "обычная",
-            "countSIMcard": 1
+            "countSIMcard": 2
           },
           {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "b3fa1fdf-a0cb-4a8a-8eef-0958a1758ef4",
-            "Price": 880549,
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "6fac2a2f-8fb4-4c1e-a2af-f2e8585cfa0c",
+            "Price": 109266,
             "Firm": "Lenovo",
-            "Model": "A1",
-            "OS": "IOS",
+            "Model": "C2",
+            "OS": "Windows Phone",
             "Name": "Xiaomi Redmi 7 3/32GB",
-            "typeSIMcard": "micro-SIM",
-            "countSIMcard": 2
+            "typeBody": "классический"
           }
         ]
       }
@@ -314,58 +305,97 @@
     {
       "ID": 6,
       "state": "PENDING",
-      "timeCreate": 1564987993640,
-      "timeWait_ms": 85740,
+      "timeCreate": 1565335441873,
+      "timeWait_ms": 69049,
       "shoppingCart": {
         "credential": {
-          "ID": 7,
-          "Families": "Емельянов",
-          "Name": "Савва",
-          "Ochers": "Георгиевич",
-          "email": " viktoriya1988@inbox.ru "
+          "ID": 6,
+          "Families": "Горшков",
+          "Name": "Роберт",
+          "Ochers": "Владимирович",
+          "email": " tusamdoqugysdi@email.ru "
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "8f380f1b-53e6-4953-b187-e5b67555dfb4",
-            "Price": 919183,
-            "Firm": "LG ",
-            "Model": "N4",
-            "OS": "Windows Phone",
-            "Name": "Samsung Galaxy S10e 6/128GB",
-            "GPU": "PowerVR GXA6850",
-            "screen_resolution screen": {
-              "height": 1942,
-              "width": 62
-            }
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "fccfbb06-ca3d-44d7-9f22-93d4a53702ef",
+            "Price": 588125,
+            "Firm": "Huawei",
+            "Model": "K1",
+            "OS": "Android",
+            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 2
           },
           {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "e2b8511d-d794-4406-988c-2d634a72e49b",
-            "Price": 26210,
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "a89e0c2f-8b01-4c46-813d-9068896433e3",
+            "Price": 6659,
             "Firm": "Lenovo",
             "Model": "RB",
             "OS": "Android",
+            "Name": "Samsung Galaxy S10e 6/128GB",
+            "typeSIMcard": "micro-SIM",
+            "countSIMcard": 2
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "36ab897a-e2ca-46c7-b60a-9b2b4235af84",
+            "Price": 186082,
+            "Firm": "Huawei",
+            "Model": "A1",
+            "OS": "Android",
+            "Name": "Apple iPhone 8 64GB",
+            "typeSIMcard": "micro-SIM",
+            "countSIMcard": 2
+          }
+        ]
+      }
+    },
+    {
+      "ID": 2,
+      "state": "PENDING",
+      "timeCreate": 1565335441872,
+      "timeWait_ms": 51212,
+      "shoppingCart": {
+        "credential": {
+          "ID": 2,
+          "Families": "Герасимов",
+          "Name": "Альберт",
+          "Ochers": "Юрьевич",
+          "email": "ichoran@gmail.com"
+        },
+        "devicesLinkedList": [
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "c30912ea-7f56-48ab-837e-155739ae5db6",
+            "Price": 30081,
+            "Firm": "Huawei",
+            "Model": "A1",
+            "OS": "IOS",
             "Name": "Xiaomi Redmi 7 3/32GB",
-            "GPU": "Apple A12X Bionic GPU",
-            "screen_resolution screen": {
-              "height": 669,
-              "width": 2541
-            }
+            "typeBody": "раскладушка"
           },
           {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "ab253df9-7588-4f9e-a0eb-0ad3b5daff99",
-            "Price": 220138,
-            "Firm": "SONY",
+            "type": "ru.eltex.app.java.model.products.Smartphones",
+            "ID": "7f1f6bc8-84d4-42c8-b658-14d3473ca6d1",
+            "Price": 99456,
+            "Firm": "Huawei",
             "Model": "N4",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy A10",
+            "typeSIMcard": "обычная",
+            "countSIMcard": 1
+          },
+          {
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "86f26a91-9d7f-4158-af6c-c65a53ef6813",
+            "Price": 60852,
+            "Firm": "Xiaomi ",
+            "Model": "Redmi Note 7",
             "OS": "Android",
-            "Name": "HUAWEI Y5 (2019) 32GB",
-            "GPU": "ARM Mali-400 MP2",
-            "screen_resolution screen": {
-              "height": 2348,
-              "width": 174
-            }
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
           }
         ]
       }
@@ -373,105 +403,47 @@
     {
       "ID": 2,
       "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 65382,
+      "timeCreate": 1565335441872,
+      "timeWait_ms": 51212,
       "shoppingCart": {
         "credential": {
-          "ID": 3,
-          "Families": "Аксёнов",
-          "Name": "Соломон",
-          "Ochers": "Ярославович",
-          "email": " detka_05@mail.ru "
+          "ID": 2,
+          "Families": "Герасимов",
+          "Name": "Альберт",
+          "Ochers": "Юрьевич",
+          "email": "ichoran@gmail.com"
         },
         "devicesLinkedList": [
           {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "a2222928-5a73-45a5-be39-b8a5c082ea40",
-            "Price": 859632,
-            "Firm": "Lenovo",
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "c30912ea-7f56-48ab-837e-155739ae5db6",
+            "Price": 30081,
+            "Firm": "Huawei",
             "Model": "A1",
             "OS": "IOS",
-            "Name": "Samsung Galaxy S10e 6/128GB",
-            "typeSIMcard": "обычная",
-            "countSIMcard": 2
+            "Name": "Xiaomi Redmi 7 3/32GB",
+            "typeBody": "раскладушка"
           },
           {
             "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "f5191327-2269-4f46-b94b-afda0bb15359",
-            "Price": 977710,
-            "Firm": "LG ",
+            "ID": "7f1f6bc8-84d4-42c8-b658-14d3473ca6d1",
+            "Price": 99456,
+            "Firm": "Huawei",
             "Model": "N4",
-            "OS": "IOS",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
-            "typeSIMcard": "micro-SIM",
-            "countSIMcard": 2
-          },
-          {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "d8e38f23-0995-408e-96fc-9995ff254961",
-            "Price": 176990,
-            "Firm": "Xiaomi ",
-            "Model": "A1",
-            "OS": "Android",
-            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
-            "GPU": "ARM Mali-400 MP2",
-            "screen_resolution screen": {
-              "height": 2591,
-              "width": 1873
-            }
-          }
-        ]
-      }
-    },
-    {
-      "ID": 2,
-      "state": "PENDING",
-      "timeCreate": 1564987993639,
-      "timeWait_ms": 65382,
-      "shoppingCart": {
-        "credential": {
-          "ID": 3,
-          "Families": "Аксёнов",
-          "Name": "Соломон",
-          "Ochers": "Ярославович",
-          "email": " detka_05@mail.ru "
-        },
-        "devicesLinkedList": [
-          {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "a2222928-5a73-45a5-be39-b8a5c082ea40",
-            "Price": 859632,
-            "Firm": "Lenovo",
-            "Model": "A1",
-            "OS": "IOS",
-            "Name": "Samsung Galaxy S10e 6/128GB",
+            "OS": "Windows Phone",
+            "Name": "Samsung Galaxy A10",
             "typeSIMcard": "обычная",
-            "countSIMcard": 2
+            "countSIMcard": 1
           },
           {
-            "type": "ru.eltex.app.java.model.products.Smartphones",
-            "ID": "f5191327-2269-4f46-b94b-afda0bb15359",
-            "Price": 977710,
-            "Firm": "LG ",
-            "Model": "N4",
-            "OS": "IOS",
-            "Name": "HUAWEI P Smart (2019) 3/32GB",
-            "typeSIMcard": "micro-SIM",
-            "countSIMcard": 2
-          },
-          {
-            "type": "ru.eltex.app.java.model.products.Tablets",
-            "ID": "d8e38f23-0995-408e-96fc-9995ff254961",
-            "Price": 176990,
+            "type": "ru.eltex.app.java.model.products.Phones",
+            "ID": "86f26a91-9d7f-4158-af6c-c65a53ef6813",
+            "Price": 60852,
             "Firm": "Xiaomi ",
-            "Model": "A1",
+            "Model": "Redmi Note 7",
             "OS": "Android",
-            "Name": "Xiaomi Redmi Note 6 Pro 4/64GB",
-            "GPU": "ARM Mali-400 MP2",
-            "screen_resolution screen": {
-              "height": 2591,
-              "width": 1873
-            }
+            "Name": "Samsung Galaxy A10",
+            "typeBody": "классический"
           }
         ]
       }
