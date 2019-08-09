@@ -1,5 +1,8 @@
 package ru.eltex.app.java.model.shop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class ACheck extends Thread {
 
     protected Orders orders;
@@ -20,6 +23,9 @@ public abstract class ACheck extends Thread {
 
     }
 
+    public void setArrayListToOrders(ArrayList list) {
+        orders.setOrdersArrayList(list);
+    }
     public Orders getOrders() {
         return orders;
     }

@@ -25,6 +25,14 @@ public class Orders<T extends Order> implements Serializable {
     public Orders() {
     }
 
+    public Orders(Order order) {
+        this.ordersArrayList.add((T) order);
+    }
+
+    public Orders(ArrayList<Order> arrayList) {
+        this.ordersArrayList = (ArrayList<T>) arrayList;
+    }
+
     public void add(T order) {
         ordersArrayList.add(order);
     }

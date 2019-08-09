@@ -107,7 +107,7 @@ public class Order implements Serializable {
     }
 
     boolean checkTime() {
-        return (new Date().getTime() - timeCreate.getTime() > timeCreate.getTime() + timeWait_ms);
+        return ((new Date().getTime() - timeCreate.getTime()) > timeWait_ms);
     }
 
     boolean isNOTvalidOrder() {
@@ -137,5 +137,9 @@ public class Order implements Serializable {
     @JsonIgnore
     public long getTimeWait_ms() {
         return timeWait_ms;
+    }
+
+    public long getRemainingTime() {
+        return (timeWait_ms - (new Date().getTime() - timeCreate.getTime()));
     }
 }
