@@ -20,7 +20,7 @@ public class Order implements Serializable {
 
     @JsonView(View.Summary.class)
     @JsonProperty("state")
-    stateWork state;
+    public stateWork state;
     @JsonView(View.Summary.class)
     @JsonProperty("timeCreate")
     private Date timeCreate;
@@ -29,7 +29,7 @@ public class Order implements Serializable {
     private long timeWait_ms = 0;
     @JsonView(View.Summary.class)
     @JsonProperty("shoppingCart")
-    private ShoppingCart shoppingCart;
+    public ShoppingCart shoppingCart;
     @JsonView(View.Summary.class)
     @JsonProperty("ID")
     private int ID;

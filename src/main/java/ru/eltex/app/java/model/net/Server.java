@@ -6,7 +6,8 @@ import ru.eltex.app.java.model.shop.PendingCheck;
 
 import java.io.IOException;
 import java.net.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Server {
     static public boolean checkFlag = false;

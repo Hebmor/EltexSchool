@@ -2,7 +2,8 @@ package ru.eltex.app.java.model.net;
 
 import ru.eltex.app.java.model.shop.GeneratorOrders;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.*;
 
 public class Client {

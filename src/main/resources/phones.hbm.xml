@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.eltex.app.java.model.products">
+
+    <class name="Phones" table="phones">
+
+        <property name="price">
+            <column name="price"/>
+        </property>
+    </class>
+
+</hibernate-mapping>

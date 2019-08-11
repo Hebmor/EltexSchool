@@ -3,6 +3,9 @@ package ru.eltex.app.java.model.products;
 import com.fasterxml.jackson.annotation.*;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.UUID;
@@ -22,59 +25,23 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Tablets.class, name = "tablets"),
-        @JsonSubTypes.Type(value = Tablets.screen_resolution.class, name = "screen_resolution"),
+
 
 
 })
-
+@Entity
+@Table(name = "tablets")
 public class Tablets extends Devices implements Serializable {
 
+    @Column(name = "screen_resolution")
+    @JsonProperty("screen_resolution")
+    @JsonView(View.Summary.class)
+    String screen_resolution;
+    @Column(name = "gpu")
     @JsonProperty("GPU")
     @JsonView(View.Summary.class)
     private String GPU;
-    @JsonProperty("screen_resolution screen")
-    @JsonView(View.Summary.class)
-    private screen_resolution screen = new screen_resolution(0, 0);
 
-    //    нестатические внутренние классы (включая анонимные) имеют набор скрытых переменных,
-//    добавляемых компилятором, передаваемых через (скрытый) конструктор
-//    Jackson не сможет провести парсинг не статического внутреннего класса!
-    public static class screen_resolution implements Serializable {
-
-        @JsonProperty("height")
-        @JsonView(View.Summary.class)
-        int height = 0;
-        @JsonView(View.Summary.class)
-        @JsonProperty("width")
-        int width = 0;
-
-        public int getWidth() {
-            return width;
-        }
-
-        public void setWidth(int width) {
-            this.width = width;
-        }
-
-        public void setHeight(int height) {
-            this.height = height;
-        }
-
-        public screen_resolution(@JsonProperty("height") int height, @JsonProperty("width") int width) {
-            this.height = height;
-            this.width = width;
-        }
-
-        public int getHeight() {
-            return height;
-        }
-
-        public void clear() {
-            this.height = 0;
-            this.width = 0;
-        }
-
-    }
 
     @JsonIgnore
     private transient String[] random_database_GPU = {"Apple A12X Bionic GPU", "Qualcomm Adreno 640", "ARM Mali-G76 MP10", "PowerVR GXA6850", "NVIDIA Tegra K1 Kepler GPU", "ARM Mali-400 MP2", "PowerVR SGX530"};
@@ -95,10 +62,10 @@ public class Tablets extends Devices implements Serializable {
 
     @JsonCreator
     public Tablets(@JsonProperty("ID") UUID _ID, @JsonProperty("Price") int _price, @JsonProperty("Firm") String _firm, @JsonProperty("Model") String _model,
-                   @JsonProperty("OS") String _OS, @JsonProperty("Name") String _Name, @JsonProperty("GPU") String GPU, @JsonProperty("height") int height, @JsonProperty("width") int width) {
+                   @JsonProperty("OS") String _OS, @JsonProperty("Name") String _Name, @JsonProperty("GPU") String GPU, @JsonProperty("screen_resolution") String screen_resolution) {
         super(_ID, _price, _firm, _model, _OS, _Name);
         this.GPU = GPU;
-        this.screen = new screen_resolution(height, width);
+        this.screen_resolution = screen_resolution;
     }
 
     @JsonIgnore
@@ -125,10 +92,14 @@ public class Tablets extends Devices implements Serializable {
         width = in.nextInt();
         System.out.println("Введите разрешение по вертикале");
         height = in.nextInt();
-        screen.setHeight(height);
-        screen.setWidth(width);
+        this.screen_resolution = width + "x" + height;
     }
 
+    @JsonIgnore
+    public void setScreen_resolution(int width, int height) {
+
+        this.screen_resolution = width + "x" + height;
+    }
     @JsonIgnore
     @Override
     public void update() {
@@ -141,7 +112,7 @@ public class Tablets extends Devices implements Serializable {
     @JsonIgnore
     @Override
     public void delete() {
-        this.screen.clear();
+        this.screen_resolution = "";
         this.GPU = "";
     }
 
@@ -150,8 +121,7 @@ public class Tablets extends Devices implements Serializable {
     public void create() {
         super.create();
         GPU = (String) getRandArrayElement(random_database_GPU);
-        screen.setHeight(new Random().nextInt(4000));
-        screen.setWidth(new Random().nextInt(4000));
+        setScreen_resolution(new Random().nextInt(4000), new Random().nextInt(4000));
     }
 
     @JsonIgnore
@@ -159,6 +129,6 @@ public class Tablets extends Devices implements Serializable {
     public void read() {
         super.read();
         System.out.println("GPU: " + this.GPU);
-        System.out.println("Разрешение экрана: " + screen.getHeight() + "x" + screen.getWidth());
+        System.out.println("Разрешение экрана: " + this.screen_resolution);
     }
 }

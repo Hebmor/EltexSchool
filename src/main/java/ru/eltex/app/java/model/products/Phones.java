@@ -3,6 +3,9 @@ package ru.eltex.app.java.model.products;
 import com.fasterxml.jackson.annotation.*;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -12,10 +15,12 @@ import java.util.UUID;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-
+@Entity
+@Table(name = "phones")
 public class Phones extends Devices implements Serializable {
 
 
+    @Column(name = "type_body")
     @JsonView(View.Summary.class)
     @JsonProperty("typeBody")
     private String typeBody;
