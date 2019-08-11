@@ -2,6 +2,8 @@ package ru.eltex.app.java.hibernate;
 
 import ru.eltex.app.java.dao.DAOImpl;
 import ru.eltex.app.java.model.products.Devices;
+import ru.eltex.app.java.model.shop.Credentials;
+import ru.eltex.app.java.model.shop.ShoppingCart;
 
 import java.util.List;
 
@@ -15,10 +17,15 @@ public class DevicesService {
         return dao.findDeviceById(id);
     }
 
-    public void saveUser(Devices devices) {
+    public void saveDevice(Devices devices) {
         dao.save(devices);
     }
-
+    public void saveCredentials(Credentials credentials) {
+        dao.save(credentials);
+    }
+    public void saveShoppingCard(ShoppingCart shoppingCart) {
+        dao.save(shoppingCart);
+    }
     public void deleteUser(Devices devices) {
         dao.delete(devices);
     }

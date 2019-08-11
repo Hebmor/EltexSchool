@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -15,20 +16,28 @@ import java.util.Scanner;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-
+@Entity
+@Table(name = "credentials")
 public class Credentials implements Serializable {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @JsonView(View.Summary.class)
     private int ID = 0;
 
     private transient Scanner in = new Scanner(System.in);
 
+    @Column(name = "families")
     @JsonView(View.Summary.class)
     private String Families;
+    @Column(name = "name")
     @JsonView(View.Summary.class)
     private String Name;
+    @Column(name = "ochers")
     @JsonView(View.Summary.class)
     private String Ochers;
+    @Column(name = "email")
     @JsonView(View.Summary.class)
     private String email;
 
