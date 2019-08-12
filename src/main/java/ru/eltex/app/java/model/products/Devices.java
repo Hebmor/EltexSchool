@@ -3,6 +3,7 @@ package ru.eltex.app.java.model.products;
 import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.GenericGenerator;
 import ru.eltex.app.java.config.View;
+import ru.eltex.app.java.model.shop.ShoppingCart;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -37,6 +38,11 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", nullable = false)
+    private ShoppingCart sc;
+
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",

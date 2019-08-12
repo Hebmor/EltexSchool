@@ -3,6 +3,8 @@ package ru.eltex.app.java.model.shop;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import ru.eltex.app.java.config.View;
 
 import javax.persistence.*;
@@ -16,17 +18,22 @@ import java.util.Scanner;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
+
 @Entity
+@DynamicInsert
+@DynamicUpdate
 @Table(name = "credentials")
 public class Credentials implements Serializable {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Summary.class)
-    private int ID = 0;
+    private int ID;
 
     private transient Scanner in = new Scanner(System.in);
+    @OneToOne(mappedBy = "credential")
+    private ShoppingCart shoppingCart;
 
     @Column(name = "families")
     @JsonView(View.Summary.class)
@@ -44,8 +51,7 @@ public class Credentials implements Serializable {
     static transient private int countCredentials = 0;
 
     public Credentials() {
-        ID = countCredentials;
-        countCredentials++;
+
     }
 
     public Credentials(int ID, String families, String name, String ochers, String email) {

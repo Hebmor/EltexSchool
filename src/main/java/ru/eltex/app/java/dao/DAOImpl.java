@@ -7,11 +7,13 @@ import ru.eltex.app.java.model.products.Devices;
 import ru.eltex.app.java.model.shop.Credentials;
 import ru.eltex.app.java.model.shop.ShoppingCart;
 
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 public class DAOImpl implements DAO {
+    @PersistenceContext
     @Override
     public Devices findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Devices.class, id);

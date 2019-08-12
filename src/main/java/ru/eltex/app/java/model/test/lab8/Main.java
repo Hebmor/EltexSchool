@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         TestHibernate();
     }
-
     public static void TestHibernate() {
         DevicesService devicesService = new DevicesService();
         Smartphones phones = new Smartphones();
@@ -24,7 +23,7 @@ public class Main {
         // devicesService.saveDevice(phones);
        // devicesService.saveDevice(phones2);
       //  devicesService.saveCredentials(credentials);
-        ShoppingCart <Devices>shoppingCart = new ShoppingCart(credentials2,phones);
+        ShoppingCart<Devices> shoppingCart = new ShoppingCart(credentials2, phones2);
         devicesService.saveShoppingCard(shoppingCart);
 //        devicesService.findAllUsers();
 
