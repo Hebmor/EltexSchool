@@ -2,6 +2,7 @@ package ru.eltex.app.java.dao;
 
 import ru.eltex.app.java.model.products.Devices;
 import ru.eltex.app.java.model.shop.Credentials;
+import ru.eltex.app.java.model.shop.Order;
 import ru.eltex.app.java.model.shop.ShoppingCart;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface DAO {
     Devices findDeviceByUUID(UUID id);
 
     List<Devices> findAll();
+
+    void save(Order order);
 }

@@ -30,6 +30,8 @@
         <mapping class="ru.eltex.app.java.model.products.Smartphones"/>
         <mapping class="ru.eltex.app.java.model.shop.Credentials"/>
         <mapping class="ru.eltex.app.java.model.shop.ShoppingCart"/>
+        <mapping class="ru.eltex.app.java.model.shop.Order"/>
+
 
     </session-factory>
 </hibernate-configuration>

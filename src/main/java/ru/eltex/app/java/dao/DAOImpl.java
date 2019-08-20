@@ -5,6 +5,7 @@ import org.hibernate.Transaction;
 import ru.eltex.app.java.hibernate.HibernateSessionFactoryUtil;
 import ru.eltex.app.java.model.products.Devices;
 import ru.eltex.app.java.model.shop.Credentials;
+import ru.eltex.app.java.model.shop.Order;
 import ru.eltex.app.java.model.shop.ShoppingCart;
 
 import javax.persistence.PersistenceContext;
@@ -42,6 +43,10 @@ public class DAOImpl implements DAO {
     public void save(ShoppingCart shoppingCart) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = (Transaction) session.beginTransaction();
+//        for(Object device : shoppingCart.getDevicesLinkedList())
+//        {
+//            session.save(device);
+//        }
         session.save(shoppingCart);
         tx1.commit();
         session.close();
@@ -78,6 +83,14 @@ public class DAOImpl implements DAO {
     @Override
     public List<Devices> findAll() {
         return null;
+    }
+
+    public void save(Order order) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction tx1 = (Transaction) session.beginTransaction();
+        session.save(order);
+        tx1.commit();
+        session.close();
     }
 //    @Override
 //    public List<Devices> findAll() {

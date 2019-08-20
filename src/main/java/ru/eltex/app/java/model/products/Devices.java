@@ -39,8 +39,8 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "shopping_card_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", nullable = false, insertable = false, updatable = false)
     private ShoppingCart sc;
 
     @GeneratedValue(generator = "UUID")

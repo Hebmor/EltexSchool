@@ -31,10 +31,8 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     private Credentials credential;
     @JsonView(View.Summary.class)
     @JsonProperty
-//    @ElementCollection
-//    @CollectionTable
-//    @Type(type = "ru,eltex.app.java.model.Devices")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sc", targetEntity = Devices.class)
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Devices.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", nullable = false)
     private List<T> devicesLinkedList = new ArrayList<>();
     @JsonView(View.Summary.class)
     @JsonIgnore
@@ -45,6 +43,8 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     @Column(name = "id", nullable = false)
     private int id;
 
+    @OneToOne(mappedBy = "shoppingCart")
+    private Order order;
     @JsonCreator
     public ShoppingCart(@JsonProperty("credential") Credentials _credential, @JsonProperty("devicesLinkedList") LinkedList<T> _devicesLinkedList) {
         this.devicesLinkedList = _devicesLinkedList;
@@ -135,5 +135,9 @@ public class ShoppingCart<T extends Devices> implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public List<T> getDevicesLinkedList() {
+        return devicesLinkedList;
     }
 }

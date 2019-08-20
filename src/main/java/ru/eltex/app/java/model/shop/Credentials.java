@@ -25,11 +25,7 @@ import java.util.Scanner;
 @Table(name = "credentials")
 public class Credentials implements Serializable {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(View.Summary.class)
-    private int ID;
+    static transient private int countCredentials = 1;
 
     private transient Scanner in = new Scanner(System.in);
     @OneToOne(mappedBy = "credential")
@@ -47,17 +43,20 @@ public class Credentials implements Serializable {
     @Column(name = "email")
     @JsonView(View.Summary.class)
     private String email;
-
-    static transient private int countCredentials = 0;
+    @Id
+    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(View.Summary.class)
+    private int ID;
 
     public Credentials() {
 
     }
 
     public Credentials(int ID, String families, String name, String ochers, String email) {
-        ID = countCredentials;
-        countCredentials++;
-        this.ID = ID;
+        //  ID = countCredentials;
+        //  countCredentials++;
+        //  this.ID = ID;
         this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
@@ -65,8 +64,9 @@ public class Credentials implements Serializable {
     }
 
     public Credentials(String families, String name, String ochers, String email) {
-        ID = countCredentials;
-        countCredentials++;
+        //  ID = countCredentials;
+        //   countCredentials++;
+        //  this.ID = ID;
         this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
