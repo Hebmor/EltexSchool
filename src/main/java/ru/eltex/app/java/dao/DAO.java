@@ -11,20 +11,27 @@ import java.util.UUID;
 public interface DAO {
     Devices findById(int id);
 
-    void save(Devices devices);
-    void save(Credentials devices);
-    void save(ShoppingCart devices);
+    void saveDevice(Devices devices);
 
+    void saveCredentials(Credentials devices);
 
-    void update(Devices devices);
+    void saveShoppingCard(ShoppingCart devices);
 
-    void delete(Devices devices);
+    void saveOrder(Order order);
+
+    void updateDevice(Devices devices);
+
+    void deleteDevice(Devices devices);
 
     Devices findDeviceById(int id);
 
+    Order findOrderById(int id);
     Devices findDeviceByUUID(UUID id);
 
+    void deleteOrder(Order order);
+
+    void deleteOrder(int id);
     List<Devices> findAll();
 
-    void save(Order order);
+    List<Order> findAllOrder();
 }

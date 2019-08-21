@@ -8,6 +8,7 @@ import ru.eltex.app.java.model.products.Tablets;
 import ru.eltex.app.java.model.shop.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
@@ -38,6 +39,7 @@ public class Main {
         generatorOrders.Join();
         devicesService.saveOrder(write_orders.get(1));
         devicesService.saveOrder(write_orders.get(0));
+        ArrayList<Order> arrayList = (ArrayList<Order>) devicesService.findAllOrder();
         //devicesService.saveShoppingCard(shoppingCart);
         //devicesService.saveShoppingCard(shoppingCart2);
 //        devicesService.findAllUsers();

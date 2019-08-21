@@ -26,9 +26,8 @@ import ru.eltex.app.java.model.shop.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@RestController
 
-public class OrdersController {
+public class OrdersControllerHakedMVC {
 
     @Autowired
     private ManagerOrderJSON managerOrderJSON;

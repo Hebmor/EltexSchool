@@ -45,20 +45,11 @@ public class Order implements Serializable {
     @Column(name = "timeWait_ms")
     private long timeWait_ms = 0;
     @JsonView(View.Summary.class)
-    @Transient
+    @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("ID")
     private int ID;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
 
     public enum stateWork implements Serializable {

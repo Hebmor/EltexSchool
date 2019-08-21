@@ -21,7 +21,7 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public void save(Devices devices) {
+    public void saveDevice(Devices devices) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = (Transaction) session.beginTransaction();
         session.save(devices);
@@ -30,7 +30,7 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public void save(Credentials credentials) {
+    public void saveCredentials(Credentials credentials) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = (Transaction) session.beginTransaction();
         session.save(credentials);
@@ -40,20 +40,16 @@ public class DAOImpl implements DAO {
 
     @Transactional
     @Override
-    public void save(ShoppingCart shoppingCart) {
+    public void saveShoppingCard(ShoppingCart shoppingCart) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = (Transaction) session.beginTransaction();
-//        for(Object device : shoppingCart.getDevicesLinkedList())
-//        {
-//            session.save(device);
-//        }
         session.save(shoppingCart);
         tx1.commit();
         session.close();
     }
 
     @Override
-    public void update(Devices devices) {
+    public void updateDevice(Devices devices) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.update(devices);
@@ -62,7 +58,7 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public void delete(Devices devices) {
+    public void deleteDevice(Devices devices) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(devices);
@@ -71,13 +67,49 @@ public class DAOImpl implements DAO {
     }
 
     @Override
-    public Devices findDeviceById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Devices.class, id);
+    public void deleteOrder(Order order) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction tx1 = session.beginTransaction();
+        session.delete(order);
+        tx1.commit();
+        session.close();
     }
 
     @Override
+    public void deleteOrder(int id) {
+        Session session;
+        Order myObject;
+
+        session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        ;
+        myObject = (Order) session.load(Order.class, id);
+        session.delete(myObject);
+
+        //This makes the pending delete to be done
+        session.close();
+    }
+    @Override
+    public Devices findDeviceById(int id) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Devices devices = session.get(Devices.class, id);
+        session.close();
+        return devices;
+
+    }
+
+    @Override
+    public Order findOrderById(int id) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Order order = session.get(Order.class, id);
+        session.close();
+        return order;
+    }
+    @Override
     public Devices findDeviceByUUID(UUID id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Devices.class, id);
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Devices devices = session.get(Devices.class, id);
+        session.close();
+        return devices;
     }
 
     @Override
@@ -85,16 +117,16 @@ public class DAOImpl implements DAO {
         return null;
     }
 
-    public void save(Order order) {
+    @Override
+    public List<Order> findAllOrder() {
+        return (List<Order>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Order").list();
+    }
+
+    public void saveOrder(Order order) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = (Transaction) session.beginTransaction();
         session.save(order);
         tx1.commit();
         session.close();
     }
-//    @Override
-//    public List<Devices> findAll() {
-//        List<Devices> users = (List<Devices>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("FROM").list();
-//        return users;
-//    }
 }
