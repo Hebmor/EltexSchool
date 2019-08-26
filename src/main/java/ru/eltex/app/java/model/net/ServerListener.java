@@ -3,8 +3,10 @@ package ru.eltex.app.java.model.net;
 
 import ru.eltex.app.java.model.shop.Order;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.Socket;
 
 public class ServerListener extends Thread {
 

@@ -1,8 +1,11 @@
 package ru.eltex.app.java.model.products;
 
 import com.fasterxml.jackson.annotation.*;
+import org.hibernate.annotations.GenericGenerator;
 import ru.eltex.app.java.config.View;
+import ru.eltex.app.java.model.shop.ShoppingCart;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
@@ -27,25 +30,47 @@ import java.util.UUID;
 
 })
 
+@Entity
+@Table(name = "devices")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Devices implements PrototypeDevices, ICrubAction, Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", nullable = false, insertable = false, updatable = false)
+    private ShoppingCart sc;
+
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "uuid", updatable = false, nullable = false)
     @JsonProperty("ID")
     @JsonView(View.Summary.class)
     private UUID ID;
+    @Column(name = "price")
     @JsonProperty("Price")
     @JsonView(View.Summary.class)
     private int Price;
     @JsonIgnore
     private transient static int CountProduct = 0;
+    @Column(name = "firm")
     @JsonProperty("Firm")
     @JsonView(View.Summary.class)
     private String Firm;
+    @Column(name = "model")
     @JsonProperty("Model")
     @JsonView(View.Summary.class)
     private String Model;
+    @Column(name = "os")
     @JsonProperty("OS")
     @JsonView(View.Summary.class)
     private String OS;
+    @Column(name = "name")
     @JsonProperty("Name")
     @JsonView(View.Summary.class)
     private String Name;
@@ -60,6 +85,7 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
     private transient String[] random_database_Name = {"Xiaomi Redmi 7 3/32GB", "Xiaomi Redmi Note 6 Pro 4/64GB", "HUAWEI P Smart (2019) 3/32GB", "Samsung Galaxy A10", "Apple iPhone 8 64GB", "HUAWEI Y5 (2019) 32GB", "Samsung Galaxy S10e 6/128GB"};
     @JsonIgnore
     protected transient Scanner in = new Scanner(System.in);
+
 
     public Devices() {
         ID = UUID.randomUUID();
@@ -248,4 +274,11 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
         return array[new Random().nextInt(array.length)];
     }
 
+    public UUID getId() {
+        return ID;
+    }
+
+    public void setId(UUID id) {
+        this.ID = id;
+    }
 }

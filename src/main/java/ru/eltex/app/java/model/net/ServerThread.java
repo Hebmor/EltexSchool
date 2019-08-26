@@ -1,7 +1,5 @@
 package ru.eltex.app.java.model.net;
 
-import java.io.IOException;
-
 public class ServerThread implements Runnable {
     Server serverPointer;
 

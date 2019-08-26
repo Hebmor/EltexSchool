@@ -4,6 +4,7 @@ package ru.eltex.app.java.model.shop;
 import com.fasterxml.jackson.annotation.*;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,27 +15,41 @@ import java.util.Date;
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
 
+@Entity
+@Table(name = "order1")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"ID", "state", "timeCreate", "timeWait_ms", "shoppingCart"})
 public class Order implements Serializable {
 
+    @Transient
+    @JsonIgnore
+    private static int countID = 0;
     @JsonView(View.Summary.class)
     @JsonProperty("state")
-    stateWork state;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 18)
+    public stateWork state;
+    @JsonView(View.Summary.class)
+    @JsonProperty("shoppingCart")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", unique = true)
+    public ShoppingCart shoppingCart;
     @JsonView(View.Summary.class)
     @JsonProperty("timeCreate")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "timeCreate")
     private Date timeCreate;
     @JsonView(View.Summary.class)
     @JsonProperty("timeWait_ms")
+    @Column(name = "timeWait_ms")
     private long timeWait_ms = 0;
     @JsonView(View.Summary.class)
-    @JsonProperty("shoppingCart")
-    private ShoppingCart shoppingCart;
-    @JsonView(View.Summary.class)
+    @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("ID")
     private int ID;
-    @JsonIgnore
-    private static int countID = 0;
+
 
 
     public enum stateWork implements Serializable {

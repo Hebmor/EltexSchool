@@ -3,6 +3,9 @@ package ru.eltex.app.java.model.products;
 import com.fasterxml.jackson.annotation.*;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Random;
 import java.util.UUID;
@@ -13,13 +16,15 @@ import java.util.UUID;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-
+@Entity
+@Table(name = "smartphones")
 public class Smartphones extends Devices implements Serializable {
 
     public Smartphones(String[] random_database_typeSIMcard) {
         this.random_database_typeSIMcard = random_database_typeSIMcard;
     }
 
+    @Column(name = "typesimcard")
     @JsonProperty("typeSIMcard")
     @JsonView(View.Summary.class)
     public String typeSIMcard;

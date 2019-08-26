@@ -1,13 +1,14 @@
 package ru.eltex.app.java.model.shop;
 
 import com.fasterxml.jackson.annotation.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import ru.eltex.app.java.config.View;
 import ru.eltex.app.java.model.products.Devices;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.UUID;
+import java.util.*;
 
 @JsonAutoDetect(
         fieldVisibility = JsonAutoDetect.Visibility.ANY,
@@ -16,19 +17,34 @@ import java.util.UUID;
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
+@Entity
+@DynamicInsert
+@DynamicUpdate
+@Table(name = "shopping_card")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class ShoppingCart<T extends Devices> implements Serializable {
 
     @JsonView(View.Summary.class)
     @JsonProperty
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "credential_id", unique = true)
     private Credentials credential;
     @JsonView(View.Summary.class)
     @JsonProperty
-    private LinkedList<T> devicesLinkedList;
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Devices.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "shopping_card_id", nullable = false)
+    private List<T> devicesLinkedList = new ArrayList<>();
     @JsonView(View.Summary.class)
     @JsonIgnore
+    @Transient
     private HashSet<UUID> productIdentifiers;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
+    @OneToOne(mappedBy = "shoppingCart")
+    private Order order;
     @JsonCreator
     public ShoppingCart(@JsonProperty("credential") Credentials _credential, @JsonProperty("devicesLinkedList") LinkedList<T> _devicesLinkedList) {
         this.devicesLinkedList = _devicesLinkedList;
@@ -37,12 +53,23 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     }
 
     public ShoppingCart(Credentials _credential, T _device) {
+        devicesLinkedList = new LinkedList<T>();
+        productIdentifiers = new HashSet<>();
         this.credential = _credential;
         this.devicesLinkedList.add(_device);
+        productIdentifiers.add(_device.getID());
+    }
+
+    public ShoppingCart() {
+
     }
 
     public void setCredential(Credentials credential) {
         this.credential = credential;
+    }
+
+    public Credentials getCredential() {
+        return credential;
     }
 
     @JsonIgnore
@@ -102,4 +129,15 @@ public class ShoppingCart<T extends Devices> implements Serializable {
 
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public List<T> getDevicesLinkedList() {
+        return devicesLinkedList;
+    }
 }

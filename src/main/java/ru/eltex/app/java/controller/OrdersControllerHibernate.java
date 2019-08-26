@@ -19,21 +19,25 @@ package ru.eltex.app.java.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.eltex.app.java.config.View;
-import ru.eltex.app.java.model.shop.*;
+import ru.eltex.app.java.hibernate.DevicesService;
+import ru.eltex.app.java.model.shop.GeneratorOrders;
+import ru.eltex.app.java.model.shop.Order;
+import ru.eltex.app.java.model.shop.SimpleException;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 @RestController
+public class OrdersControllerHibernate {
 
-public class OrdersController {
-
-    @Autowired
-    private ManagerOrderJSON managerOrderJSON;
     @Autowired
     private GeneratorOrders generatorOrders;
+    @Autowired
+    private DevicesService devicesService;
 
     @JsonView(View.Summary.class)
     @RequestMapping
@@ -42,27 +46,24 @@ public class OrdersController {
 
         try {
             if (commandName.equals("readall")) {
-                return managerOrderJSON.readAll();
+                return devicesService.findAllOrder();
             } else if (commandName.equals("readById")) {
                 int id = Integer.parseInt(order_id);
-                ArrayList<Order> arrayList = new ArrayList<>();
-                arrayList.add(managerOrderJSON.readByID(id));
-                return arrayList;
+                return devicesService.findOrderById(id);
             } else if (commandName.equals("addToCard")) {
                 int id = Integer.parseInt(card_id);
-                managerOrderJSON.setOrders(new Orders());
-                managerOrderJSON.getOrders().setOrdersArrayList(managerOrderJSON.readAll());
-                Order addedOrder = generatorOrders.getGenerateOrder();
-                addedOrder.setID(id);
-                managerOrderJSON.getOrders().add(addedOrder);
-                managerOrderJSON.saveAll();
-                return id;
+
+                if (devicesService.findOrderById(id) == null) {
+                    Order addedOrder = generatorOrders.getGenerateOrder();
+                    addedOrder.setID(id);
+                    devicesService.saveOrder(addedOrder);
+                    return id;
+                } else {
+                    return new String("Ошибка объект с таким ID существует!");
+                }
             } else if (commandName.equals("delById")) {
                 int id = Integer.parseInt(order_id);
-                managerOrderJSON.setOrders(new Orders());
-                managerOrderJSON.getOrders().setOrdersArrayList(managerOrderJSON.readAll());
-                if (managerOrderJSON.getOrders().delete(id)) {
-                    managerOrderJSON.saveAll();
+                if (devicesService.deleteDevice(id)) {
                     return 1;
                 } else {
                     return 0;

@@ -3,8 +3,11 @@ package ru.eltex.app.java.model.shop;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonView;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import ru.eltex.app.java.config.View;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -16,33 +19,44 @@ import java.util.Scanner;
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
 
+@Entity
+@DynamicInsert
+@DynamicUpdate
+@Table(name = "credentials")
 public class Credentials implements Serializable {
 
-    @JsonView(View.Summary.class)
-    private int ID = 0;
+    static transient private int countCredentials = 1;
 
     private transient Scanner in = new Scanner(System.in);
+    @OneToOne(mappedBy = "credential")
+    private ShoppingCart shoppingCart;
 
+    @Column(name = "families")
     @JsonView(View.Summary.class)
     private String Families;
+    @Column(name = "name")
     @JsonView(View.Summary.class)
     private String Name;
+    @Column(name = "ochers")
     @JsonView(View.Summary.class)
     private String Ochers;
+    @Column(name = "email")
     @JsonView(View.Summary.class)
     private String email;
-
-    static transient private int countCredentials = 0;
+    @Id
+    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(View.Summary.class)
+    private int ID;
 
     public Credentials() {
-        ID = countCredentials;
-        countCredentials++;
+
     }
 
     public Credentials(int ID, String families, String name, String ochers, String email) {
-        ID = countCredentials;
-        countCredentials++;
-        this.ID = ID;
+        //  ID = countCredentials;
+        //  countCredentials++;
+        //  this.ID = ID;
         this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
@@ -50,8 +64,9 @@ public class Credentials implements Serializable {
     }
 
     public Credentials(String families, String name, String ochers, String email) {
-        ID = countCredentials;
-        countCredentials++;
+        //  ID = countCredentials;
+        //   countCredentials++;
+        //  this.ID = ID;
         this.Families = families;
         this.Name = name;
         this.Ochers = ochers;
