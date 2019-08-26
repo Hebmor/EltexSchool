@@ -24,12 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.eltex.app.java.config.View;
 import ru.eltex.app.java.hibernate.DevicesService;
-import ru.eltex.app.java.model.shop.*;
+import ru.eltex.app.java.model.shop.GeneratorOrders;
+import ru.eltex.app.java.model.shop.Order;
+import ru.eltex.app.java.model.shop.SimpleException;
 
 import java.io.IOException;
 
-@RestController
 
+@RestController
 public class OrdersControllerHibernate {
 
     @Autowired
