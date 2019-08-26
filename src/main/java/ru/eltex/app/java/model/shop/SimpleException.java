@@ -8,7 +8,6 @@ public class SimpleException extends Exception {
         super(message);
         this.errorCode = errorCode;
     }
-
     public int getErrorCode() {
         return errorCode;
     }

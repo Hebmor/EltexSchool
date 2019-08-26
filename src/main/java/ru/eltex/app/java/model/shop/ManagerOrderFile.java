@@ -1,21 +1,17 @@
 package ru.eltex.app.java.model.shop;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
 import java.io.*;
 import java.util.ArrayList;
 
 
 public class ManagerOrderFile extends AManageOrder {
 
-    FileOutputStream outputStream;
-    FileInputStream fileInputStream;
+    private FileOutputStream outputStream;
+    private FileInputStream fileInputStream;
+    private ObjectOutputStream objectOutputStream;
+    private ObjectInputStream objectInputStream;
 
-    ObjectOutputStream objectOutputStream;
-    ObjectInputStream objectInputStream;
     private String filePath = "src/main/resources/binary_date/data.dat";
-
 
     private ArrayList<Order> bufferArrayList = new ArrayList<>();
 
@@ -60,7 +56,7 @@ public class ManagerOrderFile extends AManageOrder {
     }
 
     @Override
-    public Order readByID(int id) throws IOException, ClassNotFoundException {
+    public Order readByID(int id) {
 
         return SearchOrderByID(id, getOrders().get_ordersArrayList());
     }
@@ -74,7 +70,7 @@ public class ManagerOrderFile extends AManageOrder {
     }
 
     @Override
-    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException {
+    public ArrayList<Order> readAll() {
         try {
             if (objectInputStream.available() == 0) {
                 bufferArrayList = (ArrayList<Order>) objectInputStream.readObject();

@@ -21,13 +21,9 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
 )
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Tablets.class, name = "tablets"),
-
-
-
 })
 @Entity
 @Table(name = "tablets")
@@ -36,7 +32,7 @@ public class Tablets extends Devices implements Serializable {
     @Column(name = "screen_resolution")
     @JsonProperty("screen_resolution")
     @JsonView(View.Summary.class)
-    String screen_resolution;
+    private String screen_resolution;
     @Column(name = "gpu")
     @JsonProperty("GPU")
     @JsonView(View.Summary.class)
@@ -44,9 +40,25 @@ public class Tablets extends Devices implements Serializable {
 
 
     @JsonIgnore
-    private transient String[] random_database_GPU = {"Apple A12X Bionic GPU", "Qualcomm Adreno 640", "ARM Mali-G76 MP10", "PowerVR GXA6850", "NVIDIA Tegra K1 Kepler GPU", "ARM Mali-400 MP2", "PowerVR SGX530"};
+    private transient String[] random_database_GPU = {
+            "Apple A12X Bionic GPU",
+            "Qualcomm Adreno 640",
+            "ARM Mali-G76 MP10",
+            "PowerVR GXA6850",
+            "NVIDIA Tegra K1 Kepler GPU",
+            "ARM Mali-400 MP2",
+            "PowerVR SGX530"
+    };
     @JsonIgnore
-    private transient String[] random_database_screen_resolution = {"640x480", "800x600", "1024x748", "1360x768", "1920x1080", "2560x1440", "3440x1440"};
+    private transient String[] random_database_screen_resolution = {
+            "640x480",
+            "800x600",
+            "1024x748",
+            "1360x768",
+            "1920x1080",
+            "2560x1440",
+            "3440x1440"
+    };
 
     @JsonIgnore
     public Tablets(int _Price, String _Firma, String _Model, String _OS, String _Name, String GPU) {
@@ -86,8 +98,8 @@ public class Tablets extends Devices implements Serializable {
     @JsonIgnore
     public void setScreen_resolution() {
 
-        int width = 0;
-        int height = 0;
+        int width;
+        int height;
         System.out.println("Введите разрешение по горизонтале");
         width = in.nextInt();
         System.out.println("Введите разрешение по вертикале");

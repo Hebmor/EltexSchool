@@ -1,7 +1,8 @@
 package ru.eltex.app.java.model.shop;
 
-import com.fasterxml.jackson.annotation.*;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ public class Orders<T extends Order> implements Serializable {
     private ArrayList<T> ordersArrayList = new ArrayList<T>();
 
     public Orders() {
+        ordersArrayList = new ArrayList<T>();
     }
 
     public Orders(Order order) {
@@ -34,6 +36,8 @@ public class Orders<T extends Order> implements Serializable {
     }
 
     public void add(T order) {
+        if (ordersArrayList == null)
+            ordersArrayList = new ArrayList<T>();
         ordersArrayList.add(order);
     }
 

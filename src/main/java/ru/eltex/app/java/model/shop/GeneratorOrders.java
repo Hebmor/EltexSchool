@@ -6,7 +6,6 @@ import ru.eltex.app.java.model.products.Phones;
 import ru.eltex.app.java.model.products.Smartphones;
 import ru.eltex.app.java.model.products.Tablets;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -15,7 +14,6 @@ public class GeneratorOrders extends ACheck {
 
     private int maxCountDevices = 10;
     private int maxCountOrders = 1;
-    private int countOrder = 1;
     private Random random = new Random();
     private boolean randomFlag = false;
     private boolean repeatFlag = false;
@@ -46,35 +44,27 @@ public class GeneratorOrders extends ACheck {
     public boolean isRandomFlag() {
         return randomFlag;
     }
-
     public boolean isRepeatFlag() {
         return repeatFlag;
     }
-
     public void setTimeInterval(long timeInterval) {
         this.IntervalTime = timeInterval;
     }
-
     public void setMaxCountDevices(int maxCountDevices) {
         this.maxCountDevices = maxCountDevices;
     }
-
     public void setRandomFlag(boolean randomFlag) {
         this.randomFlag = randomFlag;
     }
-
     public void setRepeatFlag(boolean repeatFlag) {
         this.repeatFlag = repeatFlag;
     }
-
     public void setMaxCountOrders(int maxCountOrders) {
         this.maxCountOrders = maxCountOrders;
     }
-
     public int getMaxCountDevices() {
         return maxCountDevices;
     }
-
     public int getMaxCountOrders() {
         return maxCountOrders;
     }
@@ -89,17 +79,13 @@ public class GeneratorOrders extends ACheck {
                     e.printStackTrace();
                 }
 
-                try {
-                    Order new_order = getGenerateOrder();
-                    if (!(new_order == null)) {
-                        this.orders.add(new_order);
-                    } else {
-                        System.out.println("Ошибка генерации Order!");
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                Order new_order = getGenerateOrder();
+                if (!(new_order == null)) {
+                    this.orders.add(new_order);
+                } else {
+                    System.out.println("Ошибка генерации Order!");
                 }
+
             }
         } else {
             for (int i = 0; i < maxCountOrders; i++) {
@@ -109,22 +95,18 @@ public class GeneratorOrders extends ACheck {
                     e.printStackTrace();
                 }
 
-                try {
-                    Order new_order = getGenerateOrder();
-                    if (!(new_order == null)) {
-                        this.orders.add(new_order);
-                    } else {
-                        System.out.println("Ошибка генерации Order!");
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                Order new_order = getGenerateOrder();
+                if (!(new_order == null)) {
+                    this.orders.add(new_order);
+                } else {
+                    System.out.println("Ошибка генерации Order!");
                 }
+
             }
         }
     }
 
-    public Order getGenerateOrder() throws IOException {
+    public Order getGenerateOrder() {
         Credentials credentials = GenerateFieldsCredentials();
         LinkedList<Devices> devicesLinkedList = new LinkedList<>();
         if (randomFlag)

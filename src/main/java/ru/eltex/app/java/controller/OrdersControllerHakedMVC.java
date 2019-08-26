@@ -19,7 +19,8 @@ package ru.eltex.app.java.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.eltex.app.java.config.View;
 import ru.eltex.app.java.model.shop.*;
 
@@ -37,7 +38,7 @@ public class OrdersControllerHakedMVC {
     @JsonView(View.Summary.class)
     @RequestMapping
     public Object RequestByCommand(@RequestParam("command") String commandName, @RequestParam(required = false) String order_id, @RequestParam(required = false) String card_id, Model map)
-            throws IOException, ClassNotFoundException, SimpleException {
+            throws IOException {
 
         try {
             if (commandName.equals("readall")) {
@@ -49,7 +50,7 @@ public class OrdersControllerHakedMVC {
                 return arrayList;
             } else if (commandName.equals("addToCard")) {
                 int id = Integer.parseInt(card_id);
-                managerOrderJSON.setOrders(new Orders());
+                managerOrderJSON.setOrders(new Orders<Order>());
                 managerOrderJSON.getOrders().setOrdersArrayList(managerOrderJSON.readAll());
                 Order addedOrder = generatorOrders.getGenerateOrder();
                 addedOrder.setID(id);
@@ -69,10 +70,9 @@ public class OrdersControllerHakedMVC {
             } else
                 throw new SimpleException("Неверная команда!", 3);
         } catch (SimpleException ex) {
-            return new String(" " + ex.getMessage() + " ErrorCode: " + ex.getErrorCode());
+            return " " + ex.getMessage() + " ErrorCode: " + ex.getErrorCode();
         }
 
     }
-
 
 }

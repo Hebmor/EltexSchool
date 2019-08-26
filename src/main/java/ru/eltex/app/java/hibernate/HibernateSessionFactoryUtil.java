@@ -14,7 +14,6 @@ public class HibernateSessionFactoryUtil {
     private HibernateSessionFactoryUtil() {
     }
 
-
     private static SessionFactory buildSessionFactory() {
         try {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
@@ -31,14 +30,6 @@ public class HibernateSessionFactoryUtil {
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-//                Configuration configuration = new Configuration().configure();
-//                configuration.addAnnotatedClass(Devices.class);
-//                configuration.addAnnotatedClass(Phones.class);
-//                configuration.addAnnotatedClass(Smartphones.class);
-//                configuration.addAnnotatedClass(Tablets.class);
-//                configuration.addResource("devices.hbm.xml");
-//                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-//                sessionFactory = configuration.buildSessionFactory(builder.build());
                 sessionFactory = buildSessionFactory();
 
             } catch (Exception e) {

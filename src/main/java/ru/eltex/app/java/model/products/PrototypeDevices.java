@@ -24,14 +24,13 @@ public interface PrototypeDevices {
 
     void setCountProduct(int _CountProduct);
 
-    void setFirm(String F_irma);
+    void setFirm(String _Firma);
 
     void setModel(String _Model);
 
     void setOS(String _OS);
 
     void setName(String _Name);
-
 
     void printID();
 

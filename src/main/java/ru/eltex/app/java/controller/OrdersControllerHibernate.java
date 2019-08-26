@@ -42,7 +42,7 @@ public class OrdersControllerHibernate {
     @JsonView(View.Summary.class)
     @RequestMapping
     public Object RequestByCommand(@RequestParam("command") String commandName, @RequestParam(required = false) String order_id, @RequestParam(required = false) String card_id, Model map)
-            throws IOException, ClassNotFoundException, SimpleException {
+            throws IOException {
 
         try {
             if (commandName.equals("readall")) {
@@ -59,7 +59,7 @@ public class OrdersControllerHibernate {
                     devicesService.saveOrder(addedOrder);
                     return id;
                 } else {
-                    return new String("Ошибка объект с таким ID существует!");
+                    return "Ошибка объект с таким ID существует!";
                 }
             } else if (commandName.equals("delById")) {
                 int id = Integer.parseInt(order_id);
@@ -71,10 +71,9 @@ public class OrdersControllerHibernate {
             } else
                 throw new SimpleException("Неверная команда!", 3);
         } catch (SimpleException ex) {
-            return new String(" " + ex.getMessage() + " ErrorCode: " + ex.getErrorCode());
+            return " " + ex.getMessage() + " ErrorCode: " + ex.getErrorCode();
         }
 
     }
-
 
 }

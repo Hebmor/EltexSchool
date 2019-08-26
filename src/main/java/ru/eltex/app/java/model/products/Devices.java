@@ -20,7 +20,6 @@ import java.util.UUID;
 )
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.CLASS,
-        include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Devices.class, name = "device"),
@@ -37,6 +36,7 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private int id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -76,13 +76,42 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
     private String Name;
 
     @JsonIgnore
-    private transient String[] random_database_Firma = {"Samsung", "Huawei", "Lenovo", "Xiaomi ", "OnePlus ", "LG ", "SONY", "Apple"};
+    private transient String[] random_database_Firma = {
+            "Samsung",
+            "Huawei",
+            "Lenovo",
+            "Xiaomi ",
+            "OnePlus ",
+            "LG ",
+            "SONY",
+            "Apple"
+    };
     @JsonIgnore
-    private transient String[] random_database_Model = {"K1", "N4", "Redmi Note 7", "C2", "A1", "EE", "RB"};
+    private transient String[] random_database_Model = {
+            "K1",
+            "N4",
+            "Redmi Note 7",
+            "C2",
+            "A1",
+            "EE",
+            "RB"
+    };
     @JsonIgnore
-    private transient String[] random_database_OS = {"Android", "IOS", "Windows Phone"};
+    private transient String[] random_database_OS = {
+            "Android",
+            "IOS",
+            "Windows Phone"
+    };
     @JsonIgnore
-    private transient String[] random_database_Name = {"Xiaomi Redmi 7 3/32GB", "Xiaomi Redmi Note 6 Pro 4/64GB", "HUAWEI P Smart (2019) 3/32GB", "Samsung Galaxy A10", "Apple iPhone 8 64GB", "HUAWEI Y5 (2019) 32GB", "Samsung Galaxy S10e 6/128GB"};
+    private transient String[] random_database_Name = {
+            "Xiaomi Redmi 7 3/32GB",
+            "Xiaomi Redmi Note 6 Pro 4/64GB",
+            "HUAWEI P Smart (2019) 3/32GB",
+            "Samsung Galaxy A10",
+            "Apple iPhone 8 64GB",
+            "HUAWEI Y5 (2019) 32GB",
+            "Samsung Galaxy S10e 6/128GB"
+    };
     @JsonIgnore
     protected transient Scanner in = new Scanner(System.in);
 
@@ -229,7 +258,6 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
         this.ID = UUID.randomUUID();
         this.Price = new Random().nextInt(999999);
     }
-
     @Override
     public void read() {
 
@@ -241,7 +269,6 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
         System.out.println("Фирма:" + this.Firm);
 
     }
-
     @Override
     public void update() {
         Scanner in = new Scanner(System.in);
@@ -256,8 +283,6 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
         System.out.println("Введите цену:");
         this.setPrice(in.nextInt());
     }
-
-
     @Override
     public void delete() {
         this.ID = null;
@@ -269,15 +294,12 @@ public class Devices implements PrototypeDevices, ICrubAction, Serializable {
 
         CountProduct = 0;
     }
-
     public static Object getRandArrayElement(Object[] array) {
         return array[new Random().nextInt(array.length)];
     }
-
     public UUID getId() {
         return ID;
     }
-
     public void setId(UUID id) {
         this.ID = id;
     }

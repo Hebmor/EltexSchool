@@ -17,7 +17,10 @@ public class DAOImpl implements DAO {
     @PersistenceContext
     @Override
     public Devices findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Devices.class, id);
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Devices devices = session.get(Devices.class, id);
+        session.close();
+        return devices;
     }
 
     @Override
@@ -77,15 +80,10 @@ public class DAOImpl implements DAO {
 
     @Override
     public void deleteOrder(int id) {
-        Session session;
         Order myObject;
-
-        session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        ;
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         myObject = (Order) session.load(Order.class, id);
         session.delete(myObject);
-
-        //This makes the pending delete to be done
         session.close();
     }
     @Override
@@ -94,7 +92,6 @@ public class DAOImpl implements DAO {
         Devices devices = session.get(Devices.class, id);
         session.close();
         return devices;
-
     }
 
     @Override

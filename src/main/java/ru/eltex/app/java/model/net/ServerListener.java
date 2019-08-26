@@ -6,6 +6,7 @@ import ru.eltex.app.java.model.shop.Order;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 public class ServerListener extends Thread {
@@ -16,20 +17,15 @@ public class ServerListener extends Thread {
     private ObjectInputStream in;
     private BufferedWriter out;
 
-    public ServerListener(Socket _socket) throws IOException {
+    ServerListener(Socket _socket) throws IOException {
         this.socket = _socket;
         in = new ObjectInputStream(socket.getInputStream());
         this.start();
-
     }
-
     @Override
     public void run() {
-        Order order = null;
-
         try {
-            System.out.println();
-            order = (Order) in.readObject();
+            Order order = (Order) in.readObject();
             this.udpAlertPort = (int) in.readObject();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(socket.getLocalAddress(),this.udpAlertPort);
 

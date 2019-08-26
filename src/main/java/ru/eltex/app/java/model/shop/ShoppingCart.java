@@ -16,6 +16,15 @@ import java.util.*;
         setterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.CLASS,
+        property = "typeArray")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = LinkedList.class, name = "linkedList"),
+        @JsonSubTypes.Type(value = List.class, name = "list")
+
+
+})
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @DynamicInsert
@@ -33,7 +42,7 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     @JsonProperty
     @OneToMany(fetch = FetchType.LAZY, targetEntity = Devices.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "shopping_card_id", nullable = false)
-    private List<T> devicesLinkedList = new ArrayList<>();
+    private List<T> devicesLinkedList = new LinkedList<>();
     @JsonView(View.Summary.class)
     @JsonIgnore
     @Transient
@@ -41,6 +50,7 @@ public class ShoppingCart<T extends Devices> implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @JsonIgnore
     private int id;
 
     @OneToOne(mappedBy = "shoppingCart")

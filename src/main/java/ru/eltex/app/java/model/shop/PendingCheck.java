@@ -9,7 +9,6 @@ public class PendingCheck extends ACheck {
         super(nameThread, orders, _IntervalTime);
     }
 
-
     @Override
     public void run() {
         while (!isInterrupted()) {
@@ -22,7 +21,7 @@ public class PendingCheck extends ACheck {
         }
     }
 
-    public void check() {
+    private void check() {
         for (Object order : this.orders.get_ordersArrayList()) {
             if (order instanceof Order)
                 if (checkState(Order.stateWork.PENDING, (Order) order)) {

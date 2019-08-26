@@ -29,7 +29,10 @@ public class Smartphones extends Devices implements Serializable {
     @JsonView(View.Summary.class)
     public String typeSIMcard;
     @JsonIgnore
-    private transient String[] random_database_typeSIMcard = {"micro-SIM", "обычная"};
+    private transient String[] random_database_typeSIMcard = {
+            "micro-SIM",
+            "обычная"
+    };
     @JsonProperty("countSIMcard")
     @JsonView(View.Summary.class)
     public int countSIMcard = 0;

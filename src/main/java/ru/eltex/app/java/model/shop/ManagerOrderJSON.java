@@ -1,9 +1,7 @@
 package ru.eltex.app.java.model.shop;
 
-import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.eltex.app.java.model.products.Devices;
 import ru.eltex.app.java.model.products.Phones;
@@ -19,38 +17,29 @@ public class ManagerOrderJSON extends AManageOrder {
     private FileWriter fw;
     private FileReader fr;
     private String filePath = "src/main/resources/json/json_data.json";
-    private StringWriter writer = new StringWriter();
 
-    ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+    private ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
     public ManagerOrderJSON() {
         this.mapper.enableDefaultTyping();
 
         mapper.registerSubtypes(Phones.class, Devices.class, Smartphones.class, Tablets.class);
     }
-    public ManagerOrderJSON(String path, Orders orders) throws IOException {
+
+    public ManagerOrderJSON(String path, Orders orders) {
 
         this.setOrders(orders);
         this.mapper.enableDefaultTyping();
         this.filePath = path;
     }
 
-    public ManagerOrderJSON(StringWriter writer, ObjectMapper mapper) throws IOException {
-        this.writer = writer;
+    public ManagerOrderJSON(ObjectMapper mapper) {
         this.mapper = mapper;
         this.mapper.enableDefaultTyping();
     }
 
-    public StringWriter getWriter() {
-        return writer;
-    }
-
     public ObjectMapper getMapper() {
         return mapper;
-    }
-
-    public void setWriter(StringWriter writer) {
-        this.writer = writer;
     }
 
     public void setMapper(ObjectMapper mapper) {
@@ -58,7 +47,7 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public Order readByID(int id) throws IOException, ClassNotFoundException, SimpleException {
+    public Order readByID(int id) throws SimpleException {
 
         Order order = SearchOrderByID(id, readAll());
         if (order == null) {
@@ -70,7 +59,7 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public void saveById(int id) throws IOException, ClassNotFoundException, SimpleException {
+    public void saveById(int id) throws IOException, SimpleException {
         Orders read_orders = new Orders();
         ArrayList<Order> orderArrayList = readAll();
         Order idOrder = SearchOrderByID(id, getOrders().get_ordersArrayList());
@@ -91,7 +80,7 @@ public class ManagerOrderJSON extends AManageOrder {
     }
 
     @Override
-    public ArrayList<Order> readAll() throws IOException, ClassNotFoundException, SimpleException {
+    public ArrayList<Order> readAll() throws SimpleException {
 
         try {
             File yourFile = new File(this.filePath);
@@ -117,7 +106,6 @@ public class ManagerOrderJSON extends AManageOrder {
     public void saveAll() throws IOException {
         fw = new FileWriter(this.filePath);
 
-        //Запись в форматированном виде!
         String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(getOrders());
         fw.write(json);
         fw.flush();
@@ -126,10 +114,7 @@ public class ManagerOrderJSON extends AManageOrder {
 
     private boolean isFileClear(String _filePath) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(_filePath));
-        if (br.readLine() == null) {
-            return true;
-        } else
-            return false;
+        return br.readLine() == null;
     }
 
 

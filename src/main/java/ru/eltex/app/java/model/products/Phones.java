@@ -25,7 +25,10 @@ public class Phones extends Devices implements Serializable {
     @JsonProperty("typeBody")
     private String typeBody;
     @JsonIgnore
-    private transient String[] random_database_typeBode = {"классический", "раскладушка"};
+    private transient String[] random_database_typeBode = {
+            "классический",
+            "раскладушка"
+    };
 
     public Phones(String[] random_database_typeBode) {
         this.random_database_typeBode = random_database_typeBode;
@@ -47,7 +50,7 @@ public class Phones extends Devices implements Serializable {
 
     @Override
     public void update() {
-        int variant = 0;
+        int variant;
         super.update();
 
 
